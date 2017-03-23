@@ -1,0 +1,104 @@
+.duza_lewa {
+	float:left;
+	width: 62%;
+
+}
+
+.mala_lewa {
+	float:left;
+	width: 45%;
+
+}
+
+.mala_prawa {
+	float:right;
+	width: 45%;
+
+}
+
+.duza_prawa {
+	float:right;
+	width: 28%;
+
+}
+
+footer {
+
+	padding: 5px;
+	clear:both;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	text-align: center;
+	font-size: 24px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 100;
+	background-color: white;
+}
+
+header {
+	padding: 5px;
+	text-align: center;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	font-size: 30px;
+	position: fixed;
+	top: 0px;
+	background-color: white;
+	width: 100%;
+	z-index: 100;
+}
+
+section {
+	position: relative;
+	margin: 130px;
+}
+
+section p{
+	padding-bottom: 20px;
+}
+
+section p:first-letter {
+	font-size: 30px;
+	float: left;
+}
+
+.labele {
+	width: 200px;
+}
+
+label {
+	display: inline-block;
+	width: 200px;
+}
+
+input {
+	width: 200px;
+}
+
+textarea {
+	width: 200px;
+}
+
+input:focus {
+	background-color: yellow;
+}
+
+@media (max-width: 1000px){
+	.duza_lewa {
+		width: 100%;
+	}
+	.duza_prawa {
+		width: 100%;
+	}
+	.mala_lewa {
+		width: 100%;
+	}
+
+	.mala_prawa {
+		width: 100%;
+	}
+
+}
+

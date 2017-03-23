@@ -1,0 +1,67 @@
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	float: left;
+	display: block;
+	margin: auto;
+	padding: 20px;
+}
+
+td {
+	border: 2px solid blue;
+	color: yellow;
+}
+
+.duza {
+	/*width: 200px;
+	height: 100px;
+	overflow: scroll;
+	display: block;*/
+	background-color: hsla(222, 14%, 65%, 0.5);
+}
+
+img {
+	width: 50px;
+	height: 50px;
+	/*vertical-align: baseline; */
+	/*vertical-align: text-bottom;*/
+	/*vertical-align: -30px;*/
+	vertical-align: -125%;
+	border: 1px solid red;
+}
+
+body {
+	background-color: black;
+	width: 1000px;
+	margin: auto;
+}
+
+p {
+	color: hsla(222, 14%, 65%, 1);
+	font-family: Verdana;
+	vertical-align: middle;
+}
+
+p:first-letter {
+	float:left;
+	font-size: 48px;
+	color:red;
+}
+/*html {
+	background-image: url(grafika/work.jpeg)
+}*/
+
+.lewa {
+	float:left;
+	width: 45%;
+	clear: left;
+}
+
+.prawa {
+	float:right;
+	width: 45%;
+}
+
+.clear { 
+	clear: both; 
+}
