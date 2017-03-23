@@ -34,4 +34,8 @@ footer {
 						 "gallery"
 						 "footer";
  	 }
+
+ 	 figure {display: inline-block;}
  }
+
+ img { width: 250px; }
