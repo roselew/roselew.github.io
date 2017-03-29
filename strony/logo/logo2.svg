@@ -1,0 +1,227 @@
+<!DOCTYPE svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="-20 -20 780 240">
+  
+<defs>
+  <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100);</style>
+</defs>
+
+<!--prostokaty -->
+
+<g class="prostokaty" fill="rgb(235,235,235)">
+   
+    <rect x="0" y="0" width="100" height="200"/>
+
+    <rect x="100" y="0" width="100" height="200">
+        <animate id="first" attributeType="XML" attributeName="x" from="100" to="110" dur="2s" repeatCount="1" fill="freeze"/>
+    </rect>
+
+    <rect x="200" y="0" width="100" height="200">
+        <animate attributeType="XML" attributeName="x" from="200" to="220" dur="2s" repeatCount="1" fill="freeze"/>
+    </rect>
+
+    <rect x="-20" y="-20" width="800" height="260" fill-opacity="0">
+        <animate
+                 attributeType="XML" 
+                 attributeName="fill-opacity" 
+                 from="0" 
+                 to="1" 
+                 begin="sixth.end" 
+                 dur="4s" 
+                 repeatCount="1"  
+                 fill="freeze"
+        />
+    </rect>
+    
+</g> <!-- koniec grupy prostokaty -->
+
+<!--zolte trojkaty -->
+
+<g class="wszystkie_trojkaty" fill="none">
+
+    <g class="w_prawo">
+
+        <polyline points="210 0, 110 100, 210 100">
+           <animateTransform id="fourth"
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 160 50" to="180 160 50"
+                    begin="third1.end" 
+                    dur="2s"
+                    repeatCount="1"
+                    fill="freeze"       
+                    additive="sum"
+            />
+        </polyline>  
+
+
+        <polyline  points="110 200, 210 100, 210 200">
+           <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 160 150" to="90 160 150"
+                    begin="third1.end" 
+                    dur="2s"
+                    repeatCount="1"
+                    fill="freeze"       
+                    additive="sum"
+            />
+        </polyline> 
+
+        <animateTransform id="third1"
+                    attributeName="transform"
+                    type="translate"
+                    from="0 0" to="110 0"
+                    begin="second.end" 
+                    dur="2s"
+                    repeatCount="1"
+                    fill="freeze"
+            /> 
+
+    </g> <!--koniec grupy w prawo -->
+
+    <g class="w_lewo">
+
+        <polyline points="210 0, 110 100, 110 0">
+           <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 160 50" to="-90 160 50"
+                    begin="third2.end" 
+                    dur="2s"
+                    repeatCount="1"
+                    fill="freeze"       
+                    additive="sum"
+            />
+        </polyline>   
+
+        <polyline points="110 200, 210 100, 110 100">   
+           <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 160 150" to="-90 160 150"
+                    begin="third2.end" 
+                    dur="2s"
+                    repeatCount="1"
+                    fill="freeze"       
+                    additive="sum"
+            />
+        </polyline>
+
+        <animateTransform id="third2"
+                    attributeName="transform"
+                    type="translate"
+                    from="0 0" to="-110 0"
+                    begin="second.end" 
+                    dur="2s"
+                    repeatCount="1"
+                    fill="freeze"
+            /> 
+    </g> <!--koniec grupy w lewo -->
+
+    <animate id="second" 
+             attributeType="XML" 
+             attributeName="fill" 
+             from="rgb(235,235,235)" 
+             to="#ffc107" 
+             begin="first.end" 
+             dur="2s" 
+             repeatCount="1"  
+             fill="freeze"
+    />
+
+</g> <!--koniec grupy wszystkie trojkaty-->
+
+<!--szara_linia -->
+<g class="szara_linia"
+   stroke="#48504e"
+   stroke-width="5" 
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   fill="none"
+>
+
+    <path d="M3 197 L 3 3 L 97 100 L 3 100 L 97 197"    
+          stroke-dasharray="600" 
+          stroke-dashoffset="600">
+        <animate id="fifth"
+             attributeType="XML"
+             attributeName="stroke-dashoffset" 
+             from="600"
+             to="0" 
+             begin="fourth.end"
+             dur="1.5s" 
+             repeatCount="1"  
+             fill="freeze"
+        />
+    </path>
+    <path d="M207 197 L 113 197 L 113 3" 
+          stroke-dasharray="400"
+          stroke-dashoffset="400">
+        <animate id="sixth"
+             attributeType="XML"
+             attributeName="stroke-dashoffset" 
+             from="400"
+             to="0" 
+             begin="fifth.end"
+             dur="1s" 
+             repeatCount="1"  
+             fill="freeze"
+        />
+    </path>
+    <path d="M223 3 L 223 197" 
+          stroke-dasharray="200"
+          stroke-dashoffset="200">
+        <animate id="seventh"
+             attributeType="XML"
+             attributeName="stroke-dashoffset" 
+             from="200"
+             to="0" 
+             begin="sixth.end"
+             dur="0.5s" 
+             repeatCount="1"  
+             fill="freeze"
+        />
+    </path>
+    <path d="M317 197 L 223 100 L 317 3"
+          stroke-dasharray="400"
+          stroke-dashoffset="400">
+        <animate id="eight"
+             attributeType="XML"
+             attributeName="stroke-dashoffset" 
+             from="400"
+             to="0" 
+             begin="seventh.end"
+             dur="1s" 
+             repeatCount="1"  
+             fill="freeze"
+        />
+    </path>
+</g> <!--koniec grupy szara linia-->
+
+        <g font-family= "Alegreya Sans SC" stroke-width="0" font-size="150" fill="#48504e" fill-opacity="0">
+         <text x="340" y="97" >
+               RLK
+        
+        </text>
+          <text x="340" y="200">
+                design
+        
+        </text>
+           <animate
+                     attributeType="XML" 
+                     attributeName="fill-opacity" 
+                     from="0" 
+                     to="1" 
+                     begin="sixth.end" 
+                     dur="4s" 
+                     repeatCount="1"  
+                     fill="freeze"
+            />  
+        </g>
+                       
+        
+            
+</svg>
+
+
+    
