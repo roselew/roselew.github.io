@@ -1,0 +1,23 @@
+path {
+			
+			animation-direction: alternate;
+			animation-duration: 10s;
+			animation-iteration-count: 5;
+			animation-fill-mode: forwards;
+			animation-name: test2;
+			stroke-dasharray: 2600px;
+			stroke-dashoffset: 2600px;
+}
+
+		@keyframes test2 {
+			0%{
+				stroke: green;
+			}
+			100%{
+			stroke-width:20px;
+			stroke: red;
+			stroke-dashoffset:0px;
+
+			}
+		}
+

@@ -1,0 +1,67 @@
+<style>
+/* przycisk */
+.dropbtn {
+    background-color: green;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* kontener */
+.dropdown {
+    display: inline-block;
+}
+
+/* menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* linki w menu */
+.dropdown-content a {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* pokaz menu */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* opcja - podswietlenie linkow */
+.dropdown-content a:hover {background-color: lightgray}
+
+
+/* opcja - podswietlenie przycisku przy rozwinieciu */
+.dropdown:hover .dropbtn {
+    background-color: lightgreen;
+}
+</style>
+
+<div class="dropdown">
+  <button class="dropbtn">Menu 1</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn">Menu 2</button>
+  <div class="dropdown-content">
+    <a href="#">Link 3</a>
+    <a href="#">Link 4</a>
+    <a href="#">Link 5</a>
+  </div>
+</div>
+
+
+<p>Tutaj jest jakiś tekst</p>
