@@ -1,0 +1,57 @@
+//colors definition
+$color_base:#00A6FF; // base color, neutral for missions
+$color_base2: #C0392B; // second base color (logo etc.)
+$color_back_kid: #0C1A3F; // background for kids 
+$color_back_parent: #E6E8E5; // background for parents
+$color_dark_grey: #E6E8E5; // darker than back_parent
+$color_light_grey: #F5F5F5; // lighter than back_parent
+$color_done: #13CE66; // green
+$color_wait: #FFBA5C; // yellow
+$color_undone: #F95F62; //red
+$color_text_parent: #343F4B; //very dark grey
+$color_text_kid: white; 
+
+//font definition
+$font_title_family: 'Grand Hotel', cursive;
+$font_title_size: 90px;
+
+$font_reg_family: 'Lato', sans_serif;
+$font_big_size: 40px;
+$font_mid_size: 32px;
+$font_small_size: 24px;
+
+
+// sizes
+
+	//header
+	$header_height: 150px;
+	$header_logo_size: 120px;
+	$header_logo_position: 10px;
+
+	$header_banner_top: 25px;
+	$header_banner_height: 95px;
+
+	$header_hamburger_size: 60px;
+
+	//missions
+	$mission_big_size: 200px;
+	$mission_mid_size: 150px;	
+	$mission_small_size: 40px;
+
+	//buttons
+	$exit_button_size: 60px;
+	$button_width: 90%;
+	$button_height:	80px;
+
+	//odznaki screen
+	$odznaki_left: 20%;  //screen division proportion
+	
+	$day_height: 80px;
+	$day_margin: 35px;
+	
+	//progressbar
+	$bohater_size: 150px;
+	$progressbar_width: 80%;
+	$progressbar_height: 30px;
+	$progress_logo_size: 70px;
+

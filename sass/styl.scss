@@ -1,0 +1,339 @@
+
+@import '_zmienne';
+
+@import 'reset';
+
+body {
+	background-color: $color_back_kid;
+}
+
+header{
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	height: $header_height;
+	z-index: 1000;
+	background-color: $color_back_kid;
+
+		.logo {
+			position: fixed;
+			top: (( $header_banner_height + 2 * $header_banner_top ) - $header_logo_size )/2;
+			left: (( $header_banner_height + 2 * $header_banner_top ) - $header_logo_size )/2;
+			width: $header_logo_size;
+			height: $header_logo_size;
+			border-radius: $header_logo_size;
+			border-color: white;
+			border-width: 5px;
+			border-style: solid;
+			background-color: $color_base;
+			color: white;
+			font: $font_title_size $font_title_family;
+			text-align: center;
+			cursor: pointer;
+
+		}
+
+		.header-banner {
+			position: fixed;
+			top: $header_banner_top;
+			left: 0px;
+			width: 100%;
+			height: $header_banner_height;
+			font: $font_title_size $font_title_family;
+			text-align: center;
+			line-height: $header_banner_height;
+			vertical-align: middle;
+			
+		}
+
+		.header-parent {
+			background-color: white;
+			color: $color_base;
+		}
+
+		.header-kid {
+			background-color: $color_base;
+			color: white;
+
+		}
+
+	.navigation {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);	
+	}
+
+	label[for="navigation"] {
+	  position: fixed;
+	  right: $header_banner_top; 
+	  top:  $header_banner_top + (	$header_banner_height - $header_hamburger_size ) / 2;
+	  height: $header_hamburger_size;
+	  width: $header_hamburger_size;
+	  cursor: pointer;
+	  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+	  background-size: contain;
+	  z-index: 999;
+	}
+}
+
+.container {
+	position: absolute;
+	width: 100%;
+	top:$header_logo_size;
+
+	.left {
+		float: left;
+		position:relative;
+		width: $odznaki_left;
+	}
+	.right {
+		float: right;
+		position:relative;
+		width: (100% - $odznaki_left);
+		text-align: center;
+	}
+
+	.top {
+		position:relative;
+		width: 100%;
+		height: 250px;
+		.left {
+			position: absolute;
+			bottom: 40px;
+		}
+	}
+
+	.alert{
+		position:fixed;
+		display: block;
+		top: 150px;
+		width: 100%;
+		height: 100vh;
+		background-color: $color_back_kid;
+		color:$color_text_kid;
+		font: $font_big_size $font_reg_family;
+		text-align: center;
+		vertical-align:middle;
+		line-height: 100vh;
+
+		span {
+			position: absolute;
+			display: block;
+			right: 10px;
+			top: 10px;
+			width: $exit_button_size;
+			height: $exit_button_size;
+			border-radius: $exit_button_size;
+			background-color: $color_base;
+			color: $color_text_kid;
+			text-align: center;
+			vertical-align:middle;
+			line-height: $exit_button_size;
+			cursor: pointer;
+		}
+	}
+}
+
+.week {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	color: $color_text_kid;
+	font: $font_big_size $font_reg_family; 
+	p{
+		margin: 30px;	
+	}
+}
+
+.progress {
+	position: relative;
+	top: 0px;
+	font: $font_small_size $font_reg_family; 
+	color: $color_text_kid;
+
+	.progress-bar {
+		position: relative;
+		margin-top: 10px;
+		height: $progressbar_height;
+		width: 100%;
+		margin-bottom: 50px;
+
+		.progress-undone {
+			width: $progressbar_width;
+			height: $progressbar_height;
+			border-radius: 5px;
+			background-color: $color_dark_grey;
+		}
+		.progress-done {
+			width: 80%;
+			height: $progressbar_height;
+			border-radius: 5px;
+			background-color: $color_base;		
+		}
+		p{
+			position: absolute;
+			right: 10px;
+			top: 0px;
+		}
+		.logo {
+			position: absolute;
+			left: ($progressbar_width - 2%);
+			top:  - ($progress_logo_size / 2 - $progressbar_height / 2  + 5px);
+			width: $progress_logo_size;
+			height: $progress_logo_size;
+			border-radius: $progress_logo_size;
+			border-color: white;
+			border-width: 5px;
+			border-style: solid;
+			background-color: $color_base;
+			color: white;
+			font: $font_big_size $font_title_family;
+			text-align: center;
+		}
+	}
+}
+	
+
+img.bohater{
+		width: $bohater_size;
+		height: $bohater_size;
+		position: relative;
+		left: 20px;
+	}
+
+.one-day{
+	height: $day_height;
+	position: relative;
+	width: 100%;
+	margin-bottom: $day_margin;
+	display:block;	
+
+	.day {
+		height: 100%;
+		border-radius: 5px;
+		background-color: $color_base;
+		color: $color_text_kid;
+		font: $font_mid_size $font_reg_family;
+		text-align: center;
+		line-height: $day_height;
+		cursor: pointer;	
+
+		span{
+			font: $font_small_size $font_reg_family;
+			position: absolute;
+			right: 10px;
+			top: $day_height/2 - $font_small_size/2;
+		}
+	}
+
+	.line {
+		background-color: $color_light_grey;
+		height: 5px;
+		margin-top: $day_height / 2 - 2.5px;
+	}
+
+
+	.small-mission-undone {
+	
+		float:left;
+		margin-top: -30px;
+		display: inline-block;
+
+		.circle-small {
+			display:inline-block;
+			height: $mission_small_size;
+			width: $mission_small_size;
+			border-radius: $mission_small_size;
+			margin: 10px;
+			background-color: $color-undone;
+		}
+	}
+
+	.small-mission-wait {
+	
+		margin-top: -30px;
+		display: inline-block;
+
+		.circle-small {
+			display:inline-block;
+			height: $mission_small_size;
+			width: $mission_small_size;
+			border-radius: $mission_small_size;
+			margin: 10px;
+			background-color: $color-wait;
+		}
+	}
+	.small-mission-done {
+		
+		float:right;
+		margin-top: -30px;
+		display: inline-block;
+
+		.circle-small {
+			display:inline-block;
+			height: $mission_small_size;
+			width: $mission_small_size;
+			border-radius: $mission_small_size;
+			margin: 10px;
+			background-color: $color-done;
+		}
+	}
+
+
+
+}
+
+
+.one-full-day   {
+	width: 100%;
+	position: relative;
+	margin-top: -$day_margin;
+	margin-bottom: $day_margin;
+	padding-left: $odznaki_left;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	background: rgba(230, 232, 229, 0.2); 
+}
+
+.circle-big{ 
+	display: inline-block;
+	height: $mission_big_size;
+	width: $mission_big_size;
+	border-radius: $mission_big_size;
+	border-width: $mission_big_size/20;
+	border-style: solid;
+	background-color: white;
+
+}
+
+.circle-mid {
+	display: inline-block;	
+	height: $mission_mid_size;
+	width: $mission_mid_size;
+	border-radius: $mission_mid_size;
+	border-width: $mission_mid_size/20;
+	border-style: solid;
+	border-color: inherit;
+	background-color: white;
+	font: $font_small_size $font_reg_family;
+	line-height: $mission_mid_size;
+	text-align: center;
+	margin: 10px;
+}
+
+
+.mission-neutral {
+	border-color: $color_base;
+}
+.mission-undone {
+	border-color: $color_undone;
+}
+.mission-wait {
+	border-color: $color_wait;
+}
+.mission-done {
+	border-color: $color_done;
+}
+
+
+
+	
