@@ -106,14 +106,16 @@ header{
 		position:fixed;
 		display: block;
 		top: 150px;
+		left: 0px;
 		width: 100%;
 		height: 100vh;
-		background-color: $color_back_kid;
+		background-color: rgba($color_back_kid,0.9);
 		color:$color_text_kid;
 		font: $font_big_size $font_reg_family;
 		text-align: center;
 		vertical-align:middle;
 		line-height: 100vh;
+		z-index: 499;
 
 		span {
 			position: absolute;
@@ -347,8 +349,8 @@ img.bohater{
 	height: $mission_mid_size;
 	position: absolute;
 	left: - $mission_mid_size - 20px;
-	background-color: $color_back_kid;
-	z-index: 10000;
+	//background-color: $color_back_kid;
+	z-index: 500;
 	cursor: pointer;
 }
 
@@ -357,7 +359,23 @@ img.bohater{
 	height: $mission_mid_size;
 	position: absolute;
 	left: $mission_mid_size + 20px;
-	background-color: $color_back_kid ;
-	z-index: 10000;
+	//background-color: $color_back_kid ;
+	z-index: 500;
 	cursor: pointer;
 }	
+
+.thumb-inactive{
+		position:fixed;
+		display: block;
+		top: 150px;
+		left: 0px;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba( $color_back_kid, .8);
+		color:$color_text_kid;
+		font: $font_big_size $font_reg_family;
+		text-align: center;
+		vertical-align:middle;
+		line-height: 100vh;
+		z-index: 499;
+}

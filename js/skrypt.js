@@ -18,23 +18,26 @@ $('.day').on('click',function(event){
 $('.circle-mid').on('click', function(event){
 	var mission = $(this)
 	if (mission.parent('ul').hasClass('mission-wait')){
-		$('.container').append($('<div class="alert"> <span onclick="hideAlert()"> X </span> <p> Czekamy na akceptacje </p> </div>'))
+		showAlert('Czekamy na akceptacje');
 	}
 	if (mission.parent('ul').hasClass('mission-done')){
-		$('.container').append($('<div class ="alert"> <span onclick="hideAlert()"> X </span> <p> Już wykonałeś ta misje </p> </div>'))
+		showAlert('Już wykonałeś ta misję');
 	}
 	if (mission.parent('ul').hasClass('mission-undone')){
 		mission.append($('<img src="assets/thumb_down.svg" class="thumb-down">'))
 		mission.append($('<img src="assets/thumb_up.svg" class="thumb-up">'))
+		showAlert('');
+		//$('.container').append($('<div class="thumb-inactive"> </div>'))
+		mission.css('z-index','500')
 
 		$('img.thumb-down').on('click', function(ev){
 			ev.stopPropagation();
-			$('img.thumb-up,img.thumb-down').remove()
+			hideAlert();
 		})
 
 		$('img.thumb-up').on('click', function(ev){
 			ev.stopPropagation();
-			$('img.thumb-up,img.thumb-down').remove()
+			hideAlert();
 			fromUndoneToWait(mission)
 		})
 
@@ -45,8 +48,14 @@ $('.circle-mid').on('click', function(event){
 
 
 // show alert
+
+function showAlert(message) {
+	$('.container').append($('<div class ="alert"> <span onclick="hideAlert()"> X </span> <p>' + message + '</p> </div>'))
+}
 function hideAlert() {
 	$('.alert').remove()
+	$('img.thumb-up,img.thumb-down').remove()
+	$('.circle-mid').css('z-index','auto')
 }
 
 // tymczasowe pokazuje gdzie klikamy
