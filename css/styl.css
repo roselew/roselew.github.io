@@ -167,16 +167,16 @@ header label[for="navigation"] {
 .container .alert span {
   position: absolute;
   display: block;
-  right: 10px;
-  top: 10px;
-  width: 60px;
-  height: 60px;
-  border-radius: 60px;
+  right: 20px;
+  top: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
   background-color: #00A6FF;
   color: white;
   text-align: center;
   vertical-align: middle;
-  line-height: 60px;
+  line-height: 80px;
   cursor: pointer;
 }
 
@@ -214,8 +214,15 @@ header label[for="navigation"] {
   background-color: #E6E8E5;
 }
 
-.progress .progress-bar .progress-done {
+.progress .progress-bar .progress-wait {
   width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #add8ec;
+}
+
+.progress .progress-bar .progress-done {
+  width: 60%;
   height: 30px;
   border-radius: 5px;
   background-color: #00A6FF;
@@ -327,7 +334,7 @@ img.bohater {
 }
 
 .one-full-day {
-  width: 100%;
+  width: 80%;
   position: relative;
   margin-top: -35px;
   margin-bottom: 35px;
@@ -360,6 +367,7 @@ img.bohater {
   line-height: 150px;
   text-align: center;
   margin: 10px;
+  position: relative;
 }
 
 .mission-neutral {
@@ -376,4 +384,24 @@ img.bohater {
 
 .mission-done {
   border-color: #13CE66;
+}
+
+.thumb-down {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: -170px;
+  background-color: #0C1A3F;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.thumb-up {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 170px;
+  background-color: #0C1A3F;
+  z-index: 10000;
+  cursor: pointer;
 }
