@@ -8,54 +8,52 @@ body {
 }
 
 header{
-	width: 100%;
 	position: fixed;
 	top: 0px;
+	left: 0px;
+	width: 100%;
 	height: $header_height;
 	z-index: 1000;
 	background-color: $color_back_kid;
+	
+	.logo {
+		position: fixed;
+		top: ( $header_height - $header_logo_size )/2;
+		left: ( $header_height - $header_logo_size )/2;
+		width: $header_logo_size;
+		height: $header_logo_size;
+		border-radius: $header_logo_size;
+		border-color: white;
+		border-width: 5px;
+		border-style: solid;
+		background-color: $color_base;
+		color: white;
+		font: $font_title_size $font_title_family;
+		text-align: center;
+		cursor: pointer;
+	}
 
-		.logo {
-			position: fixed;
-			top: (( $header_banner_height + 2 * $header_banner_top ) - $header_logo_size )/2;
-			left: (( $header_banner_height + 2 * $header_banner_top ) - $header_logo_size )/2;
-			width: $header_logo_size;
-			height: $header_logo_size;
-			border-radius: $header_logo_size;
-			border-color: white;
-			border-width: 5px;
-			border-style: solid;
-			background-color: $color_base;
-			color: white;
-			font: $font_title_size $font_title_family;
-			text-align: center;
-			cursor: pointer;
+	.header-banner {
+		position: fixed;
+		top: ($header_height - $header_banner_height)/2;
+		left: 0px;
+		width: 100%;
+		height: $header_banner_height;
+		font: $font_title_size $font_title_family;
+		text-align: center;
+		line-height: $header_banner_height;
+		vertical-align: middle;
+	}
 
-		}
+	.header-parent {
+		background-color: white;
+		color: $color_base;
+	}
 
-		.header-banner {
-			position: fixed;
-			top: $header_banner_top;
-			left: 0px;
-			width: 100%;
-			height: $header_banner_height;
-			font: $font_title_size $font_title_family;
-			text-align: center;
-			line-height: $header_banner_height;
-			vertical-align: middle;
-			
-		}
-
-		.header-parent {
-			background-color: white;
-			color: $color_base;
-		}
-
-		.header-kid {
-			background-color: $color_base;
-			color: white;
-
-		}
+	.header-kid {
+		background-color: $color_base;
+		color: white;
+	}
 
 	.navigation {
 		position: absolute;
@@ -64,8 +62,8 @@ header{
 
 	label[for="navigation"] {
 	  position: fixed;
-	  right: $header_banner_top; 
-	  top:  $header_banner_top + (	$header_banner_height - $header_hamburger_size ) / 2;
+	  right: ( $header_height - $header_hamburger_size ) / 2;
+	  top:  ( $header_height - $header_hamburger_size ) / 2;
 	  height: $header_hamburger_size;
 	  width: $header_hamburger_size;
 	  cursor: pointer;
@@ -328,6 +326,7 @@ img.bohater{
 	text-align: center;
 	margin: 10px;
 	position: relative;
+	cursor: pointer;
 }
 
 
