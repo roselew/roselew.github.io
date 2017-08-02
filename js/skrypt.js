@@ -27,7 +27,6 @@ $('.circle-mid').on('click', function(event){
 		mission.append($('<img src="assets/thumb_down.svg" class="thumb-down">'))
 		mission.append($('<img src="assets/thumb_up.svg" class="thumb-up">'))
 		showAlert('');
-		//$('.container').append($('<div class="thumb-inactive"> </div>'))
 		mission.css('z-index','500')
 
 		$('img.thumb-down').on('click', function(ev){
@@ -45,7 +44,68 @@ $('.circle-mid').on('click', function(event){
 
 })
 
+$('.show-undone').on('click',function(){
+	showUndone();
+})
 
+$('.show-wait').on('click',function(){
+	showWait();
+
+})
+
+$('.show-done').on('click',function(){
+	showDone();
+})
+
+$('.show-all').on('click',function(){
+	showAll();
+})
+
+
+function showUndone() {
+	hideAll()
+	$('.mission-undone').show()
+	$('.show-undone').css('background-color','#F95F62')
+
+}
+
+function showWait() {
+	hideAll()
+	$('.mission-wait').show()
+	$('.show-wait').css('background-color','#FFBA5C')
+}
+
+function showDone() {
+	hideAll()	
+	$('.mission-done').show()
+	$('.show-done').css('background-color','#13CE66')
+}
+
+function showAll() {
+	$('.one-day').show()
+	$('.one-full-day').hide()
+	$('.mission-undone').show()		
+	$('.mission-wait').show()
+	$('.mission-done').show()
+	deleteBackground()	
+	$('.show-all').css('background-color','#00A6FF')
+}
+
+function hideAll(){
+	$('.one-day').hide()
+	$('.one-full-day').show()
+	$('.mission-undone').hide()		
+	$('.mission-wait').hide()
+	$('.mission-done').hide()
+	deleteBackground()	
+}
+
+function deleteBackground(){
+	$('.show-undone').css('background-color','#0C1A3F')
+	$('.show-wait').css('background-color','#0C1A3F')
+	$('.show-done').css('background-color','#0C1A3F')
+	$('.show-all').css('background-color','#0C1A3F')
+}
 
 // show alert
 
@@ -86,3 +146,4 @@ function updateProgress() {
 		$('.progress>p').text('Wykonałeś wszystkie misje, czekamy tylko na akceptację mamy')
 	}
 }
+

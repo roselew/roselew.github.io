@@ -74,30 +74,22 @@ header{
 }
 
 .container {
-	position: absolute;
+	position: relative;
 	width: 100%;
-	top:$header_logo_size;
+	top: $header_height;
+	left: 0px;
 
 	.left {
 		float: left;
 		position:relative;
 		width: $odznaki_left;
 	}
+
 	.right {
 		float: right;
 		position:relative;
 		width: (100% - $odznaki_left);
 		text-align: center;
-	}
-
-	.top {
-		position:relative;
-		width: 100%;
-		height: 250px;
-		.left {
-			position: absolute;
-			bottom: 40px;
-		}
 	}
 
 	.alert{
@@ -135,18 +127,18 @@ header{
 
 .week {
 	position: relative;
-	width: 100%;
+	margin: 10px 0px 20px $odznaki_left;
+	width: (100%-$odznaki_left);
 	text-align: center;
 	color: $color_text_kid;
 	font: $font_big_size $font_reg_family; 
-	p{
-		margin: 30px;	
-	}
 }
 
 .progress {
 	position: relative;
-	top: 0px;
+	margin-left: $odznaki_left;
+	width: (100%-$odznaki_left);
+	text-align: center;
 	font: $font_small_size $font_reg_family; 
 	color: $color_text_kid;
 
@@ -170,17 +162,20 @@ header{
 			border-radius: 5px;
 			background-color: mix($color_base, $color_dark_grey, 25%);
 		}
+
 		.progress-done {
 			width: 60%;
 			height: $progressbar_height;
 			border-radius: 5px;
 			background-color: $color_base;		
 		}
+
 		p{
 			position: absolute;
-			right: 10px;
+			right: 20px;
 			top: 0px;
 		}
+
 		.logo {
 			position: absolute;
 			left: ($progressbar_width - 2%);
@@ -197,24 +192,45 @@ header{
 			text-align: center;
 		}
 	}
-}
-	
 
-img.bohater{
+	img.bohater{
 		width: $bohater_size;
 		height: $bohater_size;
-		position: relative;
-		left: 20px;
+		position: absolute;
+		left: (-$odznaki_left);
+		bottom: 0px;
 	}
+}
+	
+.filter{
+	margin-bottom: 5px;
+	button{
+		position: inline-block;
+		height:$filter_height;
+		width: $odznaki_left;
+		border-radius: 5px;
+		border-width: 5px;
+		border-style: solid;
+		font: $font_small_size $font_reg_family;
+		text-align: center;
+		color: $color_text_kid;
+		cursor: pointer;
+		background-color: $color_back_kid;
+	}
+	.show-undone {border-color: $color_undone;}
+	.show-wait {border-color: $color_wait;}
+	.show-done {border-color: $color_done;}
+	.show-all {background-color: $color_base; border-color: $color_base;}
+}
 
 .one-day{
 	height: $day_height;
 	position: relative;
 	width: 100%;
-	margin-bottom: $day_margin;
-	display:block;	
+	margin-top: $day_margin;
 
 	.day {
+		width: $odznaki_left;
 		height: 100%;
 		border-radius: 5px;
 		background-color: $color_base;
@@ -240,61 +256,41 @@ img.bohater{
 
 
 	.small-mission-undone {
-	
 		float:left;
 		margin-top: -30px;
 		display: inline-block;
 
 		.circle-small {
-			display:inline-block;
-			height: $mission_small_size;
-			width: $mission_small_size;
-			border-radius: $mission_small_size;
-			margin: 10px;
 			background-color: $color-undone;
 		}
 	}
 
 	.small-mission-wait {
-	
 		margin-top: -30px;
 		display: inline-block;
 
 		.circle-small {
-			display:inline-block;
-			height: $mission_small_size;
-			width: $mission_small_size;
-			border-radius: $mission_small_size;
-			margin: 10px;
 			background-color: $color-wait;
 		}
 	}
-	.small-mission-done {
-		
+
+	.small-mission-done {	
 		float:right;
 		margin-top: -30px;
 		display: inline-block;
 
 		.circle-small {
-			display:inline-block;
-			height: $mission_small_size;
-			width: $mission_small_size;
-			border-radius: $mission_small_size;
-			margin: 10px;
 			background-color: $color-done;
 		}
 	}
-
-
-
 }
+
+
 
 
 .one-full-day   {
 	width: 100%-$odznaki_left;
 	position: relative;
-	margin-top: -$day_margin;
-	margin-bottom: $day_margin;
 	padding-left: $odznaki_left;
 	padding-bottom: 20px;
 	padding-top: 20px;
@@ -309,7 +305,6 @@ img.bohater{
 	border-width: $mission_big_size/20;
 	border-style: solid;
 	background-color: white;
-
 }
 
 .circle-mid {
@@ -329,6 +324,13 @@ img.bohater{
 	cursor: pointer;
 }
 
+.circle-small {
+	display:inline-block;
+	height: $mission_small_size;
+	width: $mission_small_size;
+	border-radius: $mission_small_size;
+	margin: 10px;
+}
 
 .mission-neutral {
 	border-color: $color_base;
@@ -348,7 +350,6 @@ img.bohater{
 	height: $mission_mid_size;
 	position: absolute;
 	left: - $mission_mid_size - 20px;
-	//background-color: $color_back_kid;
 	z-index: 500;
 	cursor: pointer;
 }
@@ -358,23 +359,6 @@ img.bohater{
 	height: $mission_mid_size;
 	position: absolute;
 	left: $mission_mid_size + 20px;
-	//background-color: $color_back_kid ;
 	z-index: 500;
 	cursor: pointer;
 }	
-
-.thumb-inactive{
-		position:fixed;
-		display: block;
-		top: 150px;
-		left: 0px;
-		width: 100%;
-		height: 100vh;
-		background-color: rgba( $color_back_kid, .8);
-		color:$color_text_kid;
-		font: $font_big_size $font_reg_family;
-		text-align: center;
-		vertical-align:middle;
-		line-height: 100vh;
-		z-index: 499;
-}
