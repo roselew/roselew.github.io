@@ -31,6 +31,7 @@ header{
 		font: $font_title_size $font_title_family;
 		text-align: center;
 		cursor: pointer;
+		line-height: $header_logo_size;
 	}
 
 	.header-banner {
@@ -127,11 +128,24 @@ header{
 
 .week {
 	position: relative;
-	margin: 10px 0px 20px $odznaki_left;
+	margin: 10px 0px 30px $odznaki_left;
 	width: (100%-$odznaki_left);
 	text-align: center;
 	color: $color_text_kid;
 	font: $font_big_size $font_reg_family; 
+
+	p{ display: inline-block;}
+	span{
+		display: inline-block;
+		width: $mission_small_size;
+		height: $mission_small_size;
+		border-radius: $mission_small_size;
+		background-color: $color_base;
+		color: white;
+		margin: 0px 10%;
+		line-height: $mission_small_size;
+		cursor: pointer;
+	}
 }
 
 .progress {
@@ -139,17 +153,19 @@ header{
 	margin-left: $odznaki_left;
 	width: (100%-$odznaki_left);
 	text-align: center;
-	font: $font_small_size $font_reg_family; 
+	font: $font_mid_size $font_reg_family; 
 	color: $color_text_kid;
 
 	.progress-bar {
 		position: relative;
+		left:2%;
 		margin-top: 10px;
 		height: $progressbar_height;
 		width: 100%;
 		margin-bottom: 50px;
 
 		.progress-undone {
+			position: relative;
 			width: $progressbar_width;
 			height: $progressbar_height;
 			border-radius: 5px;
@@ -157,6 +173,7 @@ header{
 		}
 
 		.progress-wait {
+			position: relative;
 			width: 80%;
 			height: $progressbar_height;
 			border-radius: 5px;
@@ -164,6 +181,7 @@ header{
 		}
 
 		.progress-done {
+			position: relative;
 			width: 60%;
 			height: $progressbar_height;
 			border-radius: 5px;
@@ -172,9 +190,15 @@ header{
 
 		p{
 			position: absolute;
-			right: 20px;
-			top: 0px;
+			right: 10px;
+			top: -20px;
+			
 		}
+		// p{
+		// 	position: absolute;
+		// 	right: 20px;
+		// 	top: 0px;
+		// }
 
 		.logo {
 			position: absolute;
@@ -190,37 +214,71 @@ header{
 			color: white;
 			font: $font_big_size $font_title_family;
 			text-align: center;
+			line-height: $progress_logo_size;
 		}
 	}
 
-	img.bohater{
-		width: $bohater_size;
-		height: $bohater_size;
-		position: absolute;
-		left: (-$odznaki_left);
-		bottom: 0px;
-	}
 }
 	
 .filter{
+	position:relative;
+	margin-left: $odznaki_left;
+	text-align: center;
 	margin-bottom: 5px;
+	border-bottom: 3px solid $color_base;
+	border-radius: 20px;
+
 	button{
-		position: inline-block;
-		height:$filter_height;
+		position:relative;
+		display: inline-block;
+		height:$day_height;
 		width: $odznaki_left;
-		border-radius: 5px;
-		border-width: 5px;
-		border-style: solid;
-		font: $font_small_size $font_reg_family;
-		text-align: center;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+		//border-width: 5px;
+		//border-style: solid;
+		font: $font_mid_size $font_reg_family;
+		//text-align: center;
 		color: $color_text_kid;
+		line-height: $day_height;
 		cursor: pointer;
 		background-color: $color_back_kid;
+		margin-left: 2%;
+		margin-right: 2%; 
+		border-bottom-style:none;
+		//margin-bottom: -3px;
 	}
-	.show-undone {border-color: $color_undone;}
-	.show-wait {border-color: $color_wait;}
-	.show-done {border-color: $color_done;}
-	.show-all {background-color: $color_base; border-color: $color_base;}
+	.show-undone {border-color: $color_undone;
+		span{background-color: $color_undone;}}
+	.show-wait {border-color: $color_wait;
+		span{background-color: $color_wait;}}
+	.show-done {border-color: $color_done;
+		span{background-color: $color_done;}}
+	.show-all {background-color: $color_base; border-color: $color_base;
+		span{background-color: $color_base;}}
+
+	span{
+		display: inline-block;
+		position: absolute;
+		right: -10px;
+		top: -10px;
+		color: $color_text_kid;
+		height: $mission_small_size;
+		width: $mission_small_size;
+		border-radius: $mission_small_size;
+		font: $font_small_size $font_reg_family;
+		line-height: $mission_small_size;
+	}
+
+	img.bohater{
+	width: $bohater_size;
+	height: $bohater_size;
+	position: absolute;
+	left: -$odznaki_left;
+	bottom: 0px;
+	}
+
 }
 
 .one-day{
@@ -356,8 +414,9 @@ header{
 		border-radius: $mission_mid_size;
 		color:$color_back_kid;
 		padding:10px;
-		background: $color_back_kid url(../assets/thumb_down.svg) no-repeat center bottom;
-		background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
+		background-color: $color_undone;
+		//background: $color_back_kid url(../assets/thumb_down.svg) no-repeat center bottom;
+		//background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
 		position: absolute;
 		top: -10px;
 		left: -10px - $mission_mid_size - 40px ;
@@ -371,8 +430,9 @@ header{
 		color:$color_back_kid;
 		padding:10px;
 		border-style: none;
-		background: $color_back_kid url(../assets/thumb_up.svg) no-repeat center top;
-		background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
+		background-color: $color_done;
+		//background: $color_back_kid url(../assets/thumb_up.svg) no-repeat center top;
+		//background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
 		position: absolute;
 		top: -10px;
 		left: -10px + $mission_mid_size + 40px ;
