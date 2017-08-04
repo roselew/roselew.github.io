@@ -12,6 +12,8 @@ $('.day').on('click',function(event){
 	}
 })
 
+var thumbDown=$('<div class="thumb-down"></div>')
+var thumbUp=$('<div class="thumb-up"></div>')
 
 // move mission between undone and wait 
 // generate alert if wait or done
@@ -24,17 +26,20 @@ $('.circle-mid').on('click', function(event){
 		showAlert('Już wykonałeś ta misję');
 	}
 	if (mission.parent('ul').hasClass('mission-undone')){
-		mission.append($('<img src="assets/thumb_down.svg" class="thumb-down">'))
-		mission.append($('<img src="assets/thumb_up.svg" class="thumb-up">'))
+		thumbDown.appendTo(mission)
+		thumbDown.show()
+		thumbUp.appendTo(mission)
+		thumbUp.show()
+		//mission.append($('<img src="assets/thumb_up.svg" class="thumb-up">'))
 		showAlert('');
 		mission.css('z-index','500')
 
-		$('img.thumb-down').on('click', function(ev){
+		$('.thumb-down').on('click', function(ev){
 			ev.stopPropagation();
 			hideAlert();
 		})
 
-		$('img.thumb-up').on('click', function(ev){
+		$('.thumb-up').on('click', function(ev){
 			ev.stopPropagation();
 			hideAlert();
 			fromUndoneToWait(mission)
@@ -114,7 +119,7 @@ function showAlert(message) {
 }
 function hideAlert() {
 	$('.alert').remove()
-	$('img.thumb-up,img.thumb-down').remove()
+	$('.thumb-up,.thumb-down').remove()
 	$('.circle-mid').css('z-index','auto')
 }
 

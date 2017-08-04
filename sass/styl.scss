@@ -99,7 +99,7 @@ header{
 		left: 0px;
 		width: 100%;
 		height: 100vh;
-		background-color: rgba($color_back_kid,0.9);
+		background-color: rgba($color_alert,0.95);
 		color:$color_text_kid;
 		font: $font_big_size $font_reg_family;
 		text-align: center;
@@ -292,9 +292,9 @@ header{
 	width: 100%-$odznaki_left;
 	position: relative;
 	padding-left: $odznaki_left;
-	padding-bottom: 20px;
-	padding-top: 20px;
-	background: rgba(230, 232, 229, 0.2); 
+	//padding-bottom: 20px;
+	//padding-top: 20px;
+	background: $color_alert;
 }
 
 .circle-big{ 
@@ -316,12 +316,68 @@ header{
 	border-style: solid;
 	border-color: inherit;
 	background-color: white;
-	font: $font_small_size $font_reg_family;
-	line-height: $mission_mid_size;
-	text-align: center;
-	margin: 10px;
+	//font: $font_small_size $font_reg_family;
+	//line-height: $mission_mid_size;
+	//text-align: center;
+	margin: 20px;
 	position: relative;
 	cursor: pointer;
+
+	img{
+		position: absolute;
+		margin: auto;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		height:0.7*$mission_mid_size;
+		width: 0.7*$mission_mid_size;
+	}
+
+	.add{
+		margin-left:20px;
+		margin-top: 20px;
+		height:0.4*$mission_mid_size;
+		width: 0.4*$mission_mid_size;
+	}
+
+	.proba{
+		-moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+
+	.thumb-down {
+		height: $mission_mid_size;
+		width: $mission_mid_size;
+		border-radius: $mission_mid_size;
+		color:$color_back_kid;
+		padding:10px;
+		background: $color_back_kid url(../assets/thumb_down.svg) no-repeat center bottom;
+		background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
+		position: absolute;
+		top: -10px;
+		left: -10px - $mission_mid_size - 40px ;
+		z-index: 500;
+	}
+
+	.thumb-up {
+		height: $mission_mid_size;
+		width: $mission_mid_size;
+		border-radius: $mission_mid_size;
+		color:$color_back_kid;
+		padding:10px;
+		border-style: none;
+		background: $color_back_kid url(../assets/thumb_up.svg) no-repeat center top;
+		background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
+		position: absolute;
+		top: -10px;
+		left: -10px + $mission_mid_size + 40px ;
+		z-index: 500;
+	}	
 }
 
 .circle-small {
@@ -345,20 +401,4 @@ header{
 	border-color: $color_done;
 }
 
-.thumb-down {
-	width: $mission_mid_size;
-	height: $mission_mid_size;
-	position: absolute;
-	left: - $mission_mid_size - 20px;
-	z-index: 500;
-	cursor: pointer;
-}
 
-.thumb-up {
-	width: $mission_mid_size;
-	height: $mission_mid_size;
-	position: absolute;
-	left: $mission_mid_size + 20px;
-	z-index: 500;
-	cursor: pointer;
-}	
