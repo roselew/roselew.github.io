@@ -12,8 +12,6 @@ $('.day').on('click',function(event){
 	}
 })
 
-var thumbDown=$('<div class="thumb-down"></div>')
-var thumbUp=$('<div class="thumb-up"></div>')
 
 // move mission between undone and wait 
 // generate alert if wait or done
@@ -26,11 +24,8 @@ $('.circle-mid').on('click', function(event){
 		showAlert('Już wykonałeś ta misję');
 	}
 	if (mission.parent('ul').hasClass('mission-undone')){
-		thumbDown.appendTo(mission)
-		thumbDown.show()
-		thumbUp.appendTo(mission)
-		thumbUp.show()
-		//mission.append($('<img src="assets/thumb_up.svg" class="thumb-up">'))
+		$('.thumb-down').show().appendTo(mission)
+		$('.thumb-up').show().appendTo(mission)
 		showAlert('');
 		mission.css('z-index','500')
 
@@ -70,6 +65,7 @@ $('.show-all').on('click',function(){
 function showUndone() {
 	hideAll()
 	$('.mission-undone').show()
+	$('.filter').css('border-bottom-color','#F95F62')
 	$('.show-undone').css('background-color','#F95F62')
 
 }
@@ -77,12 +73,14 @@ function showUndone() {
 function showWait() {
 	hideAll()
 	$('.mission-wait').show()
+	$('.filter').css('border-bottom-color','#FFBA5C')
 	$('.show-wait').css('background-color','#FFBA5C')
 }
 
 function showDone() {
 	hideAll()	
 	$('.mission-done').show()
+	$('.filter').css('border-bottom-color','#13CE66')
 	$('.show-done').css('background-color','#13CE66')
 }
 
@@ -93,11 +91,12 @@ function showAll() {
 	$('.mission-wait').show()
 	$('.mission-done').show()
 	deleteBackground()	
+	$('.filter').css('border-bottom-color','#00A6FF')	
 	$('.show-all').css('background-color','#00A6FF')
 }
 
 function hideAll(){
-	$('.one-day').hide()
+	$('.one-day').show()
 	$('.one-full-day').show()
 	$('.mission-undone').hide()		
 	$('.mission-wait').hide()
@@ -119,8 +118,9 @@ function showAlert(message) {
 }
 function hideAlert() {
 	$('.alert').remove()
-	$('.thumb-up,.thumb-down').remove()
+	//$('.thumb-up,.thumb-down').remove()
 	$('.circle-mid').css('z-index','auto')
+	$('.thumb-up,.thumb-down').hide().appendTo($('.container'))
 }
 
 // tymczasowe pokazuje gdzie klikamy
@@ -143,12 +143,15 @@ function updateProgress() {
 	var number_wait = $('.mission-wait .circle-mid').length
 	var number_done = $('.mission-done .circle-mid').length
 	var number_total = number_undone + number_wait + number_done
-	$('.progress>p span').text(number_undone)
-	$('.progress-bar p').text(number_done + ' / ' + number_total)
 	$('.progress-bar .progress-wait').width(100*(number_done+number_wait)/number_total + '%');
 	$('.progress-bar .progress-done').width(100*number_done/number_total + '%');
-	if (number_undone == 0 & number_wait > 0) {
-		$('.progress>p').text('Wykonałeś wszystkie misje, czekamy tylko na akceptację mamy')
-	}
+
+	$('.show-all span').text(number_total)
+	$('.show-undone span').text(number_undone)
+	$('.show-wait span').text(number_wait)
+	$('.show-done span').text(number_done)
+
+
+
 }
 
