@@ -237,6 +237,14 @@ header{
 			text-align: center;
 			line-height: $progress_logo_size;
 		}
+
+
+	}
+	img.bohater{
+		width: $odznaki_left;
+		position: absolute;
+		left: -$odznaki_left;;
+		bottom: 0px;
 	}
 
 }
@@ -306,12 +314,6 @@ header{
 		line-height: $mission_small_size;
 	}
 
-	img.bohater{
-	width: $odznaki_left;
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
-	}
 
 }
 
