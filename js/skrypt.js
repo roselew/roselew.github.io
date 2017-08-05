@@ -4,6 +4,7 @@ $('.day').on('click',function(event){
 	var full_day = $(this).parent('.one-day').next()
 	if (full_day.is(":hidden")) {
 		full_day.slideDown('slow')
+		full_day.children('.day').hide()
 		$(this).children('span').html('&#x25B2')
 	} else {
 		full_day.slideUp('slow')
@@ -18,10 +19,10 @@ $('.day').on('click',function(event){
 $('.circle-mid').on('click', function(event){
 	var mission = $(this)
 	if (mission.parent('ul').hasClass('mission-wait')){
-		showAlert('Czekamy na akceptacje');
+		showAlert('Czekamy na akceptacje','wait');
 	}
 	if (mission.parent('ul').hasClass('mission-done')){
-		showAlert('Już wykonałeś ta misję');
+		showAlert('Już wykonałeś ta misję','done');
 	}
 	if (mission.parent('ul').hasClass('mission-undone')){
 		$('.thumb-down').show().appendTo(mission)
@@ -65,7 +66,6 @@ $('.show-all').on('click',function(){
 function showUndone() {
 	hideAll()
 	$('.mission-undone').show()
-	$('.filter').css('border-bottom-color','#F95F62')
 	$('.show-undone').css('background-color','#F95F62')
 
 }
@@ -73,31 +73,30 @@ function showUndone() {
 function showWait() {
 	hideAll()
 	$('.mission-wait').show()
-	$('.filter').css('border-bottom-color','#FFBA5C')
 	$('.show-wait').css('background-color','#FFBA5C')
 }
 
 function showDone() {
 	hideAll()	
 	$('.mission-done').show()
-	$('.filter').css('border-bottom-color','#13CE66')
 	$('.show-done').css('background-color','#13CE66')
 }
 
 function showAll() {
 	$('.one-day').show()
 	$('.one-full-day').hide()
+	$('.day').show()
 	$('.mission-undone').show()		
 	$('.mission-wait').show()
 	$('.mission-done').show()
 	deleteBackground()	
-	$('.filter').css('border-bottom-color','#00A6FF')	
 	$('.show-all').css('background-color','#00A6FF')
 }
 
 function hideAll(){
-	$('.one-day').show()
+	$('.one-day').hide()
 	$('.one-full-day').show()
+	$('.one-full-day .day').show()
 	$('.mission-undone').hide()		
 	$('.mission-wait').hide()
 	$('.mission-done').hide()
@@ -111,10 +110,11 @@ function deleteBackground(){
 	$('.show-all').css('background-color','#0C1A3F')
 }
 
-// show alert
-
-function showAlert(message) {
+function showAlert(message,type) {
 	$('.container').append($('<div class ="alert"> <span onclick="hideAlert()"> X </span> <p>' + message + '</p> </div>'))
+	if (type=="wait") {
+		$('.alert').append($('<img src="assets/hourglass.svg">'));
+	}
 }
 function hideAlert() {
 	$('.alert').remove()

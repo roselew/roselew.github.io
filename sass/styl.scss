@@ -123,6 +123,21 @@ header{
 			line-height: $exit_button_size;
 			cursor: pointer;
 		}
+
+		img {
+		position:absolute;
+		margin:auto;
+		top:50px;
+		width: $mission_mid_size;
+		height: $mission_mid_size;
+		-webkit-animation:spin 4s linear infinite;
+    	-moz-animation:spin 4s linear infinite;
+    	animation:spin 4s linear infinite;
+		}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+		
 	}
 }
 
@@ -137,13 +152,13 @@ header{
 	p{ display: inline-block;}
 	span{
 		display: inline-block;
-		width: $mission_small_size;
-		height: $mission_small_size;
+		width: 1.5*$mission_small_size;
+		height: 1.5*$mission_small_size;
 		border-radius: $mission_small_size;
 		background-color: $color_base;
 		color: white;
 		margin: 0px 10%;
-		line-height: $mission_small_size;
+		line-height: 1.5*$mission_small_size;
 		cursor: pointer;
 	}
 }
@@ -177,7 +192,13 @@ header{
 			width: 80%;
 			height: $progressbar_height;
 			border-radius: 5px;
-			background-color: mix($color_base, $color_dark_grey, 25%);
+			background: repeating-linear-gradient(
+			  45deg,
+			  $color_base,
+			  $color_base 10px,
+			  white 10px,
+			  white 20px
+			);
 		}
 
 		.progress-done {
@@ -222,22 +243,21 @@ header{
 	
 .filter{
 	position:relative;
-	margin-left: $odznaki_left;
+	padding:10px;
+	background-color: $color_alert;
+	padding-left: $odznaki_left;
 	text-align: center;
-	margin-bottom: 5px;
-	border-bottom: 3px solid $color_base;
-	border-radius: 20px;
+	margin-bottom: 40px;
+	border-radius: 5px;
 
 	button{
 		position:relative;
 		display: inline-block;
 		height:$day_height;
 		width: $odznaki_left;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 0px;
-		border-bottom-right-radius: 0px;
-		//border-width: 5px;
-		//border-style: solid;
+		border-radius: 5px;
+		border-width: 2px;
+		border-style: solid;
 		font: $font_mid_size $font_reg_family;
 		//text-align: center;
 		color: $color_text_kid;
@@ -246,16 +266,31 @@ header{
 		background-color: $color_back_kid;
 		margin-left: 2%;
 		margin-right: 2%; 
-		border-bottom-style:none;
-		//margin-bottom: -3px;
+		background-size: 0.8* $day_height;
+		background-position: center center;
+		background-repeat: no-repeat;
 	}
-	.show-undone {border-color: $color_undone;
-		span{background-color: $color_undone;}}
+	.show-undone {
+		border-color: $color_undone;
+		background-image: url(../assets/dislike.svg);	
+		// -webkit-transform: rotate(180deg);
+  //   	-moz-transform: rotate(180deg);
+  //   	-ms-transform: rotate(180deg);
+  //   	-o-transform: rotate(180deg);
+  //   	transform: rotate(180deg);
+		span{background-color: $color_undone;}
+	}
 	.show-wait {border-color: $color_wait;
-		span{background-color: $color_wait;}}
+		background-image: url(../assets/hourglass.svg);	
+		span{background-color: $color_wait;}
+	}
 	.show-done {border-color: $color_done;
+		background-image: url(../assets/like.svg);	
 		span{background-color: $color_done;}}
-	.show-all {background-color: $color_base; border-color: $color_base;
+	.show-all {
+		background-color: $color_base;
+	 	background-image: url(../assets/traffic-light.svg);	
+	 	border-color: $color_base;
 		span{background-color: $color_base;}}
 
 	span{
@@ -272,10 +307,9 @@ header{
 	}
 
 	img.bohater{
-	width: $bohater_size;
-	height: $bohater_size;
+	width: $odznaki_left;
 	position: absolute;
-	left: -$odznaki_left;
+	left: 0px;
 	bottom: 0px;
 	}
 
@@ -284,32 +318,33 @@ header{
 .one-day{
 	height: $day_height;
 	position: relative;
-	width: 100%;
+	width: 100%-$odznaki_left;
+	margin-left: $odznaki_left;
 	margin-top: $day_margin;
 
-	.day {
-		width: $odznaki_left;
-		height: 100%;
-		border-radius: 5px;
-		background-color: $color_base;
-		color: $color_text_kid;
-		font: $font_mid_size $font_reg_family;
-		text-align: center;
-		line-height: $day_height;
-		cursor: pointer;	
+	// .day {
+	// 	position:relative;
+	// 	width: $odznaki_left;
+	// 	height: 100%;
+	// 	border-radius: 5px;
+	// 	background-color: $color_base;
+	// 	color: $color_text_kid;
+	// 	font: $font_mid_size $font_reg_family;
+	// 	text-align: center;
+	// 	line-height: $day_height;
+	// 	cursor: pointer;	
 
-		span{
-			font: $font_small_size $font_reg_family;
-			position: absolute;
-			right: 10px;
-			top: $day_height/2 - $font_small_size/2;
-		}
-	}
+
+	//}
 
 	.line {
+		display: inline-block;
+		position: relative;
+		width: 100%;
 		background-color: $color_light_grey;
 		height: 5px;
 		margin-top: $day_height / 2 - 2.5px;
+		text-align: center;
 	}
 
 
@@ -344,15 +379,34 @@ header{
 }
 
 
-
+.day{
+	position: absolute;
+	left:-$odznaki_left;
+	width: $odznaki_left;
+	height: $day_height;
+	border-radius: 5px;
+	background-color: $color_base;
+	color: $color_text_kid;
+	font: $font_mid_size $font_reg_family;
+	text-align: center;
+	line-height: $day_height;
+	cursor: pointer;
+	span{
+		font: $font_small_size $font_reg_family;
+		position: absolute;
+		right: 10px;
+		top: $day_height/2 - $font_small_size/2;
+	}	
+}
 
 .one-full-day   {
 	width: 100%-$odznaki_left;
 	position: relative;
-	padding-left: $odznaki_left;
+	margin-left: $odznaki_left;
 	//padding-bottom: 20px;
 	//padding-top: 20px;
 	background: $color_alert;
+	border-radius: 5px;
 }
 
 .circle-big{ 
@@ -399,14 +453,7 @@ header{
 		width: 0.4*$mission_mid_size;
 	}
 
-	.proba{
-		-moz-transform: scaleY(-1);
-        -o-transform: scaleY(-1);
-        -webkit-transform: scaleY(-1);
-        transform: scaleY(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
-    }
+
 
 	.thumb-down {
 		height: $mission_mid_size;
@@ -462,3 +509,11 @@ header{
 }
 
 
+	.rotate{
+		-moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
