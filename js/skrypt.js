@@ -112,10 +112,17 @@ function showAlert(message,type) {
 	$('.container').append($('<div class ="alert"> <span onclick="hideAlert()"> X </span> <p>' + message + '</p> </div>'))
 	if (type=="wait") {
 		$('.alert>p').prepend($('<img src="assets/hourglass.svg"> <br>'));
+		$('img.bohater').animate({
+ 	 		width: "60%",
+		},1500)
 	}
-	$('img.bohater').animate({
- 	 	width: "60%",
-	},1500)
+	if (type=="done") {
+		$('.alert>p').prepend($('<img src="assets/like.svg"> <br>'));
+		$('img.bohater').animate({
+ 	 		width: "60%",
+		},1500)
+	}
+
 
 }
 

@@ -91,6 +91,7 @@ header{
 		color:$color_text_kid;
 		font: $font_big_size $font_reg_family;
 		text-align: center;
+		line-height: 100px;
 		vertical-align:middle;
 		z-index: 499;
 		
@@ -119,11 +120,10 @@ header{
 		-webkit-animation:spin 4s linear infinite;
     	-moz-animation:spin 4s linear infinite;
     	animation:spin 4s linear infinite;
+		@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 		}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-		
 	}
 }
 
