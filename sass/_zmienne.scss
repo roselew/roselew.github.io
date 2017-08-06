@@ -6,7 +6,9 @@ $color_back_parent: #E6E8E5; // background for parents
 $color_dark_grey: #777B88; // darker than back_parent
 $color_light_grey: lighten($color_back_parent,10%); // lighter than back_parent
 $color_done: #13CE66; // green
+//#E31E10
 $color_wait: #FFBA5C; // yellow
+//#F29C0B
 $color_undone: #F95F62; //red
 $color_text_parent: #343F4B; //very dark grey
 $color_text_kid: white; 
@@ -52,7 +54,7 @@ $font_small_size: 24px;
 	
 	//progressbar
 	$bohater_size: 350px;
-	$progressbar_width: 90%;
+	$progressbar_width: 91%;
 	$progressbar_height: 50px;
 	$progress_logo_size: 70px;
 

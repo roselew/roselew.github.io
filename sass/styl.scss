@@ -143,9 +143,9 @@ header{
 
 .week {
 	position: relative;
-	margin: 10px 0px 30px 0px;
-	width: 100%;
-	text-align: center;
+	margin: 10px 0px 30px $odznaki_left;
+	width: 100%-$odznaki_left;
+	text-align: center;	
 	font: $font_big_size $font_reg_family; 
 
 	p{ display: inline-block;}
@@ -180,17 +180,16 @@ header{
 
 	.progress-bar {
 		position: relative;
-		//left:2%;
 		margin-top: 10px;
 		height: $progressbar_height;
-		width: 100%;
+		width: $progressbar_width;
 		margin-bottom: 50px;
 
 		.progress-undone {
 			position: absolute;
 			left:0px;
 			top:0px;
-			width: $progressbar_width;
+			width: 100%;
 			height: $progressbar_height;
 			border-radius: 5px;
 		}
@@ -214,22 +213,10 @@ header{
 			background-color: $color_base;
 		}
 
-		p{
-			position: absolute;
-			right: 10px;
-			top: -20px;
-			
-		}
-		// p{
-		// 	position: absolute;
-		// 	right: 20px;
-		// 	top: 0px;
-		// }
-
 		.logo {
 			position: absolute;
-			left: ($progressbar_width - 2%);
-			top:  - ($progress_logo_size / 2 - $progressbar_height / 2  + 5px);
+			right: -$progress_logo_size+10px;
+			top:  - ($progress_logo_size - $progressbar_height )/2;
 			width: $progress_logo_size;
 			height: $progress_logo_size;
 			border-radius: $progress_logo_size;
@@ -242,9 +229,8 @@ header{
 			text-align: center;
 			line-height: $progress_logo_size;
 		}
-
-
 	}
+
 	img.bohater{
 		width: 20%;
 		position: absolute;
@@ -296,11 +282,11 @@ header{
 
 .filter{
 	position:relative;
-	padding:10px;
+	padding:0px;
 	width: 100%-$odznaki_left;
 	//background-color: $color_alert;
 	margin-left: $odznaki_left;
-	text-align: center;
+	text-align: left;
 	margin-bottom: 20px;
 	border-radius: 5px;
 

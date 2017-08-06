@@ -1,10 +1,11 @@
 
-var color_done= '#13CE66'; // green
-var color_wait= '#FFBA5C'; // yellow
-var color_undone= '#F95F62'; //red
-var color_base= '#00A6FF'; //blue
-var color_back_kid = '#0C1A3F'; 
-var color_back_parent= '#E6E8E5';
+var color={
+done: '#13CE66',// green
+wait: '#FFBA5C', // yellow
+undone: '#F95F62', //red
+base: '#00A6FF', //blue
+back_kid: '#0C1A3F', 
+back_parent: '#E6E8E5'}
 
 // -------show day details-------------
 
@@ -32,9 +33,9 @@ $('.circle-mid').on('click', function(event){
 	//undone
 	if (missionType == 'mission-undone'){
 		if (kid_mode) {
-			showThumbs(mission,'wait','undone')
+			showThumbs(mission)
 		} else {
-			showThumbs(mission,'done','')
+			showThumbs(mission)
 		}
 	}
 
@@ -43,7 +44,7 @@ $('.circle-mid').on('click', function(event){
 		if (kid_mode) {
 			showAlert('Czekamy na akceptacje','wait');
 		} else {
-			showThumbs(mission,'done','undone')
+			showThumbs(mission)
 		}
 	}
 
@@ -53,44 +54,65 @@ $('.circle-mid').on('click', function(event){
 			showAlert('Już wykonałeś ta misję','done');
 
 		} else {
-			showThumbs(mission,'','undone')
+			showThumbs(mission)
 		}
 	}
 
 })
 
-
-function showThumbs(mission, stateYes, stateNo){
+function showThumbs(mission){
 
 	$('.thumb-down').show().appendTo(mission)
 	$('.thumb-up').show().appendTo(mission)
 	mission.css('z-index','500')
-
-	$('.thumb-up').on('click', function(ev){
-		ev.stopPropagation();
-		hideAlert();
-		if (stateYes){
-			moveMission(mission,stateYes)
-		}
-	})
-
-	$('.thumb-down').on('click', function(ev){
-		ev.stopPropagation();
-		hideAlert();
-		if (stateNo){
-			moveMission(mission,stateNo)
-		}
-	})
+	showAlert('')
 
 }
 
-function moveMission(mission, state){
+$('body').on('click','.thumb-up',moveMissionUp)
+$('body').on('click','.thumb-down',moveMissionDown)
+
+function moveMissionUp(event){
+	var mission = $(this).parents('li');
 	var missionType = mission.parents('ul').attr('class')
+	var kid_mode=mission.parents('body').hasClass('kid');
+
+	event.stopPropagation();
+	hideAlert();
+
+	if (missionType!=="mission-done"){ 
+		if (kid_mode) {
+			state='wait'
+		} else {
+			state="done"
+		}
+
+		moveIt(mission,missionType,state)
+	}
+}
+
+function moveMissionDown(event){
+	var mission = $(this).parents('li');
+	var missionType = mission.parents('ul').attr('class')
+	var kid_mode=mission.parents('body').hasClass('kid');
+
+	event.stopPropagation();
+	hideAlert();
+
+	if (missionType!=="mission-undone"){ 
+		state="undone"
+
+		moveIt(mission,missionType,state)
+	}
+}
+
+function moveIt(mission,missionType,state){
 	var midGroup=mission.parents('.day-details').find('.mission-'+state)
 	mission.appendTo(midGroup).hide().fadeIn('slow')
-	var smallMission = mission.parents('.day').children('.day-line').find(missionType).children().first()
-	var smallGroup = smallMission.parents('.day-line').find('.mission-'+state)
+	var smallMission = mission.parents('.day').find('.small-'+missionType).children().first()
+	var smallGroup = smallMission.parents('.day-line').find('.small-mission-'+state)
 	smallMission.appendTo(smallGroup).hide().fadeIn('slow')	
+
 	updateProgress();
 }
 
@@ -127,15 +149,10 @@ $('.show-all').on('click',function(){
 
 function showOnly(type) {
 	hideAll()
-
-	$('.day').each(function(){
-		if ($(this).find('.mission-' + type + ' li').length) {
-		$(this).show()
-		}
-	})
+	//show only days that are not empty
+	$('.day .mission-'+ type +' li').parents('.day').show()
 	$('.mission-' + type).show()
-
-	$('.show'+type).css('background-color',color_undone)
+	$('.show-'+type).css('background-color',color[type])
 }
 
 function showAll() {
@@ -146,7 +163,7 @@ function showAll() {
 	$('.mission-wait').show()
 	$('.mission-done').show()
 	deleteBackground()	
-	$('.show-all').css('background-color',color_base)
+	$('.show-all').css('background-color',color.base)
 }
 
 function hideAll(){
@@ -160,15 +177,15 @@ function hideAll(){
 }
 
 function deleteBackground(){
-	$('.parent .show-undone').css('background-color',color_back_parent)
-	$('.parent .show-wait').css('background-color',color_back_parent)
-	$('.parent .show-done').css('background-color',color_back_parent)
-	$('.parent .show-all').css('background-color',color_back_parent)
+	$('.parent .show-undone').css('background-color',color.back_parent)
+	$('.parent .show-wait').css('background-color',color.back_parent)
+	$('.parent .show-done').css('background-color',color.back_parent)
+	$('.parent .show-all').css('background-color',color.back_parent)
 
-	$('.kid .show-undone').css('background-color',color_back_kid)
-	$('.kid .show-wait').css('background-color',color_back_kid)
-	$('.kid .show-done').css('background-color',color_back_kid)
-	$('.kid .show-all').css('background-color',color_back_kid)
+	$('.kid .show-undone').css('background-color',color.back_kid)
+	$('.kid .show-wait').css('background-color',color.back_kid)
+	$('.kid .show-done').css('background-color',color.back_kid)
+	$('.kid .show-all').css('background-color',color.back_kid)
 }
 
 
@@ -194,7 +211,7 @@ function hideAlert() {
 	$('.alert').remove()
 	$('.circle-mid').css('z-index','auto')
 	$('.thumb-up,.thumb-down').hide().appendTo($('.container'))
-	$('.progress img.bohater').animate({
+	$('.kid img.bohater').animate({
  	 	width: "20%",
 	},1500)
 }
@@ -202,6 +219,6 @@ function hideAlert() {
 
 
 // tymczasowe pokazuje gdzie klikamy
-$(document).on('click',function(event){
-	console.log(event.target)
-})
+// $(document).on('click',function(event){
+// 	console.log(event.target)
+// })
