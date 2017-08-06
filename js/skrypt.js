@@ -1,10 +1,15 @@
 
+var color_done= '#13CE66'; // green
+var color_wait= '#FFBA5C'; // yellow
+var color_undone= '#F95F62'; //red
+var color_base= '#00A6FF'; //blue
+var color_back_kid = '#0C1A3F'; 
+
 // show full day
-$('.day').on('click',function(event){
-	var full_day = $(this).parent('.one-day').next()
+$('.day>p').on('click',function(event){
+	var full_day = $(this).parent('.day').children('.day-details')
 	if (full_day.is(":hidden")) {
 		full_day.slideDown('slow')
-		full_day.children('.day').hide()
 		$(this).children('span').html('&#x25B2')
 	} else {
 		full_day.slideUp('slow')
@@ -40,9 +45,7 @@ $('.circle-mid').on('click', function(event){
 			hideAlert();
 			fromUndoneToWait(mission)
 		})
-
 	}
-
 })
 
 $('.show-undone').on('click',function(){
@@ -51,7 +54,6 @@ $('.show-undone').on('click',function(){
 
 $('.show-wait').on('click',function(){
 	showWait();
-
 })
 
 $('.show-done').on('click',function(){
@@ -62,41 +64,37 @@ $('.show-all').on('click',function(){
 	showAll();
 })
 
-
 function showUndone() {
 	hideAll()
 	$('.mission-undone').show()
-	$('.show-undone').css('background-color','#F95F62')
-
+	$('.show-undone').css('background-color',color_undone)
 }
 
 function showWait() {
 	hideAll()
 	$('.mission-wait').show()
-	$('.show-wait').css('background-color','#FFBA5C')
+	$('.show-wait').css('background-color',color_wait)
 }
 
 function showDone() {
 	hideAll()	
 	$('.mission-done').show()
-	$('.show-done').css('background-color','#13CE66')
+	$('.show-done').css('background-color',color_done)
 }
 
 function showAll() {
-	$('.one-day').show()
-	$('.one-full-day').hide()
-	$('.day').show()
+	$('.day-line').show()
+	$('.day-details').hide()
 	$('.mission-undone').show()		
 	$('.mission-wait').show()
 	$('.mission-done').show()
 	deleteBackground()	
-	$('.show-all').css('background-color','#00A6FF')
+	$('.show-all').css('background-color',color_base)
 }
 
 function hideAll(){
-	$('.one-day').hide()
-	$('.one-full-day').show()
-	$('.one-full-day .day').show()
+	$('.day-line').hide()
+	$('.day-details').show()
 	$('.mission-undone').hide()		
 	$('.mission-wait').hide()
 	$('.mission-done').hide()
@@ -104,10 +102,10 @@ function hideAll(){
 }
 
 function deleteBackground(){
-	$('.show-undone').css('background-color','#0C1A3F')
-	$('.show-wait').css('background-color','#0C1A3F')
-	$('.show-done').css('background-color','#0C1A3F')
-	$('.show-all').css('background-color','#0C1A3F')
+	$('.show-undone').css('background-color',color_back_kid)
+	$('.show-wait').css('background-color',color_back_kid)
+	$('.show-done').css('background-color',color_back_kid)
+	$('.show-all').css('background-color',color_back_kid)
 }
 
 function showAlert(message,type) {
@@ -115,25 +113,26 @@ function showAlert(message,type) {
 	if (type=="wait") {
 		$('.alert').append($('<img src="assets/hourglass.svg">'));
 	}
+	$('img.bohater').animate({
+ 	 	width: "40%"
+	},1500)
+
 }
+
 function hideAlert() {
 	$('.alert').remove()
-	//$('.thumb-up,.thumb-down').remove()
 	$('.circle-mid').css('z-index','auto')
 	$('.thumb-up,.thumb-down').hide().appendTo($('.container'))
+	$('img.bohater').animate({
+ 	 	width: "20%"
+	},1500)
 }
 
-// tymczasowe pokazuje gdzie klikamy
-$(document).on('click',function(event){
-	console.log(event.target)
-})
-
 function fromUndoneToWait(mission) {
-	
-	var WaitGroup = mission.closest('div').find('.mission-wait')
-	mission.appendTo(WaitGroup).hide().fadeIn('slow')
-	var smallMission = $(mission.closest('.one-full-day').prev().find('.small-mission-undone').children()[0])
-	var smallWaitGroup = smallMission.closest('div').find('.small-mission-wait')
+	var waitGroup = mission.parents('.day-details').find('.mission-wait')
+	mission.appendTo(waitGroup).hide().fadeIn('slow')
+	var smallMission = mission.parents('.day').children('.day-line').find('.small-mission-undone').children().first()
+	var smallWaitGroup = smallMission.parents('.day-line').find('.small-mission-wait')
 	smallMission.appendTo(smallWaitGroup).hide().fadeIn('slow')
 	updateProgress();
 }
@@ -143,15 +142,15 @@ function updateProgress() {
 	var number_wait = $('.mission-wait .circle-mid').length
 	var number_done = $('.mission-done .circle-mid').length
 	var number_total = number_undone + number_wait + number_done
-	$('.progress-bar .progress-wait').width(100*(number_done+number_wait)/number_total + '%');
-	$('.progress-bar .progress-done').width(100*number_done/number_total + '%');
-
+	$('.progress-wait').width(100*(number_done+number_wait)/number_total + '%');
+	$('.progress-done').width(100*number_done/number_total + '%');
 	$('.show-all span').text(number_total)
 	$('.show-undone span').text(number_undone)
 	$('.show-wait span').text(number_wait)
 	$('.show-done span').text(number_done)
-
-
-
 }
 
+// tymczasowe pokazuje gdzie klikamy
+$(document).on('click',function(event){
+	console.log(event.target)
+})

@@ -234,10 +234,10 @@ header{
 
 	}
 	img.bohater{
-		width: 1.5*$odznaki_left;
+		width: 20%;
 		position: absolute;
 		left: -$odznaki_left;
-		bottom: -100px;
+		top: -100px;
 		z-index: 500;
 	}
 
@@ -247,7 +247,7 @@ header{
 	position:relative;
 	padding:10px;
 	width: 100%-%odznaki_left;
-	background-color: $color_alert;
+	//background-color: $color_alert;
 	margin-left: $odznaki_left;
 	text-align: center;
 	margin-bottom: 20px;
@@ -312,39 +312,44 @@ header{
 
 }
 
-.one-day{
-	height: $day_height;
-	width: 100%;
+.day{
 	position: relative;
-	width: 100% - $odznaki_left;
-	margin-left: $odznaki_left;
-	margin-top: $day_margin;
+	width: 100%;
+	p{
+		position: absolute;
+		top:0px;
+		left:0px;
 
-	// .day {
-	// 	position:relative;
-	// 	width: $odznaki_left;
-	// 	height: 100%;
-	// 	border-radius: 5px;
-	// 	background-color: $color_base;
-	// 	color: $color_text_kid;
-	// 	font: $font_mid_size $font_reg_family;
-	// 	text-align: center;
-	// 	line-height: $day_height;
-	// 	cursor: pointer;	
-
-
-	//}
-
-	.line {
 		display: inline-block;
-		position: relative;
-		width: 100%;
-		background-color: $color_light_grey;
-		height: 5px;
-		margin-top: $day_height / 2 - 2.5px;
+		width:$odznaki_left;
+		height: $day_height;
+		background-color: $color_base;
+		border-radius: 50px;
+		color: $color_text_kid;
+		font: $font_mid_size $font_reg_family;
 		text-align: center;
+		line-height: $day_height;
+		cursor: pointer;
+		span{
+			font: $font_small_size $font_reg_family;
+			position: absolute;
+			right: 10px;
+			top: $day_height/2 - $font_small_size/2;
+		}	
 	}
+}
 
+
+.day-line {
+	display: inline-block;
+	position: relative;
+	width: 100%-$odznaki_left;
+	height: $day_height;
+	margin-left: $odznaki_left;
+	background-color: $color_light_grey;
+	height: 5px;
+	margin-top: $day_height / 2 - 2.5px;
+	text-align: center;	
 
 	.small-mission-undone {
 		float:left;
@@ -376,28 +381,7 @@ header{
 	}
 }
 
-
-.day{
-	position: absolute;
-	left:-1.17* $odznaki_left;
-	width: 1.17*$odznaki_left;
-	height: $day_height;
-	border-radius: 50px;
-	background-color: $color_base;
-	color: $color_text_kid;
-	font: $font_mid_size $font_reg_family;
-	text-align: center;
-	line-height: $day_height;
-	cursor: pointer;
-	span{
-		font: $font_small_size $font_reg_family;
-		position: absolute;
-		right: 10px;
-		top: $day_height/2 - $font_small_size/2;
-	}	
-}
-
-.one-full-day   {
+.day-details {
 	width: 100%-$odznaki_left;
 	position: relative;
 	margin-left: $odznaki_left;
@@ -406,6 +390,7 @@ header{
 	background: $color_alert;
 	border-radius: 5px;
 }
+
 
 .circle-big{ 
 	display: inline-block;
@@ -426,9 +411,6 @@ header{
 	border-style: solid;
 	border-color: inherit;
 	background-color: white;
-	//font: $font_small_size $font_reg_family;
-	//line-height: $mission_mid_size;
-	//text-align: center;
 	margin: 20px;
 	position: relative;
 	cursor: pointer;
@@ -451,8 +433,6 @@ header{
 		width: 0.4*$mission_mid_size;
 	}
 
-
-
 	.thumb-down {
 		height: $mission_mid_size;
 		width: $mission_mid_size;
@@ -460,8 +440,6 @@ header{
 		color:$color_back_kid;
 		padding:10px;
 		background-color: $color_undone;
-		//background: $color_back_kid url(../assets/thumb_down.svg) no-repeat center bottom;
-		//background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
 		position: absolute;
 		top: -10px;
 		left: -10px - $mission_mid_size - 40px ;
@@ -476,8 +454,6 @@ header{
 		padding:10px;
 		border-style: none;
 		background-color: $color_done;
-		//background: $color_back_kid url(../assets/thumb_up.svg) no-repeat center top;
-		//background-size: ($mission_mid_size - 20px) ($mission_mid_size - 20px);
 		position: absolute;
 		top: -10px;
 		left: -10px + $mission_mid_size + 40px ;
@@ -507,11 +483,11 @@ header{
 }
 
 
-	.rotate{
-		-moz-transform: scaleY(-1);
-        -o-transform: scaleY(-1);
-        -webkit-transform: scaleY(-1);
-        transform: scaleY(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
-    }
+.rotate{
+	-moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}

@@ -15,55 +15,46 @@
 		<label for="navigation"></label>
 	</header>
 	
-	<div class="container">
-		
+<div class="container">
+	
+	<div class="week"><span>&lt;</span><p>19-25 maja</p><span>&gt;</span> </div>		
 
+	<div class="progress"> 
+		<div class="progress-bar"> 
+			<div class="progress-undone"> </div>
+			<div class="progress-wait"> </div>
+			<div class="progress-done"> </div> 
+			<div class="logo">7</div>
+			<img src="assets/bohater.png" class="bohater">
+		</div>
+	</div>
 
-		<div class="week"><span>&lt;</span><p>19-25 maja</p><span>&gt;</span> </div>		
+	<div class="filter">
+		<button class="show-all"><span>6</span> <span>15</span></button>
+		<button class="show-undone"><span>6</span></button>
+		<button class ="show-wait"><span>3</span></button>
+		<button class="show-done"><span>10</span></button>
+		<div class="back"></div>
+	</div>
 
-		<div class="progress"> 
-			<!-- <p>Jeszcze <span>5</span> zadań do kolejnej odznaki</p> -->
-			<div class="progress-bar"> 
-				<div class="progress-undone"> </div>
-				<div class="progress-wait"> </div>
-				<div class="progress-done"> </div> 
-				<div class="logo">7</div>
-				<img src="assets/bohater.png" class="bohater">
-			</div>
+	<div class="day"> <p> PN <span> &#x25BC; </span> </p>
 
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>		
 		</div>
 
-		<div class="filter">
-
-			<button class="show-all"><span>6</span> <span>15</span></button>
-			<button class="show-undone"><span>6</span></button>
-			<button class ="show-wait"><span>3</span></button>
-			<button class="show-done"><span>10</span></button>
-			
-			<div class="back"></div>
-		</div>
-
-		<div class="one-day">
-			<p class="day">PN <span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>PN</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/cleaning.svg'></li>
 				<li class ="circle-mid"><img src='assets/laundry.svg'></li>
@@ -76,27 +67,25 @@
 				<li class="circle-mid"><img src='assets/wash.svg'></li>
 				<li class="circle-mid"><img src='assets/clean.svg'></li>
 			</ul>	
+		</div>		
+	</div>
+
+	<div class="day"> <p> WT <span> &#x25BC; </span> </p>
+
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+				<li class="circle-small"></li>
+			</ul>		
 		</div>
 
-		<div class="one-day">
-			<p class="day">WT <span> &#x25BC; </span></p>
-			<div class="line ">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>WT</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/cooking.svg'></li>
 				<li class ="circle-mid"><img src='assets/pet.svg'></li>
@@ -107,28 +96,26 @@
 			<ul class="mission-done"> 
 				<li class="circle-mid"><img src='assets/garbage.svg'></li>
 			</ul>	
+		</div>		
+	</div>
+
+	<div class="day"> <p> ŚR <span> &#x25BC; </span> </p>
+
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>		
 		</div>
 
-		<div class="one-day">
-			<p class="day">ŚR <span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>ŚR</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/ironing.svg'></li>
 				<li class="circle-mid"><img src='assets/pillow.svg'></li>
@@ -139,61 +126,56 @@
 			<ul class="mission-done"> 
 				<li class="circle-mid"><img src='assets/carpentry.svg'></li>
 				<li class ="circle-mid"><img src='assets/toaster.svg'></li>
+			</ul>
+		</div>		
+	</div>
+
+	<div class="day"> <p> CZ <span> &#x25BC; </span> </p>
+
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
 			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+			</ul>		
 		</div>
 
-		<div class="one-day">
-			<p class="day">CZ <span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>CZ</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/vacuum-cleaner.svg'></li>
 				<li class="circle-mid"><img src='assets/basket.svg'></li>
 			</ul>	
 			<ul class="mission-wait"> 
 				<li class="circle-mid"><img src='assets/book.svg'></li>
-			</ul>	
-			<ul class="mission-done"> 
 				<li class="circle-mid"><img src='assets/carpentry.svg'></li>
 			</ul>	
-		</div>	
+			<ul class="mission-done"> 		
+			</ul>	
+		</div>		
+	</div>
 
-		<div class="one-day">
-			<p class="day">PT <span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
+	<div class="day"> <p> PT <span> &#x25BC; </span> </p>
 
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>		
 		</div>
 
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>PT</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/toothbrush.svg'><img src='assets/moon.svg' class="add"></li>
 				<li class="circle-mid"><img src='assets/like.svg'></li>
@@ -205,28 +187,26 @@
 			<ul class="mission-done"> 
 				<li class="circle-mid"><img src='assets/garbage.svg'></li>
 				<li class ="circle-mid"><img src='assets/toothbrush.svg'><img src='assets/sun.svg' class="add"></li>
+			</ul>
+		</div>		
+	</div>	
+
+	<div class="day"> <p> SB <span> &#x25BC; </span> </p>
+
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
 			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>		
 		</div>
 
-		<div class="one-day">
-			<p class="day">SB <span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>SB</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/car.svg'></li>
 			</ul>	
@@ -236,30 +216,28 @@
 			<ul class="mission-done"> 
 				<li class="circle-mid"><img src='assets/cooking.svg'></li>
 				<li class ="circle-mid"><img src='assets/pet.svg'></li>
+			</ul>
+		</div>		
+	</div>	
+
+	<div class="day"> <p> ND <span> &#x25BC; </span> </p>
+
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
 			</ul>	
+			<ul class="small-mission-wait">
+				<li class="circle-small"></li>
+			</ul>		
+			<ul class="small-mission-done">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>		
 		</div>
 
-		<div class="one-day">
-			<p class="day">ND <span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-					<li class="circle-small"></li>
-				</ul>		
-				<ul class="small-mission-done">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-			<p class="day" hidden>ND</p>
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/tooth.svg'><img src='assets/sun.svg' class="add"></li>
 				<li class="circle-mid"><img src='assets/wash.svg'></li>
@@ -272,25 +250,23 @@
 				<li class="circle-mid"><img src='assets/cleaning.svg'></li>
 				<li class ="circle-mid"><img src='assets/laundry.svg'></li>
 			</ul>	
+		</div>		
+	</div>	
+
+	<div class="day"> <p> TYG <span> &#x25BC; </span> </p>
+
+		<div class="day-line">
+			<ul class="small-mission-undone">
+				<li class="circle-small"></li>
+				<li class="circle-small"></li>
+			</ul>	
+			<ul class="small-mission-wait">
+			</ul>		
+			<ul class="small-mission-done">
+			</ul>		
 		</div>
 
-		<div class="one-day">
-			<p class="day">TYG<span> &#x25BC; </span></p>
-			<div class="line">
-				<ul class="small-mission-undone">
-					<li class="circle-small"></li>
-					<li class="circle-small"></li>
-				</ul>	
-				<ul class="small-mission-wait">
-				</ul>		
-				<ul class="small-mission-done">
-				</ul>		
-			</div>
-
-		</div>
-
-		<div class="one-full-day" hidden>
-<!-- 			<p class="day" hidden>TYG</p> -->
+		<div class="day-details" hidden>
 			<ul class="mission-undone"> 
 				<li class="circle-mid"><img src='assets/cooking.svg'></li>
 				<li class ="circle-mid"><img src='assets/pet.svg'></li>
@@ -298,14 +274,14 @@
 			<ul class="mission-wait"> 
 			</ul>	
 			<ul class="mission-done"> 
-			</ul>	
-		</div>
-	
+			</ul>		
+		</div>		
+	</div>	
 
-		<div class="thumb-down" hidden><img src='assets/dislike.svg'></div>
-		<div class="thumb-up" hidden><img src='assets/like.svg'></div>
+	<div class="thumb-down" hidden><img src='assets/dislike.svg'></div>
+	<div class="thumb-up" hidden><img src='assets/like.svg'></div>
 
-	</div>
-	<script src="js/skrypt.js"></script>
+</div>
+<script src="js/skrypt.js"></script>
 </body>
 </html>
