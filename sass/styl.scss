@@ -248,7 +248,7 @@ header{
 	img.bohater{
 		width: 20%;
 		position: absolute;
-		left: -$odznaki_left;
+		left: 0.85*-20%;
 		top: -100px;
 		z-index: 500;
 	}
@@ -407,7 +407,7 @@ header{
 }
 
 .kid .day{
-	p {	background-color: $color_alert;}	
+	p {	background-color: $color_base;}	
 }
 
 .day-line {
@@ -417,7 +417,7 @@ header{
 	margin-left: $odznaki_left;
 	//border: $color_light_grey 5px solid;
 	//height: 5px;
-	margin-top: $day_height / 2 - 2.5px;
+	margin-top: 20px;
 	text-align: center;	
 
 	.small-mission-undone {
