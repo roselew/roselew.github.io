@@ -234,10 +234,11 @@ header{
 
 	}
 	img.bohater{
-		width: $odznaki_left;
+		width: 1.5*$odznaki_left;
 		position: absolute;
 		left: -$odznaki_left;
-		bottom: -50px;
+		bottom: -100px;
+		z-index: 500;
 	}
 
 }
