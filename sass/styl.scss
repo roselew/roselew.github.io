@@ -3,8 +3,26 @@
 
 @import 'reset';
 
-body {
+body.kid{background-color: $color_back_kid;}
+body.parent{background-color: $color_back_parent;}
+
+.kid header{
 	background-color: $color_back_kid;
+	.header-banner {
+		background-color: $color_base;
+		color: $color_text_kid;			
+	}
+	label[for="navigation"] {
+		display:none;
+	}
+}
+
+.parent header{
+	background-color: $color_back_parent;
+	.header-banner {
+		background-color: white;
+		color: $color_base;
+	}
 }
 
 header{
@@ -14,7 +32,6 @@ header{
 	width: 100%;
 	height: $header_height;
 	z-index: 1000;
-	background-color: $color_back_kid;
 	
 	.logo {
 		position: fixed;
@@ -46,16 +63,6 @@ header{
 		vertical-align: middle;
 	}
 
-	.header-parent {
-		background-color: white;
-		color: $color_base;
-	}
-
-	.header-kid {
-		background-color: $color_base;
-		color: white;
-	}
-
 	.navigation {
 		position: absolute;
 		clip: rect(0, 0, 0, 0);	
@@ -68,7 +75,7 @@ header{
 	  height: $header_hamburger_size;
 	  width: $header_hamburger_size;
 	  cursor: pointer;
-	  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+	  background-image: url(../assets/menu-button.svg);
 	  background-size: contain;
 	  z-index: 999;
 	}
@@ -87,7 +94,6 @@ header{
 		left: 0px;
 		width: 100%;
 		height: 100vh;
-		background-color: rgba($color_alert,0.95);
 		color:$color_text_kid;
 		font: $font_big_size $font_reg_family;
 		text-align: center;
@@ -127,12 +133,19 @@ header{
 	}
 }
 
+.parent .alert{
+	background-color: rgba($color_dark_grey,0.95);
+}
+
+.kid .alert{
+	background-color: rgba($color_alert,0.95);
+}
+
 .week {
 	position: relative;
 	margin: 10px 0px 30px 0px;
 	width: 100%;
 	text-align: center;
-	color: $color_text_kid;
 	font: $font_big_size $font_reg_family; 
 
 	p{ display: inline-block;}
@@ -147,6 +160,14 @@ header{
 		line-height: 1.5*$mission_small_size;
 		cursor: pointer;
 	}
+}
+
+.parent .week{
+	color:$color_text_parent;
+}
+
+.kid .week{
+	color: $color_text_kid;
 }
 
 .progress {
@@ -172,7 +193,6 @@ header{
 			width: $progressbar_width;
 			height: $progressbar_height;
 			border-radius: 5px;
-			background-color: $color_alert;
 		}
 
 		.progress-wait {
@@ -182,13 +202,6 @@ header{
 			width: 80%;
 			height: $progressbar_height;
 			border-radius: 5px;
-			background: repeating-linear-gradient(
-			  45deg,
-			  $color_base,
-			  $color_base 10px,
-			  $color_alert 10px,
-			  $color_alert 20px
-			);
 		}
 
 		.progress-done {
@@ -198,7 +211,7 @@ header{
 			width: 60%;
 			height: $progressbar_height;
 			border-radius: 5px;
-			background-color: $color_base;		
+			background-color: $color_base;
 		}
 
 		p{
@@ -242,6 +255,45 @@ header{
 
 }
 	
+.parent .progress{
+	.progress-wait{
+		background: repeating-linear-gradient(
+		45deg,
+		$color_base,
+		$color_base 10px,
+		$color_dark_grey 10px,
+		$color_dark_grey 20px
+		);
+	}
+
+	.progress-undone {
+		background-color: $color_dark_grey;		
+	}
+
+	img.bohater {
+		display:none;
+	}
+}
+
+
+.kid .progress{
+	.progress-wait{
+		background: repeating-linear-gradient(
+		45deg,
+		$color_base,
+		$color_base 10px,
+		$color_alert 10px,
+		$color_alert 20px
+		);
+	}
+
+	.progress-undone {
+		background-color: $color_alert;		
+	}
+
+
+}
+
 .filter{
 	position:relative;
 	padding:10px;
@@ -265,7 +317,6 @@ header{
 		color: $color_text_kid;
 		line-height: $day_height;
 		cursor: pointer;
-		background-color: $color_back_kid;
 		margin-left: 4%;
 		//margin-right: 4%; 
 		background-size: 0.8* $day_height;
@@ -288,12 +339,14 @@ header{
 	}
 	.show-done {border-color: $color_done;
 		background-image: url(../assets/like.svg);	
-		span{background-color: $color_done;}}
+		span{background-color: $color_done;}
+	}
 	.show-all {
 		background-color: $color_base;
 	 	background-image: url(../assets/filter.svg);	
 	 	border-color: $color_base;
-		span{background-color: $color_base;}}
+		span{background-color: $color_base;}
+	}
 
 	span{
 		display: inline-block;
@@ -307,8 +360,19 @@ header{
 		font: $font_small_size $font_reg_family;
 		line-height: $mission_small_size;
 	}
+}
 
 
+.parent .filter{
+	button{
+		background-color: $color_back_parent;
+	}
+}
+
+.kid .filter{
+	button{
+		background-color: $color_back_kid;
+	}
 }
 
 .day{
@@ -322,7 +386,7 @@ header{
 		display: inline-block;
 		width:$odznaki_left;
 		height: $day_height;
-		background-color: $color_base;
+
 		border-radius: 50px;
 		color: $color_text_kid;
 		font: $font_mid_size $font_reg_family;
@@ -338,21 +402,27 @@ header{
 	}
 }
 
+.parent .day{
+	p {	background-color: $color_dark_grey;}
+}
+
+.kid .day{
+	p {	background-color: $color_alert;}	
+}
 
 .day-line {
-	display: inline-block;
 	position: relative;
 	width: 100%-$odznaki_left;
 	height: $day_height;
 	margin-left: $odznaki_left;
-	background-color: $color_light_grey;
-	height: 5px;
+	//border: $color_light_grey 5px solid;
+	//height: 5px;
 	margin-top: $day_height / 2 - 2.5px;
 	text-align: center;	
 
 	.small-mission-undone {
 		float:left;
-		margin-top: -30px;
+		margin-top: 15px;
 		display: inline-block;
 
 		.circle-small {
@@ -361,7 +431,7 @@ header{
 	}
 
 	.small-mission-wait {
-		margin-top: -30px;
+		margin-top: 15px;
 		display: inline-block;
 
 		.circle-small {
@@ -371,7 +441,7 @@ header{
 
 	.small-mission-done {	
 		float:right;
-		margin-top: -30px;
+		margin-top: 15px;
 		display: inline-block;
 
 		.circle-small {
@@ -380,17 +450,39 @@ header{
 	}
 }
 
+.day-line:after {
+    content:"";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width:100%;
+    height: 50%;
+
+}
+
+.kid .day-line:after {
+    border-bottom: 5px solid $color_light_grey;	
+}
+
+.parent .day-line:after {
+    border-bottom: 5px solid $color_dark_grey;	
+}
+
 .day-details {
 	width: 100%-$odznaki_left;
 	position: relative;
 	margin-left: $odznaki_left;
-	//padding-bottom: 20px;
-	//padding-top: 20px;
-	background: $color_alert;
 	border-radius: 5px;
 }
 
+.kid .day-details {
+	background: $color_alert;
+}
 
+.parent .day-details {
+	background-color: $color_light_grey;
+}
 .circle-big{ 
 	display: inline-block;
 	height: $mission_big_size;

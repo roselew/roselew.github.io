@@ -4,6 +4,7 @@ var color_wait= '#FFBA5C'; // yellow
 var color_undone= '#F95F62'; //red
 var color_base= '#00A6FF'; //blue
 var color_back_kid = '#0C1A3F'; 
+var color_back_parent= '#E6E8E5';
 
 // show full day
 $('.day>p').on('click',function(event){
@@ -102,23 +103,28 @@ function hideAll(){
 }
 
 function deleteBackground(){
-	$('.show-undone').css('background-color',color_back_kid)
-	$('.show-wait').css('background-color',color_back_kid)
-	$('.show-done').css('background-color',color_back_kid)
-	$('.show-all').css('background-color',color_back_kid)
+	$('.parent .show-undone').css('background-color',color_back_parent)
+	$('.parent .show-wait').css('background-color',color_back_parent)
+	$('.parent .show-done').css('background-color',color_back_parent)
+	$('.parent .show-all').css('background-color',color_back_parent)
+
+	$('.kid .show-undone').css('background-color',color_back_kid)
+	$('.kid .show-wait').css('background-color',color_back_kid)
+	$('.kid .show-done').css('background-color',color_back_kid)
+	$('.kid .show-all').css('background-color',color_back_kid)
 }
 
 function showAlert(message,type) {
 	$('.container').append($('<div class ="alert"> <span onclick="hideAlert()"> X </span> <p>' + message + '</p> </div>'))
 	if (type=="wait") {
-		$('.alert>p').prepend($('<img src="assets/hourglass.svg"> <br>'));
-		$('img.bohater').animate({
+		$('.kid .alert>p').prepend($('<img src="assets/hourglass.svg"> <br>'));
+		$('.kid img.bohater').animate({
  	 		width: "60%",
 		},1500)
 	}
 	if (type=="done") {
-		$('.alert>p').prepend($('<img src="assets/like.svg"> <br>'));
-		$('img.bohater').animate({
+		$('.kid .alert>p').prepend($('<img src="assets/like.svg"> <br>'));
+		$('.kid img.bohater').animate({
  	 		width: "60%",
 		},1500)
 	}

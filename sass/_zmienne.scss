@@ -3,7 +3,7 @@ $color_base:#00A6FF; // base color, neutral for missions
 $color_base2: #C0392B; // second base color (logo etc.)
 $color_back_kid: #0C1A3F; // background for kids 
 $color_back_parent: #E6E8E5; // background for parents
-$color_dark_grey: darken($color_back_parent,30%); // darker than back_parent
+$color_dark_grey: #777B88; // darker than back_parent
 $color_light_grey: lighten($color_back_parent,10%); // lighter than back_parent
 $color_done: #13CE66; // green
 $color_wait: #FFBA5C; // yellow
