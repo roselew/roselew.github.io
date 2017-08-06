@@ -80,19 +80,6 @@ header{
 	top: $header_height;
 	left: 0px;
 
-	.left {
-		float: left;
-		position:relative;
-		width: $odznaki_left;
-	}
-
-	.right {
-		float: right;
-		position:relative;
-		width: (100% - $odznaki_left);
-		text-align: center;
-	}
-
 	.alert{
 		position:fixed;
 		display: block;
@@ -143,8 +130,8 @@ header{
 
 .week {
 	position: relative;
-	margin: 10px 0px 30px $odznaki_left;
-	width: (100%-$odznaki_left);
+	margin: 10px 0px 30px 0px;
+	width: 100%;
 	text-align: center;
 	color: $color_text_kid;
 	font: $font_big_size $font_reg_family; 
@@ -165,30 +152,34 @@ header{
 
 .progress {
 	position: relative;
-	margin-left: $odznaki_left;
-	width: (100%-$odznaki_left);
+	padding-left: $odznaki_left;
+	width: 100%;
 	text-align: center;
 	font: $font_mid_size $font_reg_family; 
 	color: $color_text_kid;
 
 	.progress-bar {
 		position: relative;
-		left:2%;
+		//left:2%;
 		margin-top: 10px;
 		height: $progressbar_height;
 		width: 100%;
 		margin-bottom: 50px;
 
 		.progress-undone {
-			position: relative;
+			position: absolute;
+			left:0px;
+			top:0px;
 			width: $progressbar_width;
 			height: $progressbar_height;
 			border-radius: 5px;
-			background-color: $color_dark_grey;
+			background-color: $color_alert;
 		}
 
 		.progress-wait {
-			position: relative;
+			position: absolute;
+			left:0px;
+			top:0px;
 			width: 80%;
 			height: $progressbar_height;
 			border-radius: 5px;
@@ -196,13 +187,15 @@ header{
 			  45deg,
 			  $color_base,
 			  $color_base 10px,
-			  white 10px,
-			  white 20px
+			  $color_alert 10px,
+			  $color_alert 20px
 			);
 		}
 
 		.progress-done {
-			position: relative;
+			position: absolute;
+			left:0px;
+			top:0px;
 			width: 60%;
 			height: $progressbar_height;
 			border-radius: 5px;
@@ -244,7 +237,7 @@ header{
 		width: $odznaki_left;
 		position: absolute;
 		left: -$odznaki_left;
-		bottom: 0px;
+		bottom: -50px;
 	}
 
 }
@@ -252,10 +245,11 @@ header{
 .filter{
 	position:relative;
 	padding:10px;
+	width: 100%-%odznaki_left;
 	background-color: $color_alert;
-	padding-left: $odznaki_left;
+	margin-left: $odznaki_left;
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	border-radius: 5px;
 
 	button{
@@ -263,7 +257,7 @@ header{
 		display: inline-block;
 		height:$day_height;
 		width: $odznaki_left;
-		border-radius: 5px;
+		border-radius: 50px;
 		border-width: 2px;
 		border-style: solid;
 		font: $font_mid_size $font_reg_family;
@@ -272,8 +266,8 @@ header{
 		line-height: $day_height;
 		cursor: pointer;
 		background-color: $color_back_kid;
-		margin-left: 2%;
-		margin-right: 2%; 
+		margin-left: 4%;
+		//margin-right: 4%; 
 		background-size: 0.8* $day_height;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -297,7 +291,7 @@ header{
 		span{background-color: $color_done;}}
 	.show-all {
 		background-color: $color_base;
-	 	background-image: url(../assets/traffic-light.svg);	
+	 	background-image: url(../assets/filter.svg);	
 	 	border-color: $color_base;
 		span{background-color: $color_base;}}
 
@@ -319,8 +313,9 @@ header{
 
 .one-day{
 	height: $day_height;
+	width: 100%;
 	position: relative;
-	width: 100%-$odznaki_left;
+	width: 100% - $odznaki_left;
 	margin-left: $odznaki_left;
 	margin-top: $day_margin;
 
@@ -383,10 +378,10 @@ header{
 
 .day{
 	position: absolute;
-	left:-$odznaki_left;
-	width: $odznaki_left;
+	left:-1.17* $odznaki_left;
+	width: 1.17*$odznaki_left;
 	height: $day_height;
-	border-radius: 5px;
+	border-radius: 50px;
 	background-color: $color_base;
 	color: $color_text_kid;
 	font: $font_mid_size $font_reg_family;
