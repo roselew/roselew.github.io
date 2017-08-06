@@ -92,9 +92,11 @@ header{
 		font: $font_big_size $font_reg_family;
 		text-align: center;
 		vertical-align:middle;
-		line-height: 100vh;
 		z-index: 499;
-
+		
+		p{
+			margin-top: 40vh;
+		}
 		span {
 			position: absolute;
 			display: block;
@@ -112,9 +114,6 @@ header{
 		}
 
 		img {
-		position:absolute;
-		margin:auto;
-		top:50px;
 		width: $mission_mid_size;
 		height: $mission_mid_size;
 		-webkit-animation:spin 4s linear infinite;

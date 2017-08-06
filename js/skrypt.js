@@ -111,10 +111,10 @@ function deleteBackground(){
 function showAlert(message,type) {
 	$('.container').append($('<div class ="alert"> <span onclick="hideAlert()"> X </span> <p>' + message + '</p> </div>'))
 	if (type=="wait") {
-		$('.alert').append($('<img src="assets/hourglass.svg">'));
+		$('.alert>p').prepend($('<img src="assets/hourglass.svg"> <br>'));
 	}
 	$('img.bohater').animate({
- 	 	width: "40%"
+ 	 	width: "60%",
 	},1500)
 
 }
