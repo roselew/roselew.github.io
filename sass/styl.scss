@@ -308,8 +308,8 @@ header{
 		position:relative;
 		display: inline-block;
 		height:$day_height;
-		width: $odznaki_left;
-		border-radius: 50px;
+		width: 20%;
+		border-radius: 0px;
 		border-width: 2px;
 		border-style: solid;
 		font: $font_mid_size $font_reg_family;
@@ -317,10 +317,11 @@ header{
 		color: $color_text_kid;
 		line-height: $day_height;
 		cursor: pointer;
-		margin-left: 4%;
+		margin-left: 0%;
+		padding-left: 10px;
 		//margin-right: 4%; 
 		background-size: 0.8* $day_height;
-		background-position: center center;
+		background-position: left 20px center;
 		background-repeat: no-repeat;
 	}
 	.show-undone {
@@ -339,20 +340,24 @@ header{
 	}
 	.show-done {border-color: $color_done;
 		background-image: url(../assets/like.svg);	
+		border-top-right-radius: 50px;
+	 	border-bottom-right-radius: 50px;
 		span{background-color: $color_done;}
 	}
 	.show-all {
 		background-color: $color_base;
 	 	background-image: url(../assets/filter.svg);	
 	 	border-color: $color_base;
+	 	border-top-left-radius: 50px;
+	 	border-bottom-left-radius: 50px;
 		span{background-color: $color_base;}
 	}
 
 	span{
 		display: inline-block;
 		position: absolute;
-		right: -10px;
-		top: -10px;
+		right: 20px;
+		bottom: 25px;
 		color: $color_text_kid;
 		height: $mission_small_size;
 		width: $mission_small_size;
