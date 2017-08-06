@@ -136,8 +136,8 @@ function hideAlert() {
 	$('.alert').remove()
 	$('.circle-mid').css('z-index','auto')
 	$('.thumb-up,.thumb-down').hide().appendTo($('.container'))
-	$('img.bohater').animate({
- 	 	width: "20%"
+	$('.progress img.bohater').animate({
+ 	 	width: "20%",
 	},1500)
 }
 

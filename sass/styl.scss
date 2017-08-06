@@ -248,7 +248,7 @@ header{
 	img.bohater{
 		width: 20%;
 		position: absolute;
-		left: 0.85*-20%;
+		left: -18%;
 		top: -100px;
 		z-index: 500;
 	}
@@ -297,7 +297,7 @@ header{
 .filter{
 	position:relative;
 	padding:10px;
-	width: 100%-%odznaki_left;
+	width: 100%-$odznaki_left;
 	//background-color: $color_alert;
 	margin-left: $odznaki_left;
 	text-align: center;
@@ -308,7 +308,7 @@ header{
 		position:relative;
 		display: inline-block;
 		height:$day_height;
-		width: 20%;
+		width: 24%;
 		border-radius: 0px;
 		border-width: 2px;
 		border-style: solid;
