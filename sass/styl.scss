@@ -345,7 +345,6 @@ header{
 		span{background-color: $color_done;}
 	}
 	.show-all {
-		background-color: $color_base;
 	 	background-image: url(../assets/filter.svg);	
 	 	border-color: $color_base;
 	 	border-top-left-radius: 50px;
@@ -370,13 +369,16 @@ header{
 
 .parent .filter{
 	button{
-		background-color: $color_back_parent;
+		background-color: $color_back_parent;	
 	}
+	.show-all{background-color: $color_base};
 }
 
 .kid .filter{
 	button{
 		background-color: $color_back_kid;
+	}
+	.show-all{background-color: $color_base;
 	}
 }
 
