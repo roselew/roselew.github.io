@@ -341,12 +341,12 @@ header{
 		display: inline-block;
 		position: absolute;
 		right: 20%;
-		bottom: 15px;
+		bottom: 11px;
 		color: $color_text_kid;
-		height: $mission_small_size;
-		width: $mission_small_size;
+		height: $mission_small_size+5px;
+		width: $mission_small_size+5px;
 		border-radius: $mission_small_size;
-		font: $font_small_size $font_reg_family;
+		font: $font_mid_size $font_reg_family;
 		line-height: $mission_small_size;
 	}
 }
@@ -381,15 +381,15 @@ header{
 
 		border-radius: 50px;
 		color: $color_text_kid;
-		font: $font_mid_size $font_reg_family;
+		font: $font_big_size $font_reg_family;
 		text-align: center;
 		line-height: $day_height;
 		cursor: pointer;
 		span{
-			font: $font_small_size $font_reg_family;
+			font: $font_mid_size $font_reg_family;
 			position: absolute;
-			right: 10px;
-			top: $day_height/2 - $font_small_size/2;
+			right: 15px;
+			top: $day_height/2 - $font_mid_size/2;
 		}	
 	}
 }
