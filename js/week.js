@@ -181,13 +181,15 @@
 		if (dayDetails.is(":hidden")) {
 			//slowly show
 			dayDetails.slideDown('slow')
-			//change arrow type
+			//change arrow type and background
 			$(dayButton).children('span').html('&#x25B2')
+			$(dayButton).css('background-color',color.base)
 		} else {
 			//slowly hide
 			dayDetails.slideUp('slow')
 			//change arrow type
-			$(dayButton).children('span').html('&#x25BC');
+			$(dayButton).children('span').html('&#x25BC')
+			$(dayButton).css('background-color',color.alert)
 		}
 	}
 

@@ -156,7 +156,7 @@ header{
 		width: 1.5*$mission_small_size;
 		height: 1.5*$mission_small_size;
 		border-radius: $mission_small_size;
-		background-color: $color_base;
+		background-color: $color_alert;
 		color: white;
 		margin: 0px 10%;
 		line-height: 1.5*$mission_small_size;
@@ -399,7 +399,7 @@ header{
 }
 
 .kid .day{
-	p {	background-color: $color_base;}	
+	p {	background-color: $color_alert;}	
 }
 
 .day-line {
