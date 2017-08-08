@@ -3,6 +3,8 @@
 
 @import 'reset';
 
+
+
 body.kid{background-color: $color_back_kid;}
 body.parent{background-color: $color_back_parent;}
 
@@ -191,7 +193,9 @@ header{
 			top:0px;
 			width: 100%;
 			height: $progressbar_height;
-			border-radius: 5px;
+			border-radius: 20px 0px 0px 20px;
+			border-bottom-left-radius: 20px;
+			border-top-left-radius: 20px;
 		}
 
 		.progress-wait {
@@ -200,7 +204,7 @@ header{
 			top:0px;
 			width: 80%;
 			height: $progressbar_height;
-			border-radius: 5px;
+			border-radius: 20px 0px 0px 20px;
 		}
 
 		.progress-done {
@@ -209,7 +213,7 @@ header{
 			top:0px;
 			width: 60%;
 			height: $progressbar_height;
-			border-radius: 5px;
+			border-radius: 20px 0px 0px 20px;
 			background-color: $color_base;
 		}
 
@@ -291,40 +295,35 @@ header{
 	border-radius: 5px;
 
 	button{
-		position:relative;
+		position: relative;
 		display: inline-block;
-		height:$day_height;
+		height: $filter_height;
 		width: 24%;
 		border-radius: 0px;
 		border-width: 2px;
 		border-style: solid;
 		font: $font_mid_size $font_reg_family;
-		//text-align: center;
 		color: $color_text_kid;
-		line-height: $day_height;
+		line-height: $filter_height;
 		cursor: pointer;
 		margin-left: 0%;
 		padding-left: 10px;
-		//margin-right: 4%; 
-		background-size: 0.8* $day_height;
-		background-position: left 20px center;
+		background-size: 0.8*$filter_height;
+		background-position: left 20% center;
 		background-repeat: no-repeat;
 	}
 	.show-undone {
 		border-color: $color_undone;
 		background-image: url(../assets/dislike.svg);	
-		// -webkit-transform: rotate(180deg);
-  //   	-moz-transform: rotate(180deg);
-  //   	-ms-transform: rotate(180deg);
-  //   	-o-transform: rotate(180deg);
-  //   	transform: rotate(180deg);
 		span{background-color: $color_undone;}
 	}
-	.show-wait {border-color: $color_wait;
+	.show-wait {
+		border-color: $color_wait;
 		background-image: url(../assets/hourglass.svg);	
 		span{background-color: $color_wait;}
 	}
-	.show-done {border-color: $color_done;
+	.show-done {
+		border-color: $color_done;
 		background-image: url(../assets/like.svg);	
 		border-top-right-radius: 50px;
 	 	border-bottom-right-radius: 50px;
@@ -341,8 +340,8 @@ header{
 	span{
 		display: inline-block;
 		position: absolute;
-		right: 20px;
-		bottom: 25px;
+		right: 20%;
+		bottom: 15px;
 		color: $color_text_kid;
 		height: $mission_small_size;
 		width: $mission_small_size;
@@ -408,8 +407,6 @@ header{
 	width: 100%-$odznaki_left;
 	height: $day_height;
 	margin-left: $odznaki_left;
-	//border: $color_light_grey 5px solid;
-	//height: 5px;
 	margin-top: 20px;
 	text-align: center;	
 
@@ -543,6 +540,23 @@ header{
 		left: -10px + $mission_mid_size + 40px ;
 		z-index: 500;
 	}	
+
+	.star {
+		fill: yellow;
+		position: absolute;
+		top:-20px;
+		right:-30px;
+		width: 80px;
+		height: 80px;
+	}
+
+	span{
+		position: absolute;
+		top:0px;
+		right:0px;
+		color:white;
+		font: $font_mid_size $font_reg_family;
+	}
 }
 
 .circle-small {

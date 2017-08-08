@@ -7,6 +7,8 @@ base: '#00A6FF', //blue
 back_kid: '#0C1A3F', 
 back_parent: '#E6E8E5'}
 
+var starSvg='<svg class="star" viewBox="0 0 19.481 19.481" enable-background="new 0 0 19.481 19.481"><path d="m10.201,.758l2.478,5.865 6.344,.545c0.44,0.038 0.619,0.587 0.285,0.876l-4.812,4.169 1.442,6.202c0.1,0.431-0.367,0.77-0.745,0.541l-5.452-3.288-5.452,3.288c-0.379,0.228-0.845-0.111-0.745-0.541l1.442-6.202-4.813-4.17c-0.334-0.289-0.156-0.838 0.285-0.876l6.344-.545 2.478-5.864c0.172-0.408 0.749-0.408 0.921,0z"/></svg>'
+
 var weekday = new Array(7);
 weekday[0] = "PN";
 weekday[1] = "WT";
@@ -239,7 +241,6 @@ function findUserMission(missionId){
 $(document).on('addDoneMission', function (event, missionId, doneDate){
 	var newDoneMission = { missionId: missionId, doneDate: doneDate};
 	doneMissions.push(newDoneMission)
-	console.log(findDoneMission(waitMissions,missionId,doneDate))
 	$(document).trigger('showWeek')
 })
 

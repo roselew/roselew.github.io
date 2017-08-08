@@ -33,7 +33,7 @@
 			//finds mission index by missionId
 			var missionIndex = findUserMission(missionId)
 			dayIndex.find('.small-mission-'+stateName).append($('<li class="circle-small"></li>'))
-			dayIndex.find('.mission-'+stateName).append($('<li class="circle-mid" name='+missionId+'><img src=' + userMissions[missionIndex].icon +'></li>'))
+			dayIndex.find('.mission-'+stateName).append($('<li class="circle-mid" name='+missionId+'><img src=' + userMissions[missionIndex].icon +'>'+starSvg+'<span>'+userMissions[missionIndex].points+'</li>'))
 		})
 	}
 
@@ -68,6 +68,11 @@
 			showDay(oneDay)
 		}
 
+		//change color of all star
+		$('.day li').each(function(){	
+			$(this).find('svg path').css('fill',$(this).css('border-color'))
+		})
+
 		//update progress bar
 		$(document).trigger('updateProgress');
 
@@ -77,6 +82,9 @@
 		} else {
 			$('.week p').text(startDay.getDate()+ ' ' + startDayMonth+ ' - '+ endDay.getDate() + ' '+ endDayMonth)
 		}
+
+		//update filter view
+		$(document).trigger('updateFilterView');
 	})
 
 
@@ -97,15 +105,10 @@
 // ----- filtering
 
 	// click event on all filter buttons
-	$('.show-undone').on('click',function(){showOnly('undone')})
-	$('.show-wait').on('click',function(){showOnly('wait')})
-	$('.show-done').on('click',function(){showOnly('done')})
-	$('.show-all').on('click',function(){showAll()})
-	//show day details only in noFilterMode
-	$(document).on('noFilterMode',function(){
-		$('.day>p span').html('&#x25BC');
-		$('.day>p').on('click',function(){showDayDetails(this)})
-	})
+	$('.show-undone').on('click',function(){showOnly(this,'undone')})
+	$('.show-wait').on('click',function(){showOnly(this,'wait')})
+	$('.show-done').on('click',function(){showOnly(this,'done')})
+	$('.show-all').on('click',function(){showAll(this)})
 
 	// hide everything
 	function hideAll(){
@@ -121,7 +124,12 @@
 	}
 
 	//show only type missions in details mode
-	function showOnly(type) {
+	function showOnly(button,type) {
+
+		//remember which button clicked
+		$('.filter button').data('clicked',false)
+		$(button).data('clicked', true);
+
 		//first hide everything
 		hideAll()
 		//show only days that are not empty
@@ -130,18 +138,41 @@
 		// change button color
 		$('.show-'+type).css('background-color',color[type])
 		//turn off day detials buttons
-		$('.day>p').off('click')
-		$('.day>p span').html('');
+		turnOffDayButtons()
 	}
 
+
 	// show all missions but without details
-	function showAll() {
+	function showAll(button) {
+
+		//turn on day details buttons
+		turnOnDayButtons();
+
+		//remember which button clicked
+		$('.filter button').data('clicked',false)
+		$(button).data('clicked',true)
+
 		$('.day, .day-line, .day-details ul').show()
 		$('.day-details').hide()
 		deleteBackground()	
 		// change button color
 		$('.show-all').css('background-color',color.base)
-		$(document).trigger('noFilterMode')
+	}
+
+	function turnOnDayButtons(){
+		//add arrow down sign 
+		$('.day>p span').html('&#x25BC');
+		//turn off all actions on click (no click cumulation)
+		$('.day>p').off('click')
+		//turn on day details button
+		$('.day>p').on('click',function(){showDayDetails(this)})
+	}
+
+	function turnOffDayButtons(){
+		//turn off all actions on click
+		$('.day>p').off('click')
+		//remove arrow down sign
+		$('.day>p span').html('');
 	}
 
 	// show day details 
@@ -160,6 +191,15 @@
 		}
 	}
 
+	//clicks one more time filter button
+	//important becacuse filter hides days where no missions
+	$(document).on('updateFilterView',function(){
+		$('button').each(function(){
+			if ($(this).data('clicked')) {
+				$(this).trigger('click')
+		    }
+		})
+	})
 
 // ----- automatically starts after launching page
 
@@ -172,5 +212,7 @@
 	currentWeek.setDate(today.getDate()-today.getUTCDay())
 
 	//show all missions assigned for this week
+
 	$(document).trigger('showWeek')
 	$(document).trigger('noFilterMode')
+	$('.show-all').trigger('click')
