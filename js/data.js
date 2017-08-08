@@ -1,0 +1,289 @@
+
+var color={
+done: '#13CE66',// green
+wait: '#FFBA5C', // yellow
+undone: '#F95F62', //red
+base: '#00A6FF', //blue
+back_kid: '#0C1A3F', 
+back_parent: '#E6E8E5'}
+
+var weekday = new Array(7);
+weekday[0] = "PN";
+weekday[1] = "WT";
+weekday[2] = "ŚR";
+weekday[3] = "CZ";
+weekday[4] = "PT";
+weekday[5] = "SB";
+weekday[6] = "ND";
+
+var monthName= new Array(12);
+monthName[0]= "styczeń";
+monthName[1]= "luty";
+monthName[2]="marzec";
+monthName[3]="kwiecień";
+monthName[4]="maj";
+monthName[5]="czerwiec";
+monthName[6]="lipiec";
+monthName[7]="sierpień";
+monthName[8]="wrzesień";
+monthName[9]="październik";
+monthName[10]="listopad";
+monthName[11]="grudzień";
+
+
+var expertMissions = [
+	{ id:'1',	name: 'Zęby rano',				icon: 'assets/toothbrush.svg'	},
+	{ id:'2',	name: 'Zęby wieczór',			icon: 'assets/toothbrush.svg'	},
+	{ id:'3',	name: 'Posprzątać pokój',		icon: 'assets/room.svg'			},	
+	{ id:'4',	name: 'Poskładać zabawki',		icon: 'assets/block.svg'		},
+	{ id:'5',	name: 'Opróżnić zmywarkę',		icon: 'assets/dishwasher.svg'	},	
+	{ id:'6',	name: 'Wstawić pranie',			icon: 'assets/laundry.svg'		},
+	{ id:'7',	name: 'Pościelić łóżko',		icon: 'assets/bed.svg'			},
+	{ id:'8',	name: 'Odkurzyć podłogę',		icon: 'assets/vacuum.svg'		},
+	{ id:'9',	name: 'Umyć podłogę',			icon: 'assets/cleaning.svg'		},	
+	{ id:'10',	name: 'Nakryć stół',			icon: 'assets/cutlery.svg'		},
+	{ id:'11',	name: 'Posprzątać ze stołu',	icon: 'assets/table.svg'		},	
+	{ id:'12',	name: 'Wynieść śmieci',			icon: 'assets/garbage.svg'		},	
+	{ id:'13',	name: 'Posprzątać po zwierzątku',icon: 'assets/kennel.svg'		},	
+	{ id:'14',	name: 'Umyć auto',				icon: 'assets/car.svg'			},	
+	{ id:'15',	name: 'Zetrzeć kurze',			icon: 'assets/clean.svg'		},	
+	{ id:'16',	name: 'Nakarmić zwierzątko',	icon: 'assets/dog-food.svg'		},	
+	{ id:'17',	name: 'Wyprowadzić zwierzątko',	icon: 'assets/pet.svg'			},	
+	{ id:'18',	name: 'Rozpakować zakupy',		icon: 'assets/basket.svg'		},	
+	{ id:'19',	name: 'Pomoc w ogródku',		icon: 'assets/tree.svg'			},	
+	{ id:'20',	name: 'Umyć naczynia',			icon: 'assets/wash.svg'			},	
+	{ id:'21',	name: 'Odrobić pracę domową',	icon: 'assets/carpentry.svg'	},	
+	{ id:'22',	name: 'Przeczytać książkę',		icon: 'assets/book.svg'			},		
+	{ id:'23',	name: 'Poskładać ubrania',		icon: 'assets/shirt.svg'				},
+	{ id:'24',	name: 'Ubrać się samemu',		icon: 'assets/shirt.svg'		}	
+]
+
+var userMissions = [
+	{
+		id:'1',
+		name: 'Pościelić łóżko',
+		icon: 'assets/bed.svg',
+		points: 1,
+		frequency: 7,
+		days:[0,1,2,3,4,5,6],
+		confirm: true,
+		start: new Date('2017,05,02')	,
+	},
+	{
+		id:'2',
+		name: 'Odrobić pracę domową',
+		icon: 'assets/carpentry.svg',
+		points: 2,
+		frequency: 3,
+		days: [0,1,3,5],
+		confirm: true,
+		start: new Date('2017,05,02'),
+	},
+	{
+		id:'3',
+		name:'Zetrzeć kurze',
+		icon:'assets/clean.svg',
+		points: 1,
+		frequency: 3,
+		days:[0,2,4,6],
+		confirm: true,
+		start: new Date('2017,05,02'),
+	},
+	{
+		id:'4',
+		name:'Rozpakować zakupy',
+		icon:'assets/basket.svg',
+		points: 3,
+		frequency: 2,
+		days:[1,4],
+		confirm: true,
+		start: new Date('2017,05,02'),
+	}
+]
+
+var waitMissions = [
+	{ missionId: '3', doneDate: new Date('2017,08,07')},
+	{ missionId: '2', doneDate: new Date('2017,08,05')},
+	{ missionId: '3', doneDate: new Date('2017,08,04')},
+	{ missionId: '4', doneDate: new Date('2017,08,04')},
+	{ missionId: '2', doneDate: new Date('2017,08,03')},
+	{ missionId: '1', doneDate: new Date('2017,08,02')},
+	{ missionId: '1', doneDate: new Date('2017,07,31')},
+]
+
+var doneMissions = [
+	{ missionId: '8', doneDate: new Date('2017,08,07')},
+	{ missionId: '1', doneDate: new Date('2017,08,07')},
+	{ missionId: '1', doneDate: new Date('2017,08,06')},
+	{ missionId: '1', doneDate: new Date('2017,08,05')},
+	{ missionId: '7', doneDate: new Date('2017,08,04')},
+	{ missionId: '1', doneDate: new Date('2017,08,04')},
+	{ missionId: '6', doneDate: new Date('2017,08,03')},
+	{ missionId: '8', doneDate: new Date('2017,08,02')},
+	{ missionId: '3', doneDate: new Date('2017,07,31')},
+	{ missionId: '2', doneDate: new Date('2017,07,31')},
+]
+
+
+
+// -------READ FROM DATABASE ---------------
+
+
+//get from database ALL missions assigned for this DAY
+function getAllMissions(day){
+	var dayAllMissions = [];
+	userMissions.forEach(function(mission){
+		var startDate = new Date(mission.start)
+		//if Mission is started
+		if (day>=startDate) {
+			//if days given
+			if ((mission.days).length) {
+				//if day of the week ok
+				if (mission.days.indexOf(day.getUTCDay())!==-1){
+					dayAllMissions.push(mission.id)
+				}	
+			} 
+		}
+	})
+	return dayAllMissions;
+}
+
+//get from database all missions DONE this DAY
+function getDoneMissions(day){
+	var dayDoneMissions = [];
+	doneMissions.forEach(function(mission){
+		// compare doneDate with day
+		var doneDate = new Date(mission.doneDate);
+		if (day.getTime()==doneDate.getTime()) {
+			dayDoneMissions.push(mission.missionId);
+		}
+	})
+	return dayDoneMissions;
+}
+
+//get from database all missions done this DAY but WAIT for acceptance
+function getWaitMissions(day){
+	var dayWaitMissions = [];
+	waitMissions.forEach(function(mission){
+		// compare doneDate with day
+		var doneDate = new Date(mission.doneDate);
+		if (day.getTime()==doneDate.getTime()) {
+			dayWaitMissions.push(mission.missionId);
+		}
+	})
+	return dayWaitMissions;
+}
+
+//get from database all UNDON missions assigned for this DAY
+function getUndoneMissions(day){
+	var dayUndoneMissions=[];
+	var dayAllMissions = getAllMissions(day);
+	var dayWaitMissions = getWaitMissions(day);
+	var dayDoneMissions= getDoneMissions(day);
+
+	//remove from All missions WAIT and DONE
+	var toRemove=dayWaitMissions.concat(dayDoneMissions)
+	var dayUndoneMissions = $.grep(dayAllMissions, function(value) {
+    return $.inArray(value, toRemove) < 0;
+	});
+
+	return dayUndoneMissions;
+}	
+
+
+//------WRITE IN DATABASE -----------------
+
+
+// add new user mission
+$(document).on('addUserMission', function (event, name, icon,points,frequency,days,confirm,start) {
+
+	var today=new Date();
+
+	start = typeof start !== 'undefined' ? new Date(start) : today;
+	start.setHours(0,0,0,0)
+
+	var newId =String(Number(userMissions[userMissions.length-1].id)+1);
+		var newUserMission={
+				id: newId,
+				name: name,
+				icon: icon,
+				points: points,
+				frequency: frequency,
+				days:days,
+				confirm: confirm,
+				start: start,
+			}
+	
+	userMissions.push(newUserMission)
+	$(document).trigger('showWeek')
+})
+	
+
+// finds index of WAIT / DONE mission in waitMissions / doneMissions
+function findDoneMission(type, missionId, doneDate){
+		var index = type.findIndex(function (mission) {
+			return (missionId == mission.missionId && doneDate.getTime()==mission.doneDate.getTime())
+		});
+		return index
+}
+
+//finds index of USER mission in userMissions by ID
+function findUserMission(missionId){
+	var index = userMissions.findIndex(function (mission) {
+		return missionId == mission.id
+	});
+	return index
+}
+
+// add done mission
+$(document).on('addDoneMission', function (event, missionId, doneDate){
+	var newDoneMission = { missionId: missionId, doneDate: doneDate};
+	doneMissions.push(newDoneMission)
+	console.log(findDoneMission(waitMissions,missionId,doneDate))
+	$(document).trigger('showWeek')
+})
+
+// add wait mission
+$(document).on('addWaitMission', function (event, missionId, doneDate){
+	var newWaitMission = { 
+		missionId: missionId, 
+		doneDate: doneDate
+	};
+	waitMissions.push(newWaitMission)
+	$(document).trigger('showWeek')
+})
+
+// delete done mission
+$(document).on('deleteDoneMission', function (event, missionId, doneDate){
+	var index= findDoneMission(doneMissions,missionId,doneDate)
+	if (index>-1){
+		doneMissions.splice(index,1)
+	}
+	$(document).trigger('showWeek')
+})
+
+// delete wait mission
+$(document).on('deleteWaitMission', function (event, missionId, doneDate){
+	var index= findDoneMission(waitMissions,missionId,doneDate)
+	if (index>-1){
+		waitMissions.splice(index,1)
+	}
+	$(document).trigger('showWeek')
+})
+
+
+//function checking if we are in the kid mode
+function kidMode() { return $('body').hasClass('kid') };
+
+
+
+
+//add view user missions
+
+//$(document).trigger('addUserMission', [name, icon, points, frequency, days, confirm, {start}])
+//start optional, Monday = 0
+$(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, 7, [0,1,2,3,4,5,6], true])
+$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, 1, [3], true, '2015,12,24'])
+$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, [4], true, '2015,12,24'])
+$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, 3, [0,2,4], true, '2016,12,24'])
+$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, 1, [3], true, '2017,12,24'])
