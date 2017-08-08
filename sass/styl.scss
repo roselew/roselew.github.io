@@ -145,8 +145,8 @@ header{
 
 .week {
 	position: relative;
-	margin: 10px 0px 30px $odznaki_left;
-	width: 100%-$odznaki_left;
+	margin: 10px 0px 30px 0px;
+	width: 100%;
 	text-align: center;	
 	font: $font_big_size $font_reg_family; 
 
