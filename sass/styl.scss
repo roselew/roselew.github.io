@@ -238,7 +238,7 @@ header{
 	img.bohater{
 		width: 20%;
 		position: absolute;
-		left: -18%;
+		left: -22%;
 		top: -100px;
 		z-index: 500;
 	}
@@ -291,7 +291,7 @@ header{
 	//background-color: $color_alert;
 	margin-left: $odznaki_left;
 	text-align: left;
-	margin-bottom: 20px;
+	margin-bottom: $day_margin;
 	border-radius: 5px;
 
 	button{
@@ -407,7 +407,7 @@ header{
 	width: 100%-$odznaki_left;
 	height: $day_height;
 	margin-left: $odznaki_left;
-	margin-top: 20px;
+	margin-top: $day_margin;
 	text-align: center;	
 
 	.small-mission-undone {
