@@ -309,16 +309,22 @@ header{
 	 	border-bottom-left-radius: 50px;
 		span{background-color: $color_base;}
 	}
+	.show-all.selected{background-color: $color_base;}
+
 	.show-undone {
 		border-color: $color_undone;
 		background-image: url(../assets/dislike.svg);	
 		span{background-color: $color_undone;}
 	}
+	.show-undone.selected{background-color: $color_undone;}
+
 	.show-wait {
 		border-color: $color_wait;
 		background-image: url(../assets/hourglass.svg);	
 		span{background-color: $color_wait;}
 	}
+	.show-wait.selected{background-color: $color_wait;}
+
 	.show-done {
 		border-color: $color_done;
 		background-image: url(../assets/like.svg);	
@@ -326,6 +332,8 @@ header{
 	 	border-bottom-right-radius: 50px;
 		span{background-color: $color_done;}
 	}
+	.show-done.selected{background-color: $color_done;}
+
 	//circle with number of missions
 	span{
 		position: absolute;
@@ -392,10 +400,12 @@ header{
 
 .parent .day{
 	p {	background-color: $color_dark_grey;}
+	p.selected {background-color: $color_base}
 }
 
 .kid .day{
-	p {	background-color: $color_alert;}	
+	p {	background-color: $color_alert;}
+	p.selected {background-color: $color_base}	
 }
 
 
@@ -457,23 +467,23 @@ header{
 	position: relative;
 	margin-left: $odznaki_left;
 	border-radius: 5px;
-	
-	ul.mission-neutral {
-		li {border-color: $color_base};
-		.star {fill: $color_base}
-	}
-	ul.mission-undone {
-		li {border-color: $color_undone};
-		.star {fill: $color_undone}
-	}
-	ul.mission-wait {
-		li {border-color: $color_wait};
-		.star {fill: $color_wait}
-	}
-	ul.mission-done {
-		li {border-color: $color_done};
-		.star {fill: $color_done}
-	}
+}
+
+ul.mission-neutral {
+	li {border-color: $color_base};
+	.star {fill: $color_base}
+}
+ul.mission-undone {
+	li {border-color: $color_undone};
+	.star {fill: $color_undone}
+}
+ul.mission-wait {
+	li {border-color: $color_wait};
+	.star {fill: $color_wait}
+}
+ul.mission-done {
+	li {border-color: $color_done};
+	.star {fill: $color_done}
 }
 
 .kid .day-details {
@@ -487,7 +497,7 @@ header{
 
 // ----- CIRCLES ------
 
-.circle-big{ 
+li.circle-big {
 	position: relative;
 	margin: 20px;
 	display: inline-block;	
@@ -499,7 +509,38 @@ header{
 	border-radius: $mission_big_size;
 	background-color: white;
 	cursor: pointer;
+
+	// mission icon
+	img{
+		position: absolute;
+		margin: auto;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		height:0.7*$mission_big_size;
+		width: 0.7*$mission_big_size;
+	}
+
+	//star - background for points
+	.star {
+		position: absolute;
+		top:-30px;
+		right:-40px;
+		width: 100x;
+		height: 100px;
+	}
+
+	// number of points for mission
+	span{
+		position: absolute;
+		top:0px;
+		right:0px;
+		color:white;
+		font: $font_big_size $font_reg_family;
+	}
 }
+
 
 li.circle-mid {
 	position: relative;
@@ -576,3 +617,35 @@ li.circle-mid {
 }	
 
 
+// ---- 
+
+.day-view {
+
+	.title {
+		margin:auto;
+		width: 90%;
+		height: 100px;
+		border-radius: 50px;
+		color: $color_text_kid;
+		font: $font_big_size $font_reg_family;
+		text-align: center;
+		line-height: $day_height;
+		margin-bottom: 40px;
+	}
+
+	ul {
+		text-align: center;
+	}
+	.left-column {
+		padding-left: 5%;
+		float:left;
+		width:50%;
+		.title {background-color: $color_undone}
+	}
+	.right-column {
+		float:left;
+		width:45%;
+		.title {background-color: $color_done}
+	}
+
+}

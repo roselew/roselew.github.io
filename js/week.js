@@ -105,35 +105,24 @@
 	$('.show-done').on('click',function(){showOnly(this,'done')})
 	$('.show-all').on('click',function(){showAll(this)})
 
-	// hide everything
-	function hideAll(){
-		$('.day, .day-line, .day-details ul').hide()
-		$('.day-details').show()
-		deleteBackground()	
-	}
-
-	// get rid of colors on filter buttons
-	function deleteBackground(){
-		$('.parent .filter button').css('background-color',color.back_parent)
-		$('.kid .filter button').css('background-color',color.back_kid)
-	}
 
 	//show only type missions in details mode
 	function showOnly(button,type) {
 
+		//turn off day detials buttons
+		turnOffDayButtons()
+
 		//remember which button clicked
-		$('.filter button').data('clicked',false)
-		$(button).data('clicked', true);
+		$('.filter button').removeClass('selected')
+		$(button).addClass('selected')
 
 		//first hide everything
-		hideAll()
+		$('.day, .day-line, .day-details ul').hide()
+		$('.day-details').show()
+
 		//show only days that are not empty
 		$('.day .mission-'+ type +' li').parents('.day').show()
 		$('.mission-' + type).show()
-		// change button color
-		$('.show-'+type).css('background-color',color[type])
-		//turn off day detials buttons
-		turnOffDayButtons()
 	}
 
 
@@ -144,14 +133,11 @@
 		turnOnDayButtons();
 
 		//remember which button clicked
-		$('.filter button').data('clicked',false)
-		$(button).data('clicked',true)
+		$('.filter button').removeClass('selected')
+		$(button).addClass('selected')
 
 		$('.day, .day-line, .day-details ul').show()
 		$('.day-details').hide()
-		deleteBackground()	
-		// change button color
-		$('.show-all').css('background-color',color.base)
 	}
 
 	function turnOnDayButtons(){
@@ -169,7 +155,7 @@
 		//remove arrow down sign
 		$('.day>p span').html('');
 		//remove color from day buttons
-		$('.day>p').css('background-color',color.alert)
+		$('.day>p').removeClass('selected')
 	}
 
 	// show day details 
@@ -180,13 +166,13 @@
 			dayDetails.slideDown('slow')
 			//change arrow type and background
 			$(dayButton).children('span').html('&#x25B2')
-			$(dayButton).css('background-color',color.base)
+			$(dayButton).addClass('selected')
 		} else {
 			//slowly hide
 			dayDetails.slideUp('slow')
 			//change arrow type
 			$(dayButton).children('span').html('&#x25BC')
-			$(dayButton).css('background-color',color.alert)
+			$(dayButton).removeClass('selected')
 		}
 	}
 
@@ -196,7 +182,7 @@
 		$('button').each(function(index){
 			//except of first button
 			if (index>0){
-				if ($(this).data('clicked')) {
+				if ($(this).hasClass('selected')) {
 					$(this).trigger('click')
 			    }
 			}

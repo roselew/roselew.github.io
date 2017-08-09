@@ -353,12 +353,20 @@ header label[for="navigation"] {
   background-color: #00A6FF;
 }
 
+.filter .show-all.selected {
+  background-color: #00A6FF;
+}
+
 .filter .show-undone {
   border-color: #F95F62;
   background-image: url(../assets/dislike.svg);
 }
 
 .filter .show-undone span {
+  background-color: #F95F62;
+}
+
+.filter .show-undone.selected {
   background-color: #F95F62;
 }
 
@@ -371,6 +379,10 @@ header label[for="navigation"] {
   background-color: #FFBA5C;
 }
 
+.filter .show-wait.selected {
+  background-color: #FFBA5C;
+}
+
 .filter .show-done {
   border-color: #13CE66;
   background-image: url(../assets/like.svg);
@@ -379,6 +391,10 @@ header label[for="navigation"] {
 }
 
 .filter .show-done span {
+  background-color: #13CE66;
+}
+
+.filter .show-done.selected {
   background-color: #13CE66;
 }
 
@@ -444,8 +460,16 @@ header label[for="navigation"] {
   background-color: #777B88;
 }
 
+.parent .day p.selected {
+  background-color: #00A6FF;
+}
+
 .kid .day p {
   background-color: rgba(66, 75, 100, 0.95);
+}
+
+.kid .day p.selected {
+  background-color: #00A6FF;
 }
 
 .day-line {
@@ -507,35 +531,35 @@ header label[for="navigation"] {
   border-radius: 5px;
 }
 
-.day-details ul.mission-neutral li {
+ul.mission-neutral li {
   border-color: #00A6FF;
 }
 
-.day-details ul.mission-neutral .star {
+ul.mission-neutral .star {
   fill: #00A6FF;
 }
 
-.day-details ul.mission-undone li {
+ul.mission-undone li {
   border-color: #F95F62;
 }
 
-.day-details ul.mission-undone .star {
+ul.mission-undone .star {
   fill: #F95F62;
 }
 
-.day-details ul.mission-wait li {
+ul.mission-wait li {
   border-color: #FFBA5C;
 }
 
-.day-details ul.mission-wait .star {
+ul.mission-wait .star {
   fill: #FFBA5C;
 }
 
-.day-details ul.mission-done li {
+ul.mission-done li {
   border-color: #13CE66;
 }
 
-.day-details ul.mission-done .star {
+ul.mission-done .star {
   fill: #13CE66;
 }
 
@@ -547,7 +571,7 @@ header label[for="navigation"] {
   background-color: white;
 }
 
-.circle-big {
+li.circle-big {
   position: relative;
   margin: 20px;
   display: inline-block;
@@ -558,6 +582,33 @@ header label[for="navigation"] {
   border-radius: 200px;
   background-color: white;
   cursor: pointer;
+}
+
+li.circle-big img {
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 140px;
+  width: 140px;
+}
+
+li.circle-big .star {
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  width: 100x;
+  height: 100px;
+}
+
+li.circle-big span {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: white;
+  font: 40px "Lato", sans_serif;
 }
 
 li.circle-mid {
@@ -625,5 +676,40 @@ li.circle-mid span {
 
 .thumb-up {
   left: 180px;
+  background-color: #13CE66;
+}
+
+.day-view .title {
+  margin: auto;
+  width: 90%;
+  height: 100px;
+  border-radius: 50px;
+  color: white;
+  font: 40px "Lato", sans_serif;
+  text-align: center;
+  line-height: 90px;
+  margin-bottom: 40px;
+}
+
+.day-view ul {
+  text-align: center;
+}
+
+.day-view .left-column {
+  padding-left: 5%;
+  float: left;
+  width: 50%;
+}
+
+.day-view .left-column .title {
+  background-color: #F95F62;
+}
+
+.day-view .right-column {
+  float: left;
+  width: 45%;
+}
+
+.day-view .right-column .title {
   background-color: #13CE66;
 }
