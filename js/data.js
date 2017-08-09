@@ -57,7 +57,7 @@ var expertMissions = [
 	{ id:'20',	name: 'Umyć naczynia',			icon: 'assets/wash.svg'			},	
 	{ id:'21',	name: 'Odrobić pracę domową',	icon: 'assets/carpentry.svg'	},	
 	{ id:'22',	name: 'Przeczytać książkę',		icon: 'assets/book.svg'			},		
-	{ id:'23',	name: 'Poskładać ubrania',		icon: 'assets/shirt.svg'				},
+	{ id:'23',	name: 'Poskładać ubrania',		icon: 'assets/shirt.svg'		},
 	{ id:'24',	name: 'Ubrać się samemu',		icon: 'assets/shirt.svg'		}	
 ]
 
@@ -70,7 +70,7 @@ var userMissions = [
 		frequency: 7,
 		days:[0,1,2,3,4,5,6],
 		confirm: true,
-		start: new Date('2017,05,02')	,
+		start: new Date("2015/12/31 00:00:00")	,
 	},
 	{
 		id:'2',
@@ -80,7 +80,7 @@ var userMissions = [
 		frequency: 3,
 		days: [0,1,3,5],
 		confirm: true,
-		start: new Date('2017,05,02'),
+		start: new Date("2015/12/31 00:00:00"),
 	},
 	{
 		id:'3',
@@ -90,7 +90,7 @@ var userMissions = [
 		frequency: 3,
 		days:[0,2,4,6],
 		confirm: true,
-		start: new Date('2017,05,02'),
+		start: new Date("2015/12/31 00:00:00"),
 	},
 	{
 		id:'4',
@@ -100,31 +100,31 @@ var userMissions = [
 		frequency: 2,
 		days:[1,4],
 		confirm: true,
-		start: new Date('2017,05,02'),
+		start: new Date("2015/12/31 00:00:00"),
 	}
 ]
 
 var waitMissions = [
-	{ missionId: '3', doneDate: new Date('2017,08,07')},
-	{ missionId: '2', doneDate: new Date('2017,08,05')},
-	{ missionId: '3', doneDate: new Date('2017,08,04')},
-	{ missionId: '4', doneDate: new Date('2017,08,04')},
-	{ missionId: '2', doneDate: new Date('2017,08,03')},
-	{ missionId: '1', doneDate: new Date('2017,08,02')},
-	{ missionId: '1', doneDate: new Date('2017,07,31')},
+	{ missionId: '3', doneDate: new Date('2017/08/07 00:00:00')},
+	{ missionId: '2', doneDate: new Date('2017/08/05 00:00:00')},
+	{ missionId: '3', doneDate: new Date('2017/08/04 00:00:00')},
+	{ missionId: '4', doneDate: new Date('2017/08/04 00:00:00')},
+	{ missionId: '2', doneDate: new Date('2017/08/03 00:00:00')},
+	{ missionId: '1', doneDate: new Date('2017/08/02 00:00:00')},
+	{ missionId: '1', doneDate: new Date('2017/07/31 00:00:00')},
 ]
 
 var doneMissions = [
-	{ missionId: '8', doneDate: new Date('2017,08,07')},
-	{ missionId: '1', doneDate: new Date('2017,08,07')},
-	{ missionId: '1', doneDate: new Date('2017,08,06')},
-	{ missionId: '1', doneDate: new Date('2017,08,05')},
-	{ missionId: '7', doneDate: new Date('2017,08,04')},
-	{ missionId: '1', doneDate: new Date('2017,08,04')},
-	{ missionId: '6', doneDate: new Date('2017,08,03')},
-	{ missionId: '8', doneDate: new Date('2017,08,02')},
-	{ missionId: '3', doneDate: new Date('2017,07,31')},
-	{ missionId: '2', doneDate: new Date('2017,07,31')},
+	{ missionId: '8', doneDate: new Date('2017/08/07 00:00:00')},
+	{ missionId: '1', doneDate: new Date('2017/08/07 00:00:00')},
+	{ missionId: '1', doneDate: new Date('2017/08/06 00:00:00')},
+	{ missionId: '1', doneDate: new Date('2017/08/05 00:00:00')},
+	{ missionId: '7', doneDate: new Date('2017/08/04 00:00:00')},
+	{ missionId: '1', doneDate: new Date('2017/08/04 00:00:00')},
+	{ missionId: '6', doneDate: new Date('2017/08/03 00:00:00')},
+	{ missionId: '8', doneDate: new Date('2017/08/02 00:00:00')},
+	{ missionId: '3', doneDate: new Date('2017/07/31 00:00:00')},
+	{ missionId: '2', doneDate: new Date('2017/07/31 00:00:00')},
 ]
 
 
@@ -285,7 +285,7 @@ function kidMode() { return $('body').hasClass('kid') };
 //$(document).trigger('addUserMission', [name, icon, points, frequency, days, confirm, {start}])
 //start optional, Monday = 0
 $(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, 7, [0,1,2,3,4,5,6], true])
-$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, 1, [3], true, '2015,12,24'])
-$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, [4], true, '2015,12,24'])
-$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, 3, [0,2,4], true, '2016,12,24'])
-$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, 1, [3], true, '2017,12,24'])
+$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, 1, [3], true, '2015/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, [4], true, '2015/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, 3, [0,2,4], true, '2016/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, 1, [3], true, '2017/12/24 00:00:00'])

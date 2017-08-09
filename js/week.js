@@ -68,11 +68,6 @@
 			showDay(oneDay)
 		}
 
-		//change color of all star
-		$('.day li').each(function(){	
-			$(this).find('svg path').css('fill',$(this).css('border-color'))
-		})
-
 		//update progress bar
 		$(document).trigger('updateProgress');
 
@@ -173,6 +168,8 @@
 		$('.day>p').off('click')
 		//remove arrow down sign
 		$('.day>p span').html('');
+		//remove color from day buttons
+		$('.day>p').css('background-color',color.alert)
 	}
 
 	// show day details 
@@ -196,10 +193,13 @@
 	//clicks one more time filter button
 	//important becacuse filter hides days where no missions
 	$(document).on('updateFilterView',function(){
-		$('button').each(function(){
-			if ($(this).data('clicked')) {
-				$(this).trigger('click')
-		    }
+		$('button').each(function(index){
+			//except of first button
+			if (index>0){
+				if ($(this).data('clicked')) {
+					$(this).trigger('click')
+			    }
+			}
 		})
 	})
 
