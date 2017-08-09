@@ -21,9 +21,9 @@
 
 $(document).on('showWeek', function (event){
 	$('.day-view li').remove()
-	showDay( currentDay);
-	var currentMonth = monthName[currentDay.getMonth()]
-	$('.week p').text(currentDay.getDate()+ ' '+ currentMonth)
+	showDay( currentDate);
+	var currentMonth = monthName[currentDate.getMonth()]
+	$('.week p').text(currentDate.getDate()+ ' '+ currentMonth)
 })
 
 
@@ -31,12 +31,12 @@ $(document).on('showWeek', function (event){
 
 	//week before
 	$('.week span').eq(0).on('click',function(){
-		currentDay.setDate(currentDay.getDate()-1)	
+		currentDate.setDate(currentDate.getDate()-1)	
 		$(document).trigger('showWeek')
 	})
 	//week after
 	$('.week span').eq(1).on('click',function(){
-		currentDay.setDate(currentDay.getDate()+1)	
+		currentDate.setDate(currentDate.getDate()+1)	
 		$(document).trigger('showWeek')
 	})
 
@@ -46,6 +46,6 @@ $(document).on('showWeek', function (event){
 	//keeps currently visible week day
 	var today = new Date();
 	today.setHours(0,0,0,0)
-	var currentDay =new Date(today);
+	var currentDate =new Date(today);
 
 $(document).trigger('showWeek')

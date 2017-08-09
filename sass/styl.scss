@@ -598,26 +598,25 @@ li.circle-mid {
 
 .thumb {
 	position: absolute;
-	top: -10px;
-	height: $mission_mid_size;
-	width: $mission_mid_size;
+	height: 100%;
+	width: 100%;
 	padding:10px;
 	z-index: 500;
 
-	border-radius: $mission_mid_size;
+	border-radius: 100%;
 }
 .thumb-down {
-	left: -10px - $mission_mid_size - 40px ;
+	left: - 120% ;
 	background-color: $color_undone;
 }
 
 .thumb-up {
-	left: -10px + $mission_mid_size + 40px ;
+	right: - 120% ;
 	background-color: $color_done;
 }	
 
 
-// ---- 
+// ---- MISJE CLASS ------
 
 .day-view {
 
@@ -649,3 +648,61 @@ li.circle-mid {
 	}
 
 }
+
+
+
+// ---- MENU CLASS ------
+
+ul.menu {
+
+	li {
+	position: absolute;
+	text-align: center;
+	font: $font_big_size $font_reg_family;
+	color: white;
+	
+		p{
+			
+			
+
+		}
+	}
+
+	.menu-misje{
+		top: 29px;
+		left: 45px;
+		width: 300px;
+		height: 300px;
+		line-height: 450px;
+		border-radius: 300px;
+		background-color: $color_undone;
+	}
+	.menu-odznaki{
+		top: 131px;
+		left: 480px;
+		width: 250px;
+		height: 250px;
+		line-height: 350px;
+		border-radius: 250px;
+		background-color: $color_done;
+	}
+	.menu-bohater{
+		top: 232px;
+		left: 76px;
+		width: 600px;
+		height: 600px;
+		line-height: 900px;
+		border-radius: 600px;
+		background-color: $color_wait;		
+	}
+	.menu-nagrody{
+		top: 745px;
+		left: 94px;
+		width: 400px;
+		height: 400px;
+		line-height: 650px;
+		border-radius: 400px;
+		background-color: $color_base;		
+	}	
+}
+

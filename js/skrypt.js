@@ -3,11 +3,11 @@
 // -------moving misssions-------------
 
 	// add click actions to missions
-	$(document).on('click', 'ul.mission-undone li.circle-mid', function(){
+	$(document).on('click', 'ul.mission-undone li', function(){
 		showThumbs($(this))
 	})
 
-	$(document).on('click', 'ul.mission-wait li.circle-mid', function(){
+	$(document).on('click', 'ul.mission-wait li', function(){
 		if (kidMode()){
 			showAlert('Czekamy na akceptacje','wait');
 		} else {
@@ -15,7 +15,7 @@
 		}
 	})
 
-	$(document).on('click', 'ul.mission-done li.circle-mid', function(){
+	$(document).on('click', 'ul.mission-done li', function(){
 		if (kidMode()){
 			showAlert('Już wykonałeś ta misję','done');
 		} else {
@@ -40,14 +40,17 @@
 
 		//get info about mission
 		var thumb = $(this)
-		var mission = thumb.parents('li.circle-mid');
+		var mission = thumb.parents('li');
 		var missionId = mission.attr('name');
 		var missionType = mission.parents('ul').attr('class')
 		
 		//get info about day we are in
 		var datIndex =$('.day').index(mission.parents('.day'));
-		var doneDate = new Date(currentWeek);
-		doneDate.setDate(currentWeek.getDate()+datIndex)
+
+		// in day mpode there is no datIndex
+		if (datIndex<0) {datIndex=0}
+		var doneDate = new Date(currentDate);
+		doneDate.setDate(currentDate.getDate()+datIndex)
 
 		hideAlert();
 
@@ -113,17 +116,16 @@
 		$('.alert').remove()
 
 		//move mission to be standard layer
-		$('.circle-mid').css('z-index','auto')
+		$('li').css('z-index','auto')
 
 		//hides thumbs
 		$('.thumb').hide().appendTo($('.container'))
 
 		//moves hero back to starting position
-		$('.kid img.bohater').animate({
+		$('.kid img.hero').animate({
 	 	 	width: "20%",
 		},1000)
 	}
-
 
 
 // tymczasowe pokazuje gdzie klikamy

@@ -53,7 +53,7 @@
 		$('.day li').remove()
 
 		//first day of the week
-		var startDay=currentWeek;
+		var startDay=currentDate;
 		var startDayMonth = monthName[startDay.getMonth()]
 
 		//last day of the week
@@ -87,12 +87,12 @@
 
 	//week before
 	$('.week span').eq(0).on('click',function(){
-		currentWeek.setDate(currentWeek.getDate()-7)	
+		currentDate.setDate(currentDate.getDate()-7)	
 		$(document).trigger('showWeek')
 	})
 	//week after
 	$('.week span').eq(1).on('click',function(){
-		currentWeek.setDate(currentWeek.getDate()+7)	
+		currentDate.setDate(currentDate.getDate()+7)	
 		$(document).trigger('showWeek')
 	})
 
@@ -196,8 +196,8 @@
 	today.setHours(0,0,0,0)
 
 	//go to monday
-	var currentWeek =new Date(today);
-	currentWeek.setDate(today.getDate()-today.getUTCDay())
+	var currentDate =new Date(today);
+	currentDate.setDate(today.getDate()-today.getUTCDay())
 
 	//show all missions assigned for this week
 
