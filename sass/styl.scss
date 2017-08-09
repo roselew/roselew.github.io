@@ -4,9 +4,71 @@
 @import 'reset';
 
 
-
 body.kid{background-color: $color_back_kid;}
 body.parent{background-color: $color_back_parent;}
+
+
+//----- HEADER --------
+
+header{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: $header_height;
+	z-index: 1000;
+	
+	//to change with real logo image
+	.logo {
+		position: fixed;
+		top: ( $header_height - $header_logo_size )/2;
+		left: ( $header_height - $header_logo_size )/2;
+		width: $header_logo_size;
+		height: $header_logo_size;
+
+		border-radius: $header_logo_size;
+		border-color: white;
+		border-width: 5px;
+		border-style: solid;
+		background-color: $color_base;
+		color: white;
+		font: $font_title_size $font_title_family;
+		text-align: center;
+		cursor: pointer;
+		line-height: $header_logo_size;
+	}
+
+	.header-banner {
+		position: fixed;
+		top: ($header_height - $header_banner_height)/2;
+		left: 0px;
+		width: 100%;
+		height: $header_banner_height;
+
+		font: $font_title_size $font_title_family;
+		text-align: center;
+		line-height: $header_banner_height;
+		vertical-align: middle;
+	}
+
+	.navigation {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);	
+	}
+
+	label[for="navigation"] {
+	  position: fixed;
+	  right: ( $header_height - $header_hamburger_size ) / 2;
+	  top:  ( $header_height - $header_hamburger_size ) / 2;
+	  height: $header_hamburger_size;
+	  width: $header_hamburger_size;
+
+	  cursor: pointer;
+	  background-image: url(../assets/menu-button.svg);
+	  background-size: contain;
+	  z-index: 999;
+	}
+}
 
 .kid header{
 	background-color: $color_back_kid;
@@ -27,61 +89,8 @@ body.parent{background-color: $color_back_parent;}
 	}
 }
 
-header{
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: $header_height;
-	z-index: 1000;
-	
-	.logo {
-		position: fixed;
-		top: ( $header_height - $header_logo_size )/2;
-		left: ( $header_height - $header_logo_size )/2;
-		width: $header_logo_size;
-		height: $header_logo_size;
-		border-radius: $header_logo_size;
-		border-color: white;
-		border-width: 5px;
-		border-style: solid;
-		background-color: $color_base;
-		color: white;
-		font: $font_title_size $font_title_family;
-		text-align: center;
-		cursor: pointer;
-		line-height: $header_logo_size;
-	}
 
-	.header-banner {
-		position: fixed;
-		top: ($header_height - $header_banner_height)/2;
-		left: 0px;
-		width: 100%;
-		height: $header_banner_height;
-		font: $font_title_size $font_title_family;
-		text-align: center;
-		line-height: $header_banner_height;
-		vertical-align: middle;
-	}
-
-	.navigation {
-		position: absolute;
-		clip: rect(0, 0, 0, 0);	
-	}
-
-	label[for="navigation"] {
-	  position: fixed;
-	  right: ( $header_height - $header_hamburger_size ) / 2;
-	  top:  ( $header_height - $header_hamburger_size ) / 2;
-	  height: $header_hamburger_size;
-	  width: $header_hamburger_size;
-	  cursor: pointer;
-	  background-image: url(../assets/menu-button.svg);
-	  background-size: contain;
-	  z-index: 999;
-	}
-}
+//----- CONTAINER AND ALERT --------
 
 .container {
 	position: relative;
@@ -89,13 +98,15 @@ header{
 	top: $header_height;
 	left: 0px;
 
+	//alert on whole page
 	.alert{
 		position:fixed;
 		display: block;
-		top: 150px;
+		top: $header_height;
 		left: 0px;
 		width: 100%;
 		height: 100vh;
+
 		color:$color_text_kid;
 		font: $font_big_size $font_reg_family;
 		text-align: center;
@@ -106,6 +117,7 @@ header{
 		p{
 			margin-top: 40vh;
 		}
+		//X button closing page
 		span {
 			position: absolute;
 			display: block;
@@ -113,6 +125,7 @@ header{
 			top: 20px;
 			width: $exit_button_size;
 			height: $exit_button_size;
+
 			border-radius: $exit_button_size;
 			background-color: $color_base;
 			color: $color_text_kid;
@@ -123,14 +136,14 @@ header{
 		}
 
 		img {
-		width: $mission_mid_size;
-		height: $mission_mid_size;
-		-webkit-animation:spin 4s linear infinite;
-    	-moz-animation:spin 4s linear infinite;
-    	animation:spin 4s linear infinite;
-		@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+			width: $mission_mid_size;
+			height: $mission_mid_size;
+			-webkit-animation:spin 4s linear infinite;
+	    	-moz-animation:spin 4s linear infinite;
+	    	animation:spin 4s linear infinite;
+			@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+			@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+			@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 		}
 	}
 }
@@ -143,6 +156,8 @@ header{
 	background-color: rgba($color_alert,0.95);
 }
 
+// ------- WEEK --------
+
 .week {
 	position: relative;
 	margin: 10px 0px 30px 0px;
@@ -150,15 +165,18 @@ header{
 	text-align: center;	
 	font: $font_big_size $font_reg_family; 
 
+	//week name
 	p{ display: inline-block;}
+	//buttons previous and next week
 	span{
 		display: inline-block;
 		width: 1.5*$mission_small_size;
 		height: 1.5*$mission_small_size;
+		margin: 0px 10%;
+
 		border-radius: $mission_small_size;
 		background-color: $color_alert;
 		color: white;
-		margin: 0px 10%;
 		line-height: 1.5*$mission_small_size;
 		cursor: pointer;
 	}
@@ -172,80 +190,67 @@ header{
 	color: $color_text_kid;
 }
 
+
+//-------- PROGRESS BAR ----------
+
 .progress {
 	position: relative;
-	padding-left: $odznaki_left;
-	width: 100%;
-	text-align: center;
-	font: $font_mid_size $font_reg_family; 
-	color: $color_text_kid;
+	height: $progressbar_height;
+	width: $progressbar_width;
+	margin: 10px 0px 50px $odznaki_left;
 
-	.progress-bar {
-		position: relative;
-		margin-top: 10px;
+	.progress-undone {
+		position: absolute;
+		left:0px;
+		top:0px;
+		width: 100%;
 		height: $progressbar_height;
-		width: $progressbar_width;
-		margin-bottom: 50px;
-
-		.progress-undone {
-			position: absolute;
-			left:0px;
-			top:0px;
-			width: 100%;
-			height: $progressbar_height;
-			border-radius: 20px 0px 0px 20px;
-			border-bottom-left-radius: 20px;
-			border-top-left-radius: 20px;
-		}
-
-		.progress-wait {
-			position: absolute;
-			left:0px;
-			top:0px;
-			width: 80%;
-			height: $progressbar_height;
-			border-radius: 20px 0px 0px 20px;
-		}
-
-		.progress-done {
-			position: absolute;
-			left:0px;
-			top:0px;
-			width: 60%;
-			height: $progressbar_height;
-			border-radius: 20px 0px 0px 20px;
-			background-color: $color_base;
-		}
-
-		.logo {
-			position: absolute;
-			right: -$progress_logo_size+10px;
-			top:  - ($progress_logo_size - $progressbar_height )/2;
-			width: $progress_logo_size;
-			height: $progress_logo_size;
-			border-radius: $progress_logo_size;
-			border-color: white;
-			border-width: 5px;
-			border-style: solid;
-			background-color: $color_base;
-			color: white;
-			font: $font_big_size $font_title_family;
-			text-align: center;
-			line-height: $progress_logo_size;
-		}
+		border-radius: 20px 0px 0px 20px;
+		border-bottom-left-radius: 20px;
+		border-top-left-radius: 20px;
 	}
 
-	img.bohater{
-		width: 20%;
+	.progress-wait {
 		position: absolute;
-		left: -22%;
-		top: 0px;
-		z-index: 500;
+		left:0px;
+		top:0px;
+		width: 80%;
+		height: $progressbar_height;
+		border-radius: 20px 0px 0px 20px;
+	}
+
+	.progress-done {
+		position: absolute;
+		left:0px;
+		top:0px;
+		width: 60%;
+		height: $progressbar_height;
+		border-radius: 20px 0px 0px 20px;
+		background-color: $color_base;
+	}
+
+	//to change with real logo image
+	.logo {
+		position: absolute;
+		right: -$progress_logo_size+10px;
+		top:  - ($progress_logo_size - $progressbar_height )/2;
+		width: $progress_logo_size;
+		height: $progress_logo_size;
+
+		border-radius: $progress_logo_size;
+		border-color: white;
+		border-width: 5px;
+		border-style: solid;
+		background-color: $color_base;
+		color: white;
+		font: $font_big_size $font_title_family;
+		text-align: center;
+		line-height: $progress_logo_size;
 	}
 
 }
-	
-.parent .progress{
+
+.parent .progress {
 	.progress-wait{
 		background: repeating-linear-gradient(
 		45deg,
@@ -256,15 +261,8 @@ header{
 		);
 	}
 
-	.progress-undone {
-		background-color: $color_dark_grey;		
-	}
-
-	img.bohater {
-		display:none;
-	}
+	.progress-undone {background-color: $color_dark_grey;}
 }
-
 
 .kid .progress{
 	.progress-wait{
@@ -276,41 +274,40 @@ header{
 		$color_alert 20px
 		);
 	}
-
-	.progress-undone {
-		background-color: $color_alert;		
-	}
-
-
+	.progress-undone {background-color: $color_alert;}
 }
+
+// -------   FILTER  ----------
 
 .filter{
 	position:relative;
-	padding:0px;
 	width: 100%-$odznaki_left;
-	//background-color: $color_alert;
 	margin-left: $odznaki_left;
-	text-align: left;
 	margin-bottom: $day_margin;
-	border-radius: 5px;
+	text-align: left;
 
+	//styles for all buttons
 	button{
 		position: relative;
 		display: inline-block;
 		height: $filter_height;
-		width: 24%;
-		border-radius: 0px;
+		width: $filter_button_width;
+		padding-left: 10px;
+
 		border-width: 2px;
 		border-style: solid;
-		font: $font_mid_size $font_reg_family;
-		color: $color_text_kid;
-		line-height: $filter_height;
 		cursor: pointer;
-		margin-left: 0%;
-		padding-left: 10px;
 		background-size: 0.8*$filter_height;
 		background-position: left 20% center;
 		background-repeat: no-repeat;
+	}
+	//styles for specific buttons
+	.show-all {
+	 	background-image: url(../assets/all_missions.svg);	
+	 	border-color: $color_base;
+	 	border-top-left-radius: 50px;
+	 	border-bottom-left-radius: 50px;
+		span{background-color: $color_base;}
 	}
 	.show-undone {
 		border-color: $color_undone;
@@ -329,53 +326,50 @@ header{
 	 	border-bottom-right-radius: 50px;
 		span{background-color: $color_done;}
 	}
-	.show-all {
-	 	background-image: url(../assets/all_missions.svg);	
-	 	border-color: $color_base;
-	 	border-top-left-radius: 50px;
-	 	border-bottom-left-radius: 50px;
-		span{background-color: $color_base;}
-	}
-
+	//circle with number of missions
 	span{
-		display: inline-block;
 		position: absolute;
 		right: 20%;
 		bottom: 11px;
-		color: $color_text_kid;
 		height: $mission_small_size+5px;
 		width: $mission_small_size+5px;
+
+		color: $color_text_kid;
 		border-radius: $mission_small_size;
 		font: $font_mid_size $font_reg_family;
 		line-height: $mission_small_size;
 	}
+	// hero img 
+	img.hero{
+		width: 20%;
+		position: absolute;
+		left: -22%;
+		bottom: 0px;
+		z-index: 500;
+	}
 }
 
-
 .parent .filter{
-	button{
-		background-color: $color_back_parent;	
-	}
-	.show-all{background-color: $color_base};
+	button{background-color: $color_back_parent;}
+	img.hero {display:none;}
 }
 
 .kid .filter{
-	button{
-		background-color: $color_back_kid;
-	}
-	.show-all{background-color: $color_base;
-	}
+	button{background-color: $color_back_kid;}
 }
+
+
+// -----  DAY  ------
 
 .day{
 	position: relative;
 	width: 100%;
+
+	//button with day name
 	p{
 		position: absolute;
 		top:0px;
 		left:0px;
-
-		display: inline-block;
 		width:$odznaki_left;
 		height: $day_height;
 
@@ -385,6 +379,8 @@ header{
 		text-align: center;
 		line-height: $day_height;
 		cursor: pointer;
+
+		//small arrow down/up
 		span{
 			font: $font_mid_size $font_reg_family;
 			position: absolute;
@@ -402,6 +398,9 @@ header{
 	p {	background-color: $color_alert;}	
 }
 
+
+// ------  LINE with SMALL MISSIONS --------
+
 .day-line {
 	position: relative;
 	width: 100%-$odznaki_left;
@@ -410,36 +409,27 @@ header{
 	margin-top: $day_margin;
 	text-align: center;	
 
-	.small-mission-undone {
+	ul{
+		margin-top: 12px;
+		display: inline-block;
+	}
+
+	ul.small-mission-undone {
 		float:left;
-		margin-top: 12px;
-		display: inline-block;
-
-		.circle-small {
-			background-color: $color-undone;
-		}
+		li.circle-small {background-color: $color-undone;	}
 	}
 
-	.small-mission-wait {
-		margin-top: 12px;
-		display: inline-block;
-
-		.circle-small {
-			background-color: $color-wait;
-		}
+	ul.small-mission-wait {
+		li.circle-small {background-color: $color-wait;}
 	}
 
-	.small-mission-done {	
+	ul.small-mission-done {	
 		float:right;
-		margin-top: 12px;
-		display: inline-block;
-
-		.circle-small {
-			background-color: $color-done;
-		}
+		li.circle-small {background-color: $color-done;}
 	}
 }
 
+// trick to draw the horizontal line 
 .day-line:after {
     content:"";
     position: absolute;
@@ -459,11 +449,31 @@ header{
     border-bottom: 5px solid $color_dark_grey;	
 }
 
+
+//----- DAY DETAILS --------
+
 .day-details {
 	width: 100%-$odznaki_left;
 	position: relative;
 	margin-left: $odznaki_left;
 	border-radius: 5px;
+	
+	ul.mission-neutral {
+		li {border-color: $color_base};
+		.star {fill: $color_base}
+	}
+	ul.mission-undone {
+		li {border-color: $color_undone};
+		.star {fill: $color_undone}
+	}
+	ul.mission-wait {
+		li {border-color: $color_wait};
+		.star {fill: $color_wait}
+	}
+	ul.mission-done {
+		li {border-color: $color_done};
+		.star {fill: $color_done}
+	}
 }
 
 .kid .day-details {
@@ -473,29 +483,38 @@ header{
 .parent .day-details {
 	background-color: $color_light_grey;
 }
+
+
+// ----- CIRCLES ------
+
 .circle-big{ 
-	display: inline-block;
+	position: relative;
+	margin: 20px;
+	display: inline-block;	
 	height: $mission_big_size;
 	width: $mission_big_size;
-	border-radius: $mission_big_size;
+
 	border-width: $mission_big_size/20;
 	border-style: solid;
+	border-radius: $mission_big_size;
 	background-color: white;
+	cursor: pointer;
 }
 
-.circle-mid {
+li.circle-mid {
+	position: relative;
+	margin: 20px;
 	display: inline-block;	
 	height: $mission_mid_size;
 	width: $mission_mid_size;
-	border-radius: $mission_mid_size;
+
 	border-width: $mission_mid_size/20;
 	border-style: solid;
-	border-color: inherit;
+	border-radius: $mission_mid_size;
 	background-color: white;
-	margin: 20px;
-	position: relative;
 	cursor: pointer;
 
+	// mission icon
 	img{
 		position: absolute;
 		margin: auto;
@@ -507,42 +526,8 @@ header{
 		width: 0.7*$mission_mid_size;
 	}
 
-	.add{
-		margin-left:20px;
-		margin-top: 20px;
-		height:0.4*$mission_mid_size;
-		width: 0.4*$mission_mid_size;
-	}
-
-	.thumb-down {
-		height: $mission_mid_size;
-		width: $mission_mid_size;
-		border-radius: $mission_mid_size;
-		color:$color_back_kid;
-		padding:10px;
-		background-color: $color_undone;
-		position: absolute;
-		top: -10px;
-		left: -10px - $mission_mid_size - 40px ;
-		z-index: 500;
-	}
-
-	.thumb-up {
-		height: $mission_mid_size;
-		width: $mission_mid_size;
-		border-radius: $mission_mid_size;
-		color:$color_back_kid;
-		padding:10px;
-		border-style: none;
-		background-color: $color_done;
-		position: absolute;
-		top: -10px;
-		left: -10px + $mission_mid_size + 40px ;
-		z-index: 500;
-	}	
-
+	//star - background for points
 	.star {
-		fill: yellow;
 		position: absolute;
 		top:-20px;
 		right:-30px;
@@ -550,6 +535,7 @@ header{
 		height: 80px;
 	}
 
+	// number of points for mission
 	span{
 		position: absolute;
 		top:0px;
@@ -567,25 +553,26 @@ header{
 	margin: 10px;
 }
 
-.mission-neutral {
-	border-color: $color_base;
+// ----- THUMBS to move missions UP or DOWN ----
+
+.thumb {
+	position: absolute;
+	top: -10px;
+	height: $mission_mid_size;
+	width: $mission_mid_size;
+	padding:10px;
+	z-index: 500;
+
+	border-radius: $mission_mid_size;
 }
-.mission-undone {
-	border-color: $color_undone;
-}
-.mission-wait {
-	border-color: $color_wait;
-}
-.mission-done {
-	border-color: $color_done;
+.thumb-down {
+	left: -10px - $mission_mid_size - 40px ;
+	background-color: $color_undone;
 }
 
+.thumb-up {
+	left: -10px + $mission_mid_size + 40px ;
+	background-color: $color_done;
+}	
 
-.rotate{
-	-moz-transform: scaleY(-1);
-    -o-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    transform: scaleY(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-}
+
