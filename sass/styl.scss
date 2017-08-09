@@ -160,7 +160,7 @@ header{
 
 .week {
 	position: relative;
-	margin: 10px 0px 30px 0px;
+	margin: 30px 0px 30px 0px;
 	width: 100%;
 	text-align: center;	
 	font: $font_big_size $font_reg_family; 
@@ -630,6 +630,7 @@ li.circle-mid {
 		text-align: center;
 		line-height: $day_height;
 		margin-bottom: 40px;
+		margin-top:30px;
 	}
 
 	ul {
@@ -653,6 +654,12 @@ li.circle-mid {
 
 // ---- MENU CLASS ------
 
+.menu {
+	position: relative;
+	width: 100%;
+	height: 100vh
+}
+
 ul.menu {
 
 	li {
@@ -669,39 +676,39 @@ ul.menu {
 	}
 
 	.menu-misje{
-		top: 29px;
-		left: 45px;
-		width: 300px;
-		height: 300px;
+		top: 3%;
+		left: 6%;
+		width: 40vw;
+		height: 40vw;
 		line-height: 450px;
-		border-radius: 300px;
+		border-radius: 100%;
 		background-color: $color_undone;
 	}
 	.menu-odznaki{
-		top: 131px;
-		left: 480px;
-		width: 250px;
-		height: 250px;
+		top: 10%;
+		left: 64%;
+		width: 33vw;
+		height: 33vw;
 		line-height: 350px;
-		border-radius: 250px;
+		border-radius: 100%;
 		background-color: $color_done;
 	}
 	.menu-bohater{
-		top: 232px;
-		left: 76px;
-		width: 600px;
-		height: 600px;
+		top: 17%;
+		left: 10%;
+		width: 80vw;
+		height: 80vw;
 		line-height: 900px;
-		border-radius: 600px;
+		border-radius: 100%;
 		background-color: $color_wait;		
 	}
 	.menu-nagrody{
-		top: 745px;
-		left: 94px;
-		width: 400px;
-		height: 400px;
+		top: 56%;
+		left: 13%;
+		width: 53vw;
+		height: 53vw;
 		line-height: 650px;
-		border-radius: 400px;
+		border-radius: 100%;
 		background-color: $color_base;		
 	}	
 }
