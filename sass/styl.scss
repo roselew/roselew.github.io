@@ -148,6 +148,60 @@ header{
 			@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 		}
 	}
+
+
+	.edit{
+		position:absolute;
+		display: block;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		padding-top:50px;
+		color:$color_text_parent;
+		background-color: rgba($color_light_grey,0.95);
+		font: $font_big_size $font_reg_family;
+		text-align: center;
+		line-height: 100px;
+		vertical-align:middle;
+		//z-index: 499;
+				//X button closing page
+		span {
+			position: absolute;
+			display: block;
+			right: 20px;
+			top: 20px;
+			width: $exit_button_size;
+			height: $exit_button_size;
+
+			border-radius: $exit_button_size;
+			background-color: $color_base;
+			color: $color_text_kid;
+			text-align: center;
+			vertical-align:middle;
+			line-height: $exit_button_size;
+			cursor: pointer;
+		}
+		ul {height: $mission_mid_size+90px;
+			overflow:hidden;
+			li {margin-bottom: 80px;}
+		}
+		
+		h2 {
+			font: $font_mid_size $font_reg_family;
+			padding: 20px;
+			background-color: rgba(darken($color_light_grey,10%),0.5);
+		}
+
+		button{
+			background-color: $color_base;
+			color:white;
+			padding: 20px;
+			width:80%;
+			margin: 50px auto;
+			font: $font_big_size $font_reg_family;
+			text-align: center;
+		}
+	}
 }
 
 .parent .alert{
@@ -505,7 +559,6 @@ li.circle-big {
 	display: inline-block;	
 	height: $mission_big_size;
 	width: $mission_big_size;
-
 	border-width: $mission_big_size/20;
 	border-style: solid;
 	border-radius: $mission_big_size;
@@ -541,7 +594,21 @@ li.circle-big {
 		color:white;
 		font: $font_big_size $font_reg_family;
 	}
+
+	p{
+		position: absolute;
+		bottom:-$font_mid_size*3-20px;
+		display: block;
+		width: 100%;
+		height: $font_mid_size*3;
+		font: $font_small_size $font_reg_family;
+		text-align: center;
+
+	}
 }
+
+//space for naem of mission
+.mission-neutral li.circle-big {margin-bottom: $font_mid_size*3;}
 
 
 li.circle-mid {
@@ -586,6 +653,18 @@ li.circle-mid {
 		color:white;
 		font: $font_mid_size $font_reg_family;
 	}
+
+	p{
+		position: absolute;
+		bottom:-$font_mid_size*3-20px;
+		display: block;
+		width: 100%;
+		height: $font_mid_size*3;
+		font: $font_small_size $font_reg_family;
+		text-align: center;
+
+	}
+
 }
 
 .circle-small {
@@ -617,6 +696,25 @@ li.circle-mid {
 	background-color: $color_done;
 }	
 
+
+// ADD new ITEM
+
+.plus {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	height: $mission_mid_size;
+	width: $mission_mid_size;
+	z-index: 500;
+
+	border-radius: 100%;
+	background-color: $color_base;
+	color: white;
+	font: 10em $font_reg_family;
+	line-height: $mission_mid_size;
+	text-align: center;
+	cursor: pointer;
+}
 
 // ---- MISJE CLASS ------
 
@@ -689,25 +787,25 @@ ul.menu {
 
 	@media (orientation: portrait){
 		.menu-misje{
-			top: 10vw;
+			top: 15vw;
 			left: 5vw;
 			width: 30vw;
 			height: 30vw;
 		}
 		.menu-odznaki{
-			top: 5vw;
+			top: 10vw;
 			left: 60vw;
 			width: 35vw;
 			height: 35vw;
 		}
 		.menu-bohater{
-			top: 25vw;
+			top: 30vw;
 			left: 20vw;
 			width: 60vw;
 			height: 60vw;
 		}
 		.menu-nagrody{
-			top: 70vw;
+			top: 75vw;
 			left: 3vw;
 			width: 40vw;
 			height: 40vw;
@@ -716,13 +814,13 @@ ul.menu {
 
 	@media (orientation: landscape){
 		.menu-misje{
-			top: 0px;
-			left: 6vw;
+			top: 0vw;
+			left: 5vw;
 			width: 20vw;
 			height: 20vw;
 		}
 		.menu-odznaki{
-			top: 3vw;
+			top: 0vw;
 			left: 50vw;
 			width: 25vw;
 			height: 25vw;
@@ -734,17 +832,11 @@ ul.menu {
 			height: 35vw;
 		}
 		.menu-nagrody{
-			top: 31vw;
-			left: 6vw;
-			width: 25vw;
-			height: 25vw;
+			top: 15vw;
+			left: 68vw;
+			width: 27vw;
+			height: 27vw;
 		}
 	}
 }
 
-@media (min-width: 750px){
-	.container {
-		//width: 80%;
-		//margin: auto;
-	}
-}

@@ -131,9 +131,22 @@ var doneMissions = [
 
 // -------READ FROM DATABASE ---------------
 
-
 //get from database ALL missions assigned for this DAY
 function getAllMissions(day){
+	var dayAllMissions = [];
+	userMissions.forEach(function(mission){
+		var startDate = new Date(mission.start)
+		//if Mission is started
+		if (day>=startDate) {
+			dayAllMissions.push(mission.id)
+		} 
+	})
+	return dayAllMissions;
+}
+
+
+//get from database ALL missions assigned for this DAY
+function getDayMissions(day){
 	var dayAllMissions = [];
 	userMissions.forEach(function(mission){
 		var startDate = new Date(mission.start)
@@ -180,7 +193,7 @@ function getWaitMissions(day){
 //get from database all UNDON missions assigned for this DAY
 function getUndoneMissions(day){
 	var dayUndoneMissions=[];
-	var dayAllMissions = getAllMissions(day);
+	var dayAllMissions = getDayMissions(day);
 	var dayWaitMissions = getWaitMissions(day);
 	var dayDoneMissions= getDoneMissions(day);
 
@@ -192,6 +205,8 @@ function getUndoneMissions(day){
 
 	return dayUndoneMissions;
 }	
+
+
 
 
 //------WRITE IN DATABASE -----------------
