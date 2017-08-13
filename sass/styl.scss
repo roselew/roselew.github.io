@@ -689,28 +689,28 @@ ul.menu {
 
 	@media (orientation: portrait){
 		.menu-misje{
-			top: 0px;
-			left: 6vw;
-			width: 25vw;
-			height: 25vw;
-		}
-		.menu-odznaki{
-			top: 3vw;
-			left: 50vw;
+			top: 5vw;
+			left: 5vw;
 			width: 30vw;
 			height: 30vw;
 		}
+		.menu-odznaki{
+			top: 0vw;
+			left: 60vw;
+			width: 35vw;
+			height: 35vw;
+		}
 		.menu-bohater{
 			top: 15vw;
-			left: 15vw;
-			width: 45vw;
-			height: 45vw;
+			left: 20vw;
+			width: 60vw;
+			height: 60vw;
 		}
 		.menu-nagrody{
-			top: 50vw;
-			left: 6vw;
-			width: 25vw;
-			height: 25vw;
+			top: 60vw;
+			left: 3vw;
+			width: 40vw;
+			height: 40vw;
 		}
 	} 
 
