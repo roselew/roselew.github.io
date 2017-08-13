@@ -7,7 +7,9 @@
 body.kid{background-color: $color_back_kid;}
 body.parent{background-color: $color_back_parent;}
 
-
+html {
+	font-size: 62.5%;
+}
 //----- HEADER --------
 
 header{
@@ -657,7 +659,7 @@ li.circle-mid {
 .menu {
 	position: relative;
 	width: 100%;
-	height: 100vh
+	height: 80vh;
 }
 
 ul.menu {
@@ -665,51 +667,83 @@ ul.menu {
 	li {
 	position: absolute;
 	text-align: center;
-	font: $font_big_size $font_reg_family;
+	font: 3rem $font_reg_family;
 	color: white;
+	border-radius: 100%;
 	
-		p{
-			
-			
 
+		p{
+			display: inline-block;
+			width: 100%;
+			position: absolute;
+			bottom: 10%;
+			left: 0px;
+			z-index:500;
 		}
 	}
 
-	.menu-misje{
-		top: 3%;
-		left: 6%;
-		width: 40vw;
-		height: 40vw;
-		line-height: 450px;
-		border-radius: 100%;
-		background-color: $color_undone;
+	.menu-misje {background: $color_undone url(../assets/mission.svg) top 10% center no-repeat; background-size: 70%;}
+	.menu-odznaki {background-color: $color_done;}
+	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 20% center no-repeat; background-size: 70%;}
+	.menu-nagrody{background: $color_base url(../assets/gift.svg) top 30% center no-repeat; background-size: 50%;}
+
+	@media (orientation: portrait){
+		.menu-misje{
+			top: 5vh;
+			left: 2vh;
+			width: 25vh;
+			height: 25vh;
+		}
+		.menu-odznaki{
+			top: 8vh;
+			left: 50vh;
+			width: 30vh;
+			height: 30vh;
+		}
+		.menu-bohater{
+			top: 20vh;
+			left: 12vh;
+			width: 50vh;
+			height: 50vh;
+		}
+		.menu-nagrody{
+			top: 55vh;
+			left: 3vh;
+			width: 25vh;
+			height: 25vh;
+		}	
+	} 
+
+	@media (orientation: landscape){
+		.menu-misje{
+			top: 0px;
+			left: 6vw;
+			width: 20vw;
+			height: 20vw;
+		}
+		.menu-odznaki{
+			top: 3vw;
+			left: 50vw;
+			width: 25vw;
+			height: 25vw;
+		}
+		.menu-bohater{
+			top: 6vw;
+			left: 20vw;
+			width: 35vw;
+			height: 35vw;
+		}
+		.menu-nagrody{
+			top: 31vw;
+			left: 6vw;
+			width: 25vw;
+			height: 25vw;
+		}
 	}
-	.menu-odznaki{
-		top: 10%;
-		left: 64%;
-		width: 33vw;
-		height: 33vw;
-		line-height: 350px;
-		border-radius: 100%;
-		background-color: $color_done;
-	}
-	.menu-bohater{
-		top: 17%;
-		left: 10%;
-		width: 80vw;
-		height: 80vw;
-		line-height: 900px;
-		border-radius: 100%;
-		background-color: $color_wait;		
-	}
-	.menu-nagrody{
-		top: 56%;
-		left: 13%;
-		width: 53vw;
-		height: 53vw;
-		line-height: 650px;
-		border-radius: 100%;
-		background-color: $color_base;		
-	}	
 }
 
+@media (min-width: 750px){
+	.container {
+		width: 80%;
+		margin: auto;}
+}
