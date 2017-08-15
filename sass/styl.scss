@@ -193,6 +193,7 @@ header{
 		top: 0px;
 		left: 0px;
 		width: 100%;
+		//height: 100vh;
 		padding-top:50px;
 		color:$color_text_parent;
 		background-color: rgba($color_light_grey,0.95);
@@ -218,8 +219,11 @@ header{
 			line-height: $exit_button_size;
 			cursor: pointer;
 		}
-		ul {height: $mission_mid_size+90px;
+		ul {
+			position:relative;
+			height: $mission_mid_size+90px;
 			overflow:hidden;
+			padding-right: 40px;
 			li {margin-bottom: 80px;}
 		}
 		

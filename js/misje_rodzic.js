@@ -24,31 +24,65 @@ $(document).on('showWeek', function (event){
 
 
 
+function appendExpertMission(){
 
-
-
-	function appendExpertMission(){
-
-		expertMissions.forEach(function(mission){
-			$('.edit ul.mission-neutral').append($('<li class="circle-mid" name='+mission.id+'><p>'+mission.name+'</p><img src=' + mission.icon +'></li>'))
-		})
-	}
+	expertMissions.forEach(function(mission){
+		$('.edit ul.mission-neutral').append($('<li class="circle-mid" name='+mission.id+'><p>'+mission.name+'</p><img src=' + mission.icon +'></li>'))
+	})
+}
 
 
 
 $('.plus').on('click',function (event){
+	$('.container ul').slideToggle('slow')
+	
 	showEdit('Wybierz misje','polecane przez ekspertów lub...')
 	appendExpertMission();
 	$('.edit').append($('<button>...dodaj własna misje</button>'))
 })
 
 
-$(document).on('click','.edit button', function(event){
+$(document).on('click','.edit span.details', function(event){
 
-$('.edit ul').css('height','auto')
+	if ($(this).hasClass('selected')) {
+		$('.edit ul').css('height','240px')
+		$(this).html('&#x25BC')
+		$(this).removeClass('selected')
+	} else {
+		$('.edit ul').css('height','auto')
+		$(this).html('&#x25B2')
+		$(this).addClass('selected')
+	}
 })
 
+$(document).on('click','.edit li.circle-mid',function(){
 
+	hideEdit();
+	addExpert($(this));
+	$('.container ul').slideToggle('slow')
+})
+
+$(document).on('click','.edit button',function(){
+
+	hideEdit();
+	//addOwn();
+	$('.container ul').slideToggle('slow')
+	
+})
+
+function addExpert(mission){
+	var missionId = mission.attr('name')
+	var missionIndex= findExpertMission(missionId)
+
+	$(document).trigger('addUserMission', [expertMissions[missionIndex].name, 	expertMissions[missionIndex].icon , 	1, 7, [0,1,2,3,4,5,6], true])
+}
+
+
+function showEdit2(){
+	$('.plus').hide()
+	//add class .alert - top layer 
+	$('.container').append($('<div class ="edit"> <span onclick="hideEdit()"> X </span></div>'))
+}
 
 //show alert with text MESSAGE and picture of some TYPE
 function showEdit(title,subtitle) {
@@ -58,6 +92,7 @@ function showEdit(title,subtitle) {
 	$('.edit').append($('<h1>'+title+'</h1>'))
 	$('.edit').append($('<h2>'+subtitle+'</h2>'))
 	$('.edit').append($('<ul class="mission-neutral"></ul>'))
+	$('.edit ul').append($('<span class="details">&#x25BC</span>'))
 }
 
 

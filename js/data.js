@@ -253,6 +253,14 @@ function findUserMission(missionId){
 	return index
 }
 
+function findExpertMission(missionId){
+	var index = expertMissions.findIndex(function (mission) {
+		return missionId == mission.id
+	});
+	return index
+}
+
+
 // add done mission
 $(document).on('addDoneMission', function (event, missionId, doneDate){
 	var newDoneMission = { missionId: missionId, doneDate: doneDate};
