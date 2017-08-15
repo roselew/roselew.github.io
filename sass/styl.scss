@@ -10,6 +10,9 @@ body.parent{background-color: $color_back_parent;}
 html {
 	font-size: 62.5%;
 }
+
+a {text-decoration: none;
+color:inherit;}
 //----- HEADER --------
 
 header{
@@ -58,7 +61,7 @@ header{
 		clip: rect(0, 0, 0, 0);	
 	}
 
-	label[for="navigation"] {
+	label[for="nav"] {
 	  position: fixed;
 	  right: ( $header_height - $header_hamburger_size ) / 2;
 	  top:  ( $header_height - $header_hamburger_size ) / 2;
@@ -69,6 +72,26 @@ header{
 	  background-image: url(../assets/menu-button.svg);
 	  background-size: contain;
 	  z-index: 999;
+	}
+
+	nav{
+		position: fixed;
+		top: $header_height;
+		right:0px;
+		width: 100%;
+		height: 100vh;
+		background-color: $color_back_parent;
+		li{
+			height: 100px;
+			width: 100%;
+			font: $font_big_size $font_reg_family;
+			line-height: 100px; 
+			color: white;
+			text-align: center;
+			margin-bottom: 5px;
+		}
+		.nav-main li {	background-color: $color_text_parent;}
+		.nav-add li { background-color: $color_dark_grey}
 	}
 }
 
@@ -91,6 +114,10 @@ header{
 	}
 }
 
+//buttons
+
+
+
 
 //----- CONTAINER AND ALERT --------
 
@@ -99,6 +126,7 @@ header{
 	width: 100%;
 	top: $header_height;
 	left: 0px;
+	text-align: center;
 
 	//alert on whole page
 	.alert{
@@ -149,7 +177,16 @@ header{
 		}
 	}
 
-
+	>button{
+			background-color: $color_base;
+			color:white;
+			padding: 20px;
+			height: 100px;
+			width:80%;
+			margin: 50px auto;
+			font: $font_big_size $font_reg_family;
+	}
+	
 	.edit{
 		position:absolute;
 		display: block;
@@ -523,6 +560,7 @@ header{
 	position: relative;
 	margin-left: $odznaki_left;
 	border-radius: 5px;
+	text-align: left;
 }
 
 ul.mission-neutral {
@@ -607,8 +645,8 @@ li.circle-big {
 	}
 }
 
-//space for naem of mission
-.mission-neutral li.circle-big {margin-bottom: $font_mid_size*3;}
+//space for name of mission
+.mission-neutral li.circle-big {margin: 30px 3% $font_mid_size*3 3%; border-width: 5px;}
 
 
 li.circle-mid {
@@ -700,7 +738,7 @@ li.circle-mid {
 // ADD new ITEM
 
 .plus {
-	position: absolute;
+	position: fixed;
 	bottom: 10px;
 	right: 10px;
 	height: $mission_mid_size;
@@ -752,7 +790,7 @@ li.circle-mid {
 
 
 
-// ---- MENU CLASS ------
+// ---- MENU kid CLASS ------
 
 .menu {
 	position: relative;

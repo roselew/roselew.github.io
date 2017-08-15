@@ -8,14 +8,25 @@
 	 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 </head>
 
-<body class="kid">
+<body class="parent">
 
 <header>	
-<a href="index.html">
+<a href='#'>
 	<div class="header-banner">Kacper </div>
 	<div class="logo">7</div>
-	<input type="checkbox" class="navigation" />
-	<label for="navigation"></label>
+	<nav hidden> 
+        <ul class="nav-main">
+            <li><a href="rodzic_misje.html">MISJE</a></li>
+            <li><a href="rodzic_postepy.html">POSTĘPY</a></li>
+            <li>NAGRODY</li>
+        </ul>
+        <ul class="nav-add">
+            <li><a href="dziecko_menu.html">Przejdź na stronę dziecka</a></li>
+            <li>Ustawienia profilu dziecka</li>
+			<li>Przełacz dziecko</li>
+        </ul>
+    </nav>
+	<label for="nav"></label>
 </a>
 </header>
 	
@@ -219,5 +230,6 @@
 <script src="js/data.js"></script>
 <script src="js/skrypt.js"></script>
 <script src="js/week.js"></script>
+<script src="js/rodzic.js"></script>
 </body>
 </html>
