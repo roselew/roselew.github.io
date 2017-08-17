@@ -237,6 +237,20 @@ $(document).on('addUserMission', function (event, name, icon,points,frequency,da
 })
 	
 
+$(document).on('updateUserMission', function (event, missionId, name, icon,points,frequency,days,confirm,start) {
+
+	var index = findUserMission(missionId);
+
+	userMissions[index].name=name;
+	userMissions[index].icon=icon;
+	userMissions[index].points=points;
+	userMissions[index].frequency=frequency;
+	userMissions[index].days=days;
+	userMissions[index].confirm=confirm;
+
+	$(document).trigger('showWeek')
+})
+
 // finds index of WAIT / DONE mission in waitMissions / doneMissions
 function findDoneMission(type, missionId, doneDate){
 		var index = type.findIndex(function (mission) {

@@ -11,8 +11,15 @@ html {
 	font-size: 62.5%;
 }
 
-a {text-decoration: none;
-color:inherit;}
+a {
+	text-decoration: none;
+	color:inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
 //----- HEADER --------
 
 header{
@@ -89,6 +96,11 @@ header{
 			color: white;
 			text-align: center;
 			margin-bottom: 5px;
+			a{	
+				display:block;
+				height: 100px; 
+				width: 100%;
+			}
 		}
 		.nav-main li {	background-color: $color_text_parent;}
 		.nav-add li { background-color: $color_dark_grey}
@@ -180,11 +192,17 @@ header{
 	>button{
 			background-color: $color_base;
 			color:white;
-			padding: 20px;
+			
+			border-radius: 20px;
 			height: 100px;
 			width:80%;
 			margin: 50px auto;
 			font: $font_big_size $font_reg_family;
+			a {
+				display: block;
+				height: 100px;
+				line-height: 100px;
+			}
 	}
 	
 	.edit{
@@ -194,22 +212,24 @@ header{
 		left: 0px;
 		width: 100%;
 		//height: 100vh;
-		padding-top:50px;
+		padding-top:0px;
 		color:$color_text_parent;
 		background-color: rgba($color_light_grey,0.95);
 		font: $font_big_size $font_reg_family;
 		text-align: center;
-		line-height: 100px;
 		vertical-align:middle;
+		line-height: 100px;
+		
 		//z-index: 499;
 				//X button closing page
-		span {
+		span.X, span.showMore {
 			position: absolute;
 			display: block;
 			right: 20px;
-			top: 20px;
+			top: 10px;
 			width: $exit_button_size;
 			height: $exit_button_size;
+			z-index: 100;
 
 			border-radius: $exit_button_size;
 			background-color: $color_base;
@@ -241,6 +261,85 @@ header{
 			margin: 50px auto;
 			font: $font_big_size $font_reg_family;
 			text-align: center;
+			border-radius: 20px;
+		}
+
+		.newMissionForm{	
+			
+			input[name='newMissionName']{
+				display:block;
+				width: 80%;
+				margin: 30px auto;
+				height: 80px;
+				padding: 20px;
+				font: $font_mid_size $font_reg_family;
+				line-height: 80px;
+				vertical-align: middle;
+				border: 2px solid $color_base;
+				border-radius: 20px;
+			}
+
+			input[name='newMissionPoints']{
+				display:inline-block;
+				width: 40%;
+				height: 80px;
+				font: $font_mid_size $font_reg_family;
+				line-height: 80px;
+				vertical-align: middle;
+				border: 2px solid $color_base;
+				text-align: center;
+			}
+
+			span{
+				display:inline-block;
+				width:20%;
+				height: 80px;
+				font: 70px $font_reg_family;
+				vertical-align: middle;
+				line-height: 80px;
+				color: white;		
+				border: 2px solid $color_base;
+				background-color: $color_base;	
+				cursor: pointer;
+			}
+			span.less{
+				border-bottom-left-radius: 20px;
+				border-top-left-radius: 20px;
+			}
+
+			span.more{
+				border-bottom-right-radius: 20px;
+				border-top-right-radius: 20px;
+			}
+
+			input[type="radio"] { display: none;}
+
+			input[name='newMissionType'] + label {
+				display:inline-block;
+				margin-top: 40px;
+				width:40%;
+				height: 80px;
+				padding: 20px;
+				border: 2px solid $color_base;
+				color: $color_dark_grey;
+				font: $font_mid_size $font_reg_family;
+				line-height: 40px;
+				cursor: pointer;
+			}
+
+
+			input[name='newMissionType'] + label:first-of-type{
+				border-bottom-left-radius: 20px;
+				border-top-left-radius: 20px;
+				border-right: none;
+			}
+			input[name='newMissionType'] + label:last-of-type{
+				border-bottom-right-radius: 20px;
+				border-top-right-radius: 20px;
+			}
+			input[name='newMissionType']:checked + label {
+				background-color:$color_base;
+				color: white}
 		}
 	}
 }
