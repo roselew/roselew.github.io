@@ -3,8 +3,17 @@
 
 		stateMissions.forEach(function(missionId){
 			//finds mission index by missionId
-			var missionIndex = findUserMission(missionId)
-			$('.mission-'+stateName).append($('<li class="circle-big" name='+missionId+'><p><span class=dayList>'+convertDaysNames(userMissions[missionIndex].days)+'</span>'+userMissions[missionIndex].name+'</p><img src=' + userMissions[missionIndex].icon +'>'+starSvg+'<span>'+userMissions[missionIndex].points+'</span></li>'))
+			var mission=userMissions[findUserMission(missionId)]
+			if (mission.days==""){
+				var when = 'x '+ mission.frequency
+			} else {
+				var when = convertDaysNames(mission.days)
+			}
+
+			$('.mission-'+stateName).append($('<li class="circle-big" name='+missionId+'>'
+				+'<p><span class=dayList>'+ when +'</span>'+mission.name+'</p>'
+				+'<img src=' + mission.icon +'>'+starSvg
+				+'<span>'+mission.points+'</span></li>'))
 		})
 	}
 
@@ -131,6 +140,11 @@ function missionDetails(type,missionId){
 
 		$('.edit').append($('<button class="save">ZAPISZ ZMIANY</button>'))
 	}
+	if (type=="empty"){
+		$('.edit ul.mission-neutral').append($('<li class="circle-big"></li>'))
+		$('.edit').append(createEmptyForm());
+		$('.edit').append($('<button class="add">DODAJ</button>'))
+	}
 }
 
 
@@ -239,8 +253,7 @@ $(document).on('click','.edit button.addOwn',function(){
 
 	hideEdit();
 	showEdit();
-	//addOwn();
-	$('.container ul').show('slow')
+	missionDetails('empty')
 	
 })
 
