@@ -113,6 +113,11 @@ $(document).on('click','.edit li.circle-mid',function(){
 
 })
 
+// show details of mission
+// expert - add new proposed by experts
+// user - edit existing user mission
+// empty - add new own mission
+
 function missionDetails(type,missionId){
 
 	if (type=="expert"){
@@ -133,10 +138,15 @@ function missionDetails(type,missionId){
 		$('input[name="newMissionName"]').val(newMission.name)
 		$('input[name="newMissionPoints"]').val(newMission.points)
 
-		$('#givenDays').prop("checked", true).trigger('click')
-		newMission.days.forEach(function(day){
-			$('input[name="newMissionDays"]').eq(day).trigger('click')
-		})
+		if (newMission.days){
+			$('#givenDays').prop("checked", true).trigger('click')
+			newMission.days.forEach(function(day){
+				$('input[name="newMissionDays"]').eq(day).trigger('click')
+			})
+		} else {
+			$('#anyDays').prop("checked", true).trigger('click')
+			$('input[name="newMissionFrequency"]').val(newMission.frequency)	
+		}
 
 		$('.edit').append($('<button class="save">ZAPISZ ZMIANY</button>'))
 	}
@@ -170,7 +180,31 @@ $(document).on('click','.edit span.more',function(){
 })
 
 
+function validateNewMission(){
+	if($('input[name="newMissionName"]').val()==""){
+		return false
+	}
+	var points=$('input[name="newMissionPoints"]').val()
+	if (points=="" || points <=0){
+		return false
+	}
+	if ($('#givenDays').is(':checked')){
+		if ($('input[name="newMissionDays"]:checked').length==0) {
+			return false
+		}
+	} else if ($('#anyDays').is(':checked')){	
+		var frequency=$('input[name="newMissionFrequency"]').val()
+		if(frequency=="" || frequency>7 || frequency<1){
+			return false
+		}
+	} else {return false}
+	return true
+}
+
+
+
 $(document).on('click','.edit button.add',function(){
+
 	var name=$('input[name="newMissionName"]').val();
 	var icon=$('.edit li.circle-big img').attr('src');
 	var points=$('input[name="newMissionPoints"]').val();
@@ -186,11 +220,19 @@ $(document).on('click','.edit button.add',function(){
 		var frequency =$('input[name="newMissionFrequency"]').val();
 	}
 
-	$(document).trigger('addUserMission', [name, icon , points, frequency, days, true]);
-	hideEdit();
+	if (validateNewMission()) {
+		$(document).trigger('addUserMission', [name, icon , points, frequency, days, true]);
+		hideEdit();
+	} else {
+		alert('Czegoś nie uzupełniłeś')
+	}
+
+	
+	
 })
 
 $(document).on('click','.edit button.save',function(){
+
 	var missionId=$('.edit li.circle-big').attr('name')
 	var name=$('input[name="newMissionName"]').val();
 	var icon=$('.edit li.circle-big img').attr('src');
@@ -207,13 +249,16 @@ $(document).on('click','.edit button.save',function(){
 		var frequency =$('input[name="newMissionFrequency"]').val();
 	}
 
-	$(document).trigger('updateUserMission', [missionId, name, icon , points, frequency, days, true]);
-	hideEdit();
+	if (validateNewMission()) {
+		$(document).trigger('updateUserMission', [missionId, name, icon , points, frequency, days, true]);
+		hideEdit();
+	} else {
+		alert('Czegoś nie uzupełniłeś')
+	}
 })
 
 
- //$("input[name='newMissionType']:checked").val()
-
+// creates Empty Form for adding / editing missions with all inputs but without button and without image
 function createEmptyForm(){
 		var newMissionForm=$('<form class=newMissionForm></form>')
 		newMissionForm.append($('<input type="text" name="newMissionName" placeholder="Nazwa misji">'))

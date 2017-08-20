@@ -76,7 +76,7 @@ var userMissions = [
 		name: 'Pościelić łóżko',
 		icon: 'assets/bed.svg',
 		points: 1,
-		frequency: 7,
+		frequency: "",
 		days:[0,1,2,3,4,5,6],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00")	,
@@ -86,7 +86,7 @@ var userMissions = [
 		name: 'Odrobić pracę domową',
 		icon: 'assets/carpentry.svg',
 		points: 2,
-		frequency: 3,
+		frequency: "",
 		days: [0,1,3,5],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00"),
@@ -96,7 +96,7 @@ var userMissions = [
 		name:'Zetrzeć kurze',
 		icon:'assets/clean.svg',
 		points: 1,
-		frequency: 3,
+		frequency: "",
 		days:[0,2,4,6],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00"),
@@ -106,7 +106,7 @@ var userMissions = [
 		name:'Rozpakować zakupy',
 		icon:'assets/basket.svg',
 		points: 3,
-		frequency: 2,
+		frequency: "",
 		days:[1,4],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00"),
@@ -331,7 +331,7 @@ function kidMode() { return $('body').hasClass('kid') };
 //$(document).trigger('addUserMission', [name, icon, points, frequency, days, confirm, {start}])
 //start optional, Monday = 0
 $(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, 7, [0,1,2,3,4,5,6], true])
-$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, 1, [3], true, '2015/12/24 00:00:00'])
-$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, [4], true, '2015/12/24 00:00:00'])
-$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, 3, [0,2,4], true, '2016/12/24 00:00:00'])
-$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, 1, [3], true, '2017/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, "", [3], true, '2015/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, "", true, '2015/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, "", [0,2,4], true, '2016/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, "", [3], true, '2017/12/24 00:00:00'])
