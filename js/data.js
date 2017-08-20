@@ -19,6 +19,15 @@ weekday[4] = "PT";
 weekday[5] = "SB";
 weekday[6] = "ND";
 
+
+function convertDaysNames(days){
+	var daysNames=[];
+	days.forEach(function(day,index){
+		daysNames[index]=weekday[day]
+	})
+	return daysNames.join(" ");
+}
+
 var monthName= new Array(12);
 monthName[0]= "styczeń";
 monthName[1]= "luty";

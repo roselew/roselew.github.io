@@ -89,7 +89,7 @@ header{
 		height: 100vh;
 		background-color: $color_back_parent;
 		li{
-			height: 100px;
+			height: calc((100vh-$header_height)/6);
 			width: 100%;
 			font: $font_big_size $font_reg_family;
 			line-height: 100px; 
@@ -262,6 +262,9 @@ header{
 			font: $font_big_size $font_reg_family;
 			text-align: center;
 			border-radius: 20px;
+			&:disabled{
+				background-color: $color_dark_grey;
+			}
 		}
 
 		.newMissionForm{	
@@ -279,7 +282,7 @@ header{
 				border-radius: 20px;
 			}
 
-			input[name='newMissionPoints']{
+			input[name='newMissionPoints'], input[name='newMissionFrequency']{
 				display:inline-block;
 				width: 40%;
 				height: 80px;
@@ -313,33 +316,66 @@ header{
 			}
 
 			input[type="radio"] { display: none;}
+			input[type="checkbox"] { display: none;}
 
-			input[name='newMissionType'] + label {
-				display:inline-block;
-				margin-top: 40px;
-				width:40%;
-				height: 80px;
-				padding: 20px;
-				border: 2px solid $color_base;
-				color: $color_dark_grey;
-				font: $font_mid_size $font_reg_family;
-				line-height: 40px;
-				cursor: pointer;
+			input[name='newMissionType'] {
+
+				& + label {
+					display:inline-block;
+					margin-top: 20px;
+					width:40%;
+					height: 80px;
+					padding: 20px;
+					border: 2px solid $color_base;
+					color: $color_dark_grey;
+					font: $font_mid_size $font_reg_family;
+					line-height: 40px;
+					cursor: pointer;
+				}
+
+				&:checked + label {
+					background-color:$color_base;
+					color: white				
+				}			
 			}
-
-
-			input[name='newMissionType'] + label:first-of-type{
+			#givenDays + label {
 				border-bottom-left-radius: 20px;
 				border-top-left-radius: 20px;
 				border-right: none;
 			}
-			input[name='newMissionType'] + label:last-of-type{
+
+			#anyDays + label {
 				border-bottom-right-radius: 20px;
 				border-top-right-radius: 20px;
 			}
-			input[name='newMissionType']:checked + label {
-				background-color:$color_base;
-				color: white}
+
+			p{
+				font: $font_mid_size $font_reg_family;
+				margin-top: 40px;
+			}
+
+			input[name='newMissionDays'] {
+
+				& + label{
+					display: inline-block;
+					width: (74%/7);
+					margin-top: 40px;
+					margin-left: 0.5%;
+					margin-right: 0.5%;
+					height: 80px;
+					padding: 20px;
+					border: 2px solid $color_base;
+					border-radius: 20px;
+					color:$color_dark_grey;
+					font: $font_mid_size $font_reg_family;
+					cursor: pointer;
+				}
+
+				&:checked + label {
+					background-color:$color_base;
+					color: white	
+				}
+			}
 		}
 	}
 }
@@ -744,8 +780,21 @@ li.circle-big {
 		height: $font_mid_size*3;
 		font: $font_small_size $font_reg_family;
 		text-align: center;
-
 	}
+
+	span.dayList{
+		display:block;
+		background-color: $color_light_grey;
+		color:$color_text_parent;
+		border-radius: 10px;
+		font: $font_mini_size $font_reg_family;
+		position: relative;
+		top:-10px;
+		left:0px;
+		word-spacing: 3px;
+		padding: 2px 0px;
+	}
+	
 }
 
 //space for name of mission
