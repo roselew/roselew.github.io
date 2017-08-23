@@ -317,7 +317,9 @@ header{
 
 			input[type="radio"] { display: none;}
 			input[type="checkbox"] { display: none;}
-
+			input[type=number]::-webkit-inner-spin-button {
+			  -webkit-appearance: none;
+			}
 			input[name='newMissionType'] {
 
 				& + label {
