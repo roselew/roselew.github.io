@@ -971,11 +971,19 @@ ul.menu {
 			z-index:500;
 		}
 	}
-
-	.menu-misje {background: $color_undone url(../assets/mission.svg) top 10% center no-repeat; background-size: 70%;}
-	.menu-odznaki {background-color: $color_done;}
-	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 20% center no-repeat; background-size: 70%;}
-	.menu-nagrody{background: $color_base url(../assets/gift.svg) top 30% center no-repeat; background-size: 50%;}
+// #d34747
+	.menu-misje {background: $color_undone url(../assets/mission.svg) top 30% center no-repeat; background-size: 60%;
+		border-bottom: 10px solid #d34747;
+		border-right: 10px solid #d34747;}
+	.menu-odznaki {background: $color_done url(../assets/badge1.svg) top 30% center no-repeat; background-size: 60%;
+		border-bottom: 10px solid darken($color_done,10%);
+		border-right: 10px solid darken($color_done,10%);	}
+	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 30% center no-repeat; background-size: 70%;
+		border-bottom: 10px solid darken($color_wait,10%);
+		border-right: 10px solid darken($color_wait,10%);	}
+	.menu-nagrody{background: $color_base url(../assets/gift.svg) top 30% center no-repeat; background-size: 50%;
+		border-bottom: 10px solid darken($color_base,10%);
+		border-right: 10px solid darken($color_base,10%);	}
 
 	@media (orientation: portrait){
 		.menu-misje{
