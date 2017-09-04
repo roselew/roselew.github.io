@@ -17,7 +17,7 @@ $color_alert: rgba(mix($color_back_kid,$color_dark_grey,50%),0.95);
 
 //font definition
 $font_title_family: 'Grand Hotel', cursive;
-$font_title_size: 90px;
+$font_title_size: 100px;
 
 $font_reg_family: 'Lato', sans_serif;
 $font_big_size: 40px;
@@ -29,7 +29,7 @@ $font_mini_size: 14px;
 
 	//header
 	$header_height: 150px;
-	$header_logo_size: 120px;
+	$header_logo_size: 140px;
 	$header_logo_position: 10px;
 	$header_banner_height: 95px;
 	$header_hamburger_size: 60px;
@@ -59,3 +59,25 @@ $font_mini_size: 14px;
 	$progressbar_height: 50px;
 	$progress_logo_size: 70px;
 
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+  @return $shadow;
+}
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}

@@ -1,0 +1,90 @@
+// -------   FILTER  ----------
+
+//@import '_zmienne';
+
+.filter{
+	position:relative;
+	width: 100%-$odznaki_left;
+	margin-left: $odznaki_left;
+	margin-bottom: $day_margin;
+	text-align: left;
+
+	//styles for all buttons
+	button{
+		position: relative;
+		display: inline-block;
+		height: $filter_height;
+		width: $filter_button_width;
+		padding-left: 10px;
+
+		border-width: 2px;
+		border-style: solid;
+		cursor: pointer;
+		background-size: 0.8*$filter_height;
+		background-position: left 20% center;
+		background-repeat: no-repeat;
+	}
+	//styles for specific buttons
+	.show-all {
+	 	background-image: url(../assets/all_missions.svg);	
+	 	border-color: $color_base;
+	 	border-top-left-radius: 50px;
+	 	border-bottom-left-radius: 50px;
+		span{background-color: $color_base;}
+	}
+	.show-all.selected{background-color: $color_base;}
+
+	.show-undone {
+		border-color: $color_undone;
+		background-image: url(../assets/dislike.svg);	
+		span{background-color: $color_undone;}
+	}
+	.show-undone.selected{background-color: $color_undone;}
+
+	.show-wait {
+		border-color: $color_wait;
+		background-image: url(../assets/hourglass.svg);	
+		span{background-color: $color_wait;}
+	}
+	.show-wait.selected{background-color: $color_wait;}
+
+	.show-done {
+		border-color: $color_done;
+		background-image: url(../assets/like.svg);	
+		border-top-right-radius: 50px;
+	 	border-bottom-right-radius: 50px;
+		span{background-color: $color_done;}
+	}
+	.show-done.selected{background-color: $color_done;}
+
+	//circle with number of missions
+	span{
+		position: absolute;
+		right: 20%;
+		bottom: 11px;
+		height: $mission_small_size+5px;
+		width: $mission_small_size+5px;
+
+		color: $color_text_kid;
+		border-radius: $mission_small_size;
+		font: $font_mid_size $font_reg_family;
+		line-height: $mission_small_size;
+	}
+	// hero img 
+	img.hero{
+		width: 20%;
+		position: absolute;
+		left: -22%;
+		bottom: 0px;
+		z-index: 500;
+	}
+}
+
+.parent .filter{
+	button{background-color: $color_back_parent;}
+	img.hero {display:none;}
+}
+
+.kid .filter{
+	button{background-color: $color_back_kid;}
+}
