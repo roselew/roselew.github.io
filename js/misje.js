@@ -23,19 +23,19 @@ $(document).on('showWeek', function (event){
 	$('.day-view li').remove()
 	showDay( currentDate);
 	var currentMonth = monthName[currentDate.getMonth()]
-	$('.week p').text(currentDate.getDate()+ ' '+ currentMonth)
+	$('.dayName p').text(currentDate.getDate()+ ' '+ currentMonth)
 })
 
 
 // ----- change week 
 
 	//week before
-	$('.week span').eq(0).on('click',function(){
+	$('.dayName span').eq(0).on('click',function(){
 		currentDate.setDate(currentDate.getDate()-1)	
 		$(document).trigger('showWeek')
 	})
 	//week after
-	$('.week span').eq(1).on('click',function(){
+	$('.dayName span').eq(1).on('click',function(){
 		currentDate.setDate(currentDate.getDate()+1)	
 		$(document).trigger('showWeek')
 	})

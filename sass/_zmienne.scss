@@ -46,18 +46,19 @@ $font_mini_size: 14px;
 
 	//odznaki screen
 	$odznaki_left: 18%;  //screen division proportion
-	
+	$odznaki_right: 3%;
+
 	$day_height: 90px;
 	$day_margin: 35px;
 	
 	$filter_height: 80px;
-	$filter_button_width: 24%;
+	$filter_button_width: calc(25% - 2px);
 	
 	//progressbar
 	$bohater_size: 350px;
 	$progressbar_width: 75%;
 	$progressbar_height: 50px;
-	$progress_logo_size: 70px;
+	$progress_logo_size: 85px;
 
 
 /// Stroke font-character

@@ -123,6 +123,21 @@
 		//show only days that are not empty
 		$('.day .mission-'+ type +' li').parents('.day').show()
 		$('.mission-' + type).show()
+
+
+		if (!kidMode()){
+			if ($('button.show-wait').hasClass('selected')){
+				$('button.acceptAll').show()
+			} else {
+				$('button.acceptAll').hide()
+			}
+			if ($('button.show-undone').hasClass('selected')){
+				$('button.doneAll').show()
+			} else {
+				$('button.doneAll').hide()
+			}	
+		}
+
 	}
 
 
@@ -138,6 +153,8 @@
 
 		$('.day, .day-line, .day-details ul').show()
 		$('.day-details').hide()
+
+		$('button.acceptAll, button.doneAll').hide()	
 	}
 
 	function turnOnDayButtons(){

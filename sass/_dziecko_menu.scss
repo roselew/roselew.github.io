@@ -1,0 +1,97 @@
+// ---- MENU kid CLASS ------
+
+//@import '_zmienne';
+
+.menu {
+	position: relative;
+	width: 100%;
+	height: 80vh;
+}
+
+ul.menu {
+
+	li {
+	position: absolute;
+	text-align: center;
+	font: 3rem $font_reg_family;
+	color: $color_back_kid;
+	border-radius: 100%;
+	
+
+		p{
+			display: inline-block;
+			width: 100%;
+			position: absolute;
+			bottom: 10%;
+			left: 0px;
+			z-index:500;
+		}
+	}
+
+	.menu-misje {background: $color_undone url(../assets/check2.svg) top 30% center no-repeat; background-size: 60%;
+		border-bottom: 10px solid #d34747;
+		border-right: 10px solid #d34747;}
+	.menu-odznaki {background: $color_done url(../assets/medal.svg) top 30% center no-repeat; background-size: 60%;
+		border-bottom: 10px solid darken($color_done,10%);
+		border-right: 10px solid darken($color_done,10%);	}
+	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 30% center no-repeat; background-size: 70%;
+		border-bottom: 10px solid darken($color_wait,10%);
+		border-right: 10px solid darken($color_wait,10%);	}
+	.menu-nagrody{background: $color_base url(../assets/giftbox.svg) top 30% center no-repeat; background-size: 50%;
+		border-bottom: 10px solid darken($color_base,10%);
+		border-right: 10px solid darken($color_base,10%);	}
+
+	@media (orientation: portrait){
+		.menu-misje{
+			top: 15vw;
+			left: 5vw;
+			width: 30vw;
+			height: 30vw;
+		}
+		.menu-odznaki{
+			top: 10vw;
+			left: 60vw;
+			width: 35vw;
+			height: 35vw;
+		}
+		.menu-bohater{
+			top: 30vw;
+			left: 20vw;
+			width: 60vw;
+			height: 60vw;
+		}
+		.menu-nagrody{
+			top: 75vw;
+			left: 3vw;
+			width: 40vw;
+			height: 40vw;
+		}
+	} 
+
+	@media (orientation: landscape){
+		.menu-misje{
+			top: 0vw;
+			left: 5vw;
+			width: 20vw;
+			height: 20vw;
+		}
+		.menu-odznaki{
+			top: 0vw;
+			left: 50vw;
+			width: 25vw;
+			height: 25vw;
+		}
+		.menu-bohater{
+			top: 6vw;
+			left: 20vw;
+			width: 35vw;
+			height: 35vw;
+		}
+		.menu-nagrody{
+			top: 15vw;
+			left: 68vw;
+			width: 27vw;
+			height: 27vw;
+		}
+	}
+}

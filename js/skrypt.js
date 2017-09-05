@@ -1,5 +1,50 @@
 
 
+$(document).on('click','button.acceptAll', function(){
+	var missionList=$('ul.mission-wait li.circle-mid')
+	var missionsToAccept=[]
+	missionList.each( function(){
+
+		var missionId = $(this).attr('name');
+
+		//get info about day we are in
+		var datIndex =$('.day').index($(this).parents('.day'));
+		var doneDate = new Date(currentDate);
+		doneDate.setDate(currentDate.getDate()+datIndex)
+
+		var missionToAccept=[missionId,doneDate]
+		missionsToAccept.push(missionToAccept)
+	})
+
+	missionsToAccept.forEach(function(mission){
+		$(document).trigger('addDoneMission',[mission[0],mission[1]])
+		$(document).trigger('deleteWaitMission',[mission[0],mission[1]])
+	})
+})
+
+
+$(document).on('click','button.doneAll', function(){
+	var missionList=$('ul.mission-undone li.circle-mid')
+	var missionsToAccept=[]
+	missionList.each( function(){
+
+		var missionId = $(this).attr('name');
+
+		//get info about day we are in
+		var datIndex =$('.day').index($(this).parents('.day'));
+		var doneDate = new Date(currentDate);
+		doneDate.setDate(currentDate.getDate()+datIndex)
+
+		var missionToAccept=[missionId,doneDate]
+		missionsToAccept.push(missionToAccept)
+	})
+
+	missionsToAccept.forEach(function(mission){
+		$(document).trigger('addDoneMission',[mission[0],mission[1]])
+	})
+})
+
+
 // -------moving misssions-------------
 
 	// add click actions to missions

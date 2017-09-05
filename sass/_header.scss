@@ -14,7 +14,7 @@ header{
 	.logo {
 		position: fixed;
 		top: ( $header_height - $header_logo_size )/2;
-		left: ( $header_height - $header_logo_size )/2;
+		left: $odznaki_right;
 		width: $header_logo_size;
 		height: $header_logo_size;
 	}

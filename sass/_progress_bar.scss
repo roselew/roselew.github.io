@@ -5,8 +5,8 @@
 .progress {
 	position: relative;
 	height: $progressbar_height;
-	width: $progressbar_width;
-	margin: 10px 0px 50px $odznaki_left;
+	width: (100% - $odznaki_left - $odznaki_right);
+	margin: 10px $odznaki_right 50px $odznaki_left;
 
 	.progress-undone {
 		position: absolute;
@@ -15,46 +15,34 @@
 		width: 100%;
 		height: $progressbar_height;
 		border-radius: 20px 0px 0px 20px;
-		border-bottom-left-radius: 20px;
-		border-top-left-radius: 20px;
+		border-radius: 20px;
 	}
 
 	.progress-wait {
 		position: absolute;
 		left:0px;
 		top:0px;
-		width: 80%;
 		height: $progressbar_height;
 		border-radius: 20px 0px 0px 20px;
+		border-radius: 20px;
 	}
 
 	.progress-done {
 		position: absolute;
 		left:0px;
 		top:0px;
-		width: 60%;
 		height: $progressbar_height;
 		border-radius: 20px 0px 0px 20px;
+		border-radius: 20px;
 		background-color: $color_base;
 	}
 
-	//to change with real logo image
 	.logo {
 		position: absolute;
-		right: -$progress_logo_size+10px;
+		right: -5px;
 		top:  - ($progress_logo_size - $progressbar_height )/2;
 		width: $progress_logo_size;
 		height: $progress_logo_size;
-
-		border-radius: $progress_logo_size;
-		border-color: white;
-		border-width: 5px;
-		border-style: solid;
-		background-color: $color_base;
-		color: white;
-		font: $font_big_size $font_title_family;
-		text-align: center;
-		line-height: $progress_logo_size;
 	}
 
 }
