@@ -1,3 +1,5 @@
+// ten skrypt zawiera bazę danych (dopóki nie zostanie wrzucona do jsona) i wszystkie skrypty które odpowiadają za aktualizację bazy danych lub pobranie z niej danych
+
 
 var color={
 done: '#13CE66',// green
