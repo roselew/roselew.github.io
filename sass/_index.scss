@@ -1,7 +1,7 @@
 // large header baner
 .index-banner{
 	position: relative;
-	top: 100px;
+	top: 150px;
 	left: 0px;
 	width: 100%;
 	text-align: center;
@@ -20,13 +20,13 @@
 		background-color: $color_base;
 		padding: 20px 0px 20px 1.2*$header_logo_size;
 		margin-left: $header_logo_size;
-		margin-bottom: 30vh;
 		margin-right: 5%;
+		margin-bottom: 150px;
 		border-bottom-left-radius: 200px;
 		border-top-right-radius: 200px;
 		color: $color_text_kid;
 	}
-}
+}	
 
 .index-container {
 	position: relative;
@@ -36,7 +36,6 @@
 		display: inline-block;
 
 		button {
-			margin: 0px;
 			border-radius: 0px;
 			width: 44.5vw;
 			height: 35vh;
