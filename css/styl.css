@@ -98,8 +98,8 @@ form.enter {
 
 .enter button {
   border-radius: 0px;
-  width: 350px;
-  height: 500px;
+  width: 40vw;
+  height: 40vh;
   font: 40px "Lato", sans_serif;
   padding-top: 250px;
   border-bottom: 10px solid #0085cc;
@@ -113,7 +113,7 @@ form.enter {
   border-bottom-left-radius: 250px;
   border-top-left-radius: 250px;
   background: #00A6FF url(../assets/captain.svg) top 30% center no-repeat;
-  background-size: 70%;
+  background-size: 60%;
 }
 
 .enter.left button:hover {
@@ -125,7 +125,7 @@ form.enter {
   border-bottom-right-radius: 250px;
   border-top-right-radius: 250px;
   background: #00A6FF url(../assets/bohater.png) top 30% center no-repeat;
-  background-size: 70%;
+  background-size: 60%;
 }
 
 .enter.right button:hover {
