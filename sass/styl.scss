@@ -16,9 +16,7 @@ a {
 	color:inherit;
 }
 
-button {
-	cursor: pointer;
-}
+	
 
 @import '_header';
 
@@ -29,6 +27,99 @@ button {
 
 @import '_postepy_odznaki';
 @import '_progress_bar';
+
+
+
+
+// FORMS
+
+
+input {
+	height: 80px;
+	font: $font_mid_size $font_reg_family;
+	line-height: 80px;
+	vertical-align: middle;
+	border: 2px solid $color_base;
+	text-align: center;
+}
+
+input[type='text'],input[type='password']{
+	display:block;
+	width: 80%;
+	margin: 30px auto;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+input[type='number']{
+	display:inline-block;
+	width: 40%;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+// + and - buttons for input type number
+span.less, span.more {
+	display:inline-block;
+	width:20%;
+	height: 80px;
+	font: 70px $font_reg_family;
+	vertical-align: middle;
+	line-height: 80px;
+	color: white;		
+	border: 2px solid $color_base;
+	background-color: $color_base;	
+	cursor: pointer;
+}
+span.less {
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;			
+}
+span.more {
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;			
+}
+
+// standard buttons
+button{
+	background-color: $color_base;
+	color:white;
+	padding: 20px;
+	width:80%;
+	margin: 50px auto;
+	font: $font_big_size $font_reg_family;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
+	&:disabled{
+		background-color: $color_dark_grey;
+	}
+	&:hover{
+		background-color: darken($color_base,20%);	
+	}
+}
+
+
+input[type=checkbox] {
+	margin-top: 10px;
+	margin-right: 30px;
+	position: relative;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	border: 2px solid $color_base;
+}
+
+.checkbox label {
+	position: relative;
+	display: inline-block;
+	text-align: left;
+	font: $font_mid_size $font_reg_family;	
+	color: $color_text_kid;
+	width: 70%;
+	vertical-align: bottom;	
+}
 
 
 //----- CONTAINER AND ALERT --------
@@ -89,22 +180,6 @@ button {
 		}
 	}
 
-	>button{
-			background-color: $color_base;
-			color:white;
-			
-			border-radius: 20px;
-			height: 100px;
-			width:80%;
-			margin: 50px auto;
-			font: $font_big_size $font_reg_family;
-			a {
-				display: block;
-				height: 100px;
-				line-height: 100px;
-			}
-	}
-	
 	.edit{
 		position:absolute;
 		display: block;
@@ -153,73 +228,15 @@ button {
 			background-color: rgba(darken($color_light_grey,10%),0.5);
 		}
 
-		button{
-			background-color: $color_base;
-			color:white;
-			padding: 20px;
-			width:80%;
-			margin: 50px auto;
-			font: $font_big_size $font_reg_family;
-			text-align: center;
-			border-radius: 20px;
-			&:disabled{
-				background-color: $color_dark_grey;
-			}
-		}
+
 
 		.newMissionForm{	
 			
-			input[name='newMissionName']{
-				display:block;
-				width: 80%;
-				margin: 30px auto;
-				height: 80px;
-				padding: 20px;
-				font: $font_mid_size $font_reg_family;
-				line-height: 80px;
-				vertical-align: middle;
-				border: 2px solid $color_base;
-				border-radius: 20px;
-			}
 
-			input[name='newMissionPoints'], input[name='newMissionFrequency']{
-				display:inline-block;
-				width: 40%;
-				height: 80px;
-				font: $font_mid_size $font_reg_family;
-				line-height: 80px;
-				vertical-align: middle;
-				border: 2px solid $color_base;
-				text-align: center;
-			}
-
-			span{
-				display:inline-block;
-				width:20%;
-				height: 80px;
-				font: 70px $font_reg_family;
-				vertical-align: middle;
-				line-height: 80px;
-				color: white;		
-				border: 2px solid $color_base;
-				background-color: $color_base;	
-				cursor: pointer;
-			}
-			span.less{
-				border-bottom-left-radius: 20px;
-				border-top-left-radius: 20px;
-			}
-
-			span.more{
-				border-bottom-right-radius: 20px;
-				border-top-right-radius: 20px;
-			}
 
 			input[type="radio"] { display: none;}
 			input[type="checkbox"] { display: none;}
-			input[type=number]::-webkit-inner-spin-button {
-			  -webkit-appearance: none;
-			}
+
 			input[name='newMissionType'] {
 
 				& + label {

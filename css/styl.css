@@ -51,6 +51,10 @@ blockquote, q {
   quotes: "" "";
 }
 
+button {
+  border-style: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -70,10 +74,6 @@ html {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-button {
-  cursor: pointer;
 }
 
 header {
@@ -162,7 +162,6 @@ header nav .nav-add li {
 .kid header .header-banner {
   background-color: #00A6FF;
   color: white;
-  text-shadow: 0 0 10px #0C1A3F;
 }
 
 .kid header label[for="navigation"] {
@@ -874,6 +873,95 @@ ul.mission-done .star {
   background-color: rgba(66, 75, 100, 0.95);
 }
 
+input {
+  height: 80px;
+  font: 32px "Lato", sans_serif;
+  line-height: 80px;
+  vertical-align: middle;
+  border: 2px solid #00A6FF;
+  text-align: center;
+}
+
+input[type='text'], input[type='password'] {
+  display: block;
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+input[type='number'] {
+  display: inline-block;
+  width: 40%;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+span.less, span.more {
+  display: inline-block;
+  width: 20%;
+  height: 80px;
+  font: 70px "Lato", sans_serif;
+  vertical-align: middle;
+  line-height: 80px;
+  color: white;
+  border: 2px solid #00A6FF;
+  background-color: #00A6FF;
+  cursor: pointer;
+}
+
+span.less {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+span.more {
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+button {
+  background-color: #00A6FF;
+  color: white;
+  padding: 20px;
+  width: 80%;
+  margin: 50px auto;
+  font: 40px "Lato", sans_serif;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #777B88;
+}
+
+button:hover {
+  background-color: #006499;
+}
+
+input[type=checkbox] {
+  margin-top: 10px;
+  margin-right: 30px;
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #00A6FF;
+}
+
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  font: 32px "Lato", sans_serif;
+  color: white;
+  width: 70%;
+  vertical-align: bottom;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -944,22 +1032,6 @@ ul.mission-done .star {
   }
 }
 
-.container > button {
-  background-color: #00A6FF;
-  color: white;
-  border-radius: 20px;
-  height: 100px;
-  width: 80%;
-  margin: 50px auto;
-  font: 40px "Lato", sans_serif;
-}
-
-.container > button a {
-  display: block;
-  height: 100px;
-  line-height: 100px;
-}
-
 .container .edit {
   position: absolute;
   display: block;
@@ -1009,78 +1081,12 @@ ul.mission-done .star {
   background-color: rgba(220, 220, 220, 0.5);
 }
 
-.container .edit button {
-  background-color: #00A6FF;
-  color: white;
-  padding: 20px;
-  width: 80%;
-  margin: 50px auto;
-  font: 40px "Lato", sans_serif;
-  text-align: center;
-  border-radius: 20px;
-}
-
-.container .edit button:disabled {
-  background-color: #777B88;
-}
-
-.container .edit .newMissionForm input[name='newMissionName'] {
-  display: block;
-  width: 80%;
-  margin: 30px auto;
-  height: 80px;
-  padding: 20px;
-  font: 32px "Lato", sans_serif;
-  line-height: 80px;
-  vertical-align: middle;
-  border: 2px solid #00A6FF;
-  border-radius: 20px;
-}
-
-.container .edit .newMissionForm input[name='newMissionPoints'], .container .edit .newMissionForm input[name='newMissionFrequency'] {
-  display: inline-block;
-  width: 40%;
-  height: 80px;
-  font: 32px "Lato", sans_serif;
-  line-height: 80px;
-  vertical-align: middle;
-  border: 2px solid #00A6FF;
-  text-align: center;
-}
-
-.container .edit .newMissionForm span {
-  display: inline-block;
-  width: 20%;
-  height: 80px;
-  font: 70px "Lato", sans_serif;
-  vertical-align: middle;
-  line-height: 80px;
-  color: white;
-  border: 2px solid #00A6FF;
-  background-color: #00A6FF;
-  cursor: pointer;
-}
-
-.container .edit .newMissionForm span.less {
-  border-bottom-left-radius: 20px;
-  border-top-left-radius: 20px;
-}
-
-.container .edit .newMissionForm span.more {
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
 .container .edit .newMissionForm input[type="radio"] {
   display: none;
 }
 
 .container .edit .newMissionForm input[type="checkbox"] {
   display: none;
-}
-
-.container .edit .newMissionForm input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
 }
 
 .container .edit .newMissionForm input[name='newMissionType'] + label {

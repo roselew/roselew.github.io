@@ -115,6 +115,8 @@ var userMissions = [
 	}
 ]
 
+
+
 var waitMissions = [
 	{ missionId: '3', doneDate: new Date('2017/08/07 00:00:00')},
 	{ missionId: '2', doneDate: new Date('2017/08/05 00:00:00')},
@@ -124,6 +126,8 @@ var waitMissions = [
 	{ missionId: '1', doneDate: new Date('2017/08/02 00:00:00')},
 	{ missionId: '1', doneDate: new Date('2017/07/31 00:00:00')},
 ]
+
+
 
 var doneMissions = [
 	{ missionId: '8', doneDate: new Date('2017/08/07 00:00:00')},
@@ -137,6 +141,7 @@ var doneMissions = [
 	{ missionId: '3', doneDate: new Date('2017/07/31 00:00:00')},
 	{ missionId: '2', doneDate: new Date('2017/07/31 00:00:00')},
 ]
+
 
 
 
@@ -173,6 +178,25 @@ function getDayMissions(day){
 		}
 	})
 	return dayAllMissions;
+}
+
+function getWeekMissions(day){
+	var weekAllMissions = [];
+	userMissions.forEach(function(mission){
+		var startDate = new Date(mission.start)
+		//if Mission is started
+		if (day>=startDate) {
+			//if days given
+
+			if (mission.frequency) {
+				// add frequency times to the list
+				for (i=0; i< mission.frequency; i++){
+					weekAllMissions.push(mission.id)
+				}
+			} 
+		}
+	})
+	return weekAllMissions;
 }
 
 //get from database all missions DONE this DAY
@@ -218,6 +242,23 @@ function getUndoneMissions(day){
 }	
 
 
+
+function getUndoneWeekMissions(day){
+
+	var weekUndoneMissions=[];
+	var weekAllMissions = getWeekMissions(day);
+	var dayWaitMissions = getWaitMissions(day);
+	var dayDoneMissions= getDoneMissions(day);
+
+
+	//remove from All missions WAIT and DONE
+	var toRemove=dayWaitMissions.concat(dayDoneMissions)
+	toRemove.forEach(function(element){
+		weekAllMissions.splice(weekAllMissions.indexOf(element),1)
+	})	
+	
+	return weekAllMissions
+}
 
 
 //------WRITE IN DATABASE -----------------
@@ -332,7 +373,7 @@ function kidMode() { return $('body').hasClass('kid') };
 
 //$(document).trigger('addUserMission', [name, icon, points, frequency, days, confirm, {start}])
 //start optional, Monday = 0
-$(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, 7, [0,1,2,3,4,5,6], true])
+$(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, 7, "", true])
 $(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, "", [3], true, '2015/12/24 00:00:00'])
 $(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, "", true, '2015/12/24 00:00:00'])
 $(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, "", [0,2,4], true, '2016/12/24 00:00:00'])

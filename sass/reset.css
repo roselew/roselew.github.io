@@ -44,6 +44,9 @@ blockquote, q {
 	quotes: "" "";
 }
 
+button {
+	border-style: none;
+}
 * {
 	box-sizing: border-box;
 }

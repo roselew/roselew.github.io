@@ -35,7 +35,24 @@
 			dayIndex.find('.small-mission-'+stateName).append($('<li class="circle-small"></li>'))
 			dayIndex.find('.mission-'+stateName).append($('<li class="circle-mid" name='+missionId+'><img src=' + userMissions[missionIndex].icon +'>'+starSvg+'<span>'+userMissions[missionIndex].points+'</li>'))
 		})
+
 	}
+
+	//appends one STATE missions assigned for this DAY to HTML 
+	function appendWeekMission(stateMissions,stateName){
+
+		// index of day class
+		var dayIndex=$('.day').eq(7)
+
+		stateMissions.forEach(function(missionId){
+			//finds mission index by missionId
+			var missionIndex = findUserMission(missionId)
+			dayIndex.find('.small-mission-'+stateName).append($('<li class="circle-small"></li>'))
+			dayIndex.find('.mission-'+stateName).append($('<li class="circle-mid" name='+missionId+'><img src=' + userMissions[missionIndex].icon +'>'+starSvg+'<span>'+userMissions[missionIndex].points+'</li>'))
+		})
+
+	}
+
 
 	//append ALL missions assigned for this DAY to HTML 
 	function showDay(day){
@@ -44,6 +61,7 @@
 		appendMission(day, getUndoneMissions(day),'undone')
 		appendMission(day, getWaitMissions(day),'wait')
 		appendMission(day, getDoneMissions(day),'done')
+
 	}
 
 	//appends ALL missions assigned for this WEEK to HTML
@@ -67,6 +85,8 @@
 			oneDay.setDate(startDay.getDate()+i);
 			showDay(oneDay)
 		}
+
+		appendWeekMission(getUndoneWeekMissions(currentDate),'undone')
 
 		//update progress bar
 		$(document).trigger('updateProgress');

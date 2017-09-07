@@ -81,7 +81,7 @@ header{
 	.header-banner {
 		background-color: $color_base;
 		color: $color_text_kid;
-		text-shadow: 0 0 10px $color_back_kid;//@include stroke(3,$color_back_kid);		
+		//text-shadow: 0 0 10px $color_back_kid;//@include stroke(3,$color_back_kid);		
 	}
 	label[for="navigation"] {
 		display:none;
