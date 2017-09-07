@@ -177,7 +177,7 @@ ul.mission-done {
 .filter{
 	position:relative;
 	width: (100% - $odznaki_left - $odznaki_right);
-	margin: 0px $odznaki_right $day_margin $odznaki_left;
+	margin: 0px $odznaki_right -1*$day_margin $odznaki_left;
 	text-align: left;
 
 	//styles for all buttons
@@ -187,10 +187,9 @@ ul.mission-done {
 		height: $filter_height;
 		width: $filter_button_width;
 		padding-left: 10px;
-
+		border-radius: 0px;
 		border-width: 2px;
 		border-style: solid;
-		cursor: pointer;
 		background-size: 0.8*$filter_height;
 		background-position: left 20% center;
 		background-repeat: no-repeat;

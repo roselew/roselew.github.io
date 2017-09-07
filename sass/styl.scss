@@ -14,9 +14,17 @@ html {
 a {
 	text-decoration: none;
 	color:inherit;
+	font: $font_mid_size $font_reg_family;
+}
+.parent a {
+	color: $color_text_parent;
 }
 
-	
+.kid a {
+	color: $color_text_kid;
+}
+
+@import '_index';	
 
 @import '_header';
 
@@ -28,16 +36,18 @@ a {
 @import '_postepy_odznaki';
 @import '_progress_bar';
 
+@import '_rodzic_misje';
 
 
 
 // FORMS
 
 
+
 input {
-	height: 80px;
+	height: $input_height;
 	font: $font_mid_size $font_reg_family;
-	line-height: 80px;
+	line-height: $input_height;
 	vertical-align: middle;
 	border: 2px solid $color_base;
 	text-align: center;
@@ -45,15 +55,15 @@ input {
 
 input[type='text'],input[type='password']{
 	display:block;
-	width: 80%;
-	margin: 30px auto;
+	width: $input_width;
+	margin: 50px auto;
 	padding: 20px;
 	border-radius: 20px;
 }
 
 input[type='number']{
 	display:inline-block;
-	width: 40%;
+	width: $input_width/2;
 }
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -62,11 +72,11 @@ input[type=number]::-webkit-inner-spin-button {
 // + and - buttons for input type number
 span.less, span.more {
 	display:inline-block;
-	width:20%;
-	height: 80px;
+	width:$input_width/4;
+	height: $input_height;
 	font: 70px $font_reg_family;
 	vertical-align: middle;
-	line-height: 80px;
+	line-height: $input_height;
 	color: white;		
 	border: 2px solid $color_base;
 	background-color: $color_base;	
@@ -85,8 +95,8 @@ span.more {
 button{
 	background-color: $color_base;
 	color:white;
-	padding: 20px;
-	width:80%;
+	padding: 30px;
+	width: $button_width;
 	margin: 50px auto;
 	font: $font_big_size $font_reg_family;
 	text-align: center;
@@ -109,17 +119,24 @@ input[type=checkbox] {
 	width: 40px;
 	height: 40px;
 	border: 2px solid $color_base;
+
+	& + label {
+		position: relative;
+		display: inline-block;
+		text-align: left;
+		font: $font_mid_size $font_reg_family;	
+		width: 70%;
+		vertical-align: bottom;			
+	}
 }
 
-.checkbox label {
-	position: relative;
-	display: inline-block;
-	text-align: left;
-	font: $font_mid_size $font_reg_family;	
+.parent label{
+	color: $color_text_parent;
+} 
+
+.kid label{
 	color: $color_text_kid;
-	width: 70%;
-	vertical-align: bottom;	
-}
+} 
 
 
 //----- CONTAINER AND ALERT --------
@@ -180,123 +197,7 @@ input[type=checkbox] {
 		}
 	}
 
-	.edit{
-		position:absolute;
-		display: block;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		//height: 100vh;
-		padding-top:0px;
-		color:$color_text_parent;
-		background-color: rgba($color_light_grey,0.95);
-		font: $font_big_size $font_reg_family;
-		text-align: center;
-		vertical-align:middle;
-		line-height: 100px;
-		
-		//z-index: 499;
-				//X button closing page
-		span.X, span.showMore {
-			position: absolute;
-			display: block;
-			right: 20px;
-			top: 10px;
-			width: $exit_button_size;
-			height: $exit_button_size;
-			z-index: 100;
-
-			border-radius: $exit_button_size;
-			background-color: $color_base;
-			color: $color_text_kid;
-			text-align: center;
-			vertical-align:middle;
-			line-height: $exit_button_size;
-			cursor: pointer;
-		}
-		ul {
-			position:relative;
-			height: $mission_mid_size+90px;
-			overflow:hidden;
-			padding-right: 40px;
-			li {margin-bottom: 80px;}
-		}
-		
-		h2 {
-			font: $font_mid_size $font_reg_family;
-			padding: 20px;
-			background-color: rgba(darken($color_light_grey,10%),0.5);
-		}
-
-
-
-		.newMissionForm{	
-			
-
-
-			input[type="radio"] { display: none;}
-			input[type="checkbox"] { display: none;}
-
-			input[name='newMissionType'] {
-
-				& + label {
-					display:inline-block;
-					margin-top: 20px;
-					width:40%;
-					height: 80px;
-					padding: 20px;
-					border: 2px solid $color_base;
-					color: $color_dark_grey;
-					font: $font_mid_size $font_reg_family;
-					line-height: 40px;
-					cursor: pointer;
-				}
-
-				&:checked + label {
-					background-color:$color_base;
-					color: white				
-				}			
-			}
-			#givenDays + label {
-				border-bottom-left-radius: 20px;
-				border-top-left-radius: 20px;
-				border-right: none;
-			}
-
-			#anyDays + label {
-				border-bottom-right-radius: 20px;
-				border-top-right-radius: 20px;
-			}
-
-			p{
-				font: $font_mid_size $font_reg_family;
-				margin-top: 40px;
-			}
-
-			input[name='newMissionDays'] {
-
-				& + label{
-					display: inline-block;
-					width: (74%/7);
-					margin-top: 40px;
-					margin-left: 0.5%;
-					margin-right: 0.5%;
-					height: 80px;
-					padding: 20px;
-					border: 2px solid $color_base;
-					border-radius: 20px;
-					color:$color_dark_grey;
-					font: $font_mid_size $font_reg_family;
-					cursor: pointer;
-				}
-
-				&:checked + label {
-					background-color:$color_base;
-					color: white	
-				}
-			}
-		}
-	}
+	
 }
 
 .parent .alert{

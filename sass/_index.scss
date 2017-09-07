@@ -1,0 +1,36 @@
+form.enter {
+	display: inline-block;
+}
+
+
+.enter {
+	button {
+		border-radius: 0px;
+		width: 350px;
+		height: 500px;
+		font: $font_big_size $font_reg_family;
+		padding-top: 250px;
+		border-bottom: 10px solid darken($color_base,10%);
+			
+	}
+
+	&.left { 
+		top:200px;
+
+		button {
+			border-bottom-left-radius: 250px;
+			border-top-left-radius: 250px;
+			background: $color_base url(../assets/captain.svg) top 30% center no-repeat; background-size: 70%;
+			&:hover{background-color: $color_back_parent; color: $color_text_parent;}
+		}
+	}
+	&.right{ 
+
+		button {
+			border-bottom-right-radius: 250px;
+			border-top-right-radius: 250px;
+			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; background-size: 70%;
+				&:hover{background-color: lighten($color_back_kid,10%); color: $color_text_kid;}
+		}
+	}
+}

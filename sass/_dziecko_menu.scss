@@ -30,16 +30,20 @@ ul.menu {
 
 	.menu-misje {background: $color_undone url(../assets/check2.svg) top 30% center no-repeat; background-size: 60%;
 		border-bottom: 10px solid #d34747;
-		border-right: 10px solid #d34747;}
+		border-right: 10px solid #d34747;
+		&:hover{background-color: #d34747;}}
 	.menu-odznaki {background: $color_done url(../assets/medal.svg) top 30% center no-repeat; background-size: 60%;
 		border-bottom: 10px solid darken($color_done,10%);
-		border-right: 10px solid darken($color_done,10%);	}
+		border-right: 10px solid darken($color_done,10%);
+		&:hover{background-color: darken($color_done,10%);}}
 	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 30% center no-repeat; background-size: 70%;
 		border-bottom: 10px solid darken($color_wait,10%);
-		border-right: 10px solid darken($color_wait,10%);	}
+		border-right: 10px solid darken($color_wait,10%);	
+		&:hover{background-color: darken($color_wait,10%);}}
 	.menu-nagrody{background: $color_base url(../assets/giftbox.svg) top 30% center no-repeat; background-size: 50%;
 		border-bottom: 10px solid darken($color_base,10%);
-		border-right: 10px solid darken($color_base,10%);	}
+		border-right: 10px solid darken($color_base,10%);	
+		&:hover{background-color: darken($color_base,10%);}}
 
 	@media (orientation: portrait){
 		.menu-misje{

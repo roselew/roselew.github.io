@@ -6,7 +6,7 @@
 	position: relative;
 	height: $progressbar_height;
 	width: (100% - $odznaki_left - $odznaki_right);
-	margin: 10px $odznaki_right 50px $odznaki_left;
+	margin: 10px $odznaki_right 0px $odznaki_left;
 
 	.progress-undone {
 		position: absolute;
