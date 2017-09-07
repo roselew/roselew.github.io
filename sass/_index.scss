@@ -71,7 +71,9 @@ header.index-header{
 			font: 1.5*$header_banner_height $font_title_family;
 			text-align: center;
 			background-color: $color_base;
-			padding: 20px 0px 20px 2*$header_logo_size;
+			padding: 20px 0px 20px 1*$header_logo_size;
+			margin-left: $header_logo_size;
+			border-bottom-left-radius: 200px;
 		}
 		//line-height: 1.5*$header_banner_height+10px;
 		//vertical-align: middle;

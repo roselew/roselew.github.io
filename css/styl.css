@@ -162,7 +162,9 @@ header.index-header .header-banner p {
   font: 142.5px "Grand Hotel", cursive;
   text-align: center;
   background-color: #00A6FF;
-  padding: 20px 0px 20px 280px;
+  padding: 20px 0px 20px 140px;
+  margin-left: 140px;
+  border-bottom-left-radius: 200px;
 }
 
 header {
