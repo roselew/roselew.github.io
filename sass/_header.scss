@@ -58,10 +58,10 @@ header{
 		height: 100vh;
 		background-color: $color_back_parent;
 		li{
-			height: calc((100vh-$header_height)/6);
+			height: 12vh;
 			width: 100%;
 			font: $font_big_size $font_reg_family;
-			line-height: 100px; 
+			line-height: 12vh; 
 			color: white;
 			text-align: center;
 			margin-bottom: 5px;
