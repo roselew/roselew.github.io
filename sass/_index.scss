@@ -46,9 +46,11 @@ form.enter {
 
 @media (orientation: landscape){
 	.enter {button {background-size: 20vh !important;}}
+	.index-container{top: 10vh;}
 }
 @media (orientation: portrait){
 	.enter {button {background-size: 20vw !important;}}
+	.index-container{top: 30vh;}
 }
 
 header.index-header{
