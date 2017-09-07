@@ -1,65 +1,11 @@
-
-.index-container{
+// large header baner
+.index-banner{
 	position: relative;
-	top: 30vh;
-	width: 100%;
-	text-align: center;
-}
-
-form.enter {
-	display: inline-block;
-}
-
-
-.enter {
-	button {
-		border-radius: 0px;
-		width: 40vw;
-		height: 40vh;
-		font: $font_big_size $font_reg_family;
-		padding-top: 250px;
-		border-bottom: 10px solid darken($color_base,10%);
-			
-	}
-
-	&.left { 
-		top:200px;
-
-		button {
-			border-bottom-left-radius: 250px;
-			border-top-left-radius: 250px;
-			background: $color_base url(../assets/captain.svg) top 30% center no-repeat; 
-			&:hover{background-color: $color_back_parent; color: $color_text_parent;}
-		}
-	}
-	&.right{ 
-
-		button {
-			border-bottom-right-radius: 250px;
-			border-top-right-radius: 250px;
-			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; 
-				&:hover{background-color: lighten($color_back_kid,10%); color: $color_text_kid;}
-		}
-	}
-}
-
-
-@media (orientation: landscape){
-	.enter {button {background-size: 20vh !important;}}
-	.index-container{top: 10vh;}
-}
-@media (orientation: portrait){
-	.enter {button {background-size: 20vw !important;}}
-	.index-container{top: 30vh;}
-}
-
-header.index-header{
-	position: relative;
-	top: 150px;
+	top: 20vh;
 	left: 0px;
 	width: 100%;
-	height: 400px;
-	
+	text-align: center;
+
 	.logo {
 		position: absolute;
 		top: -100px;
@@ -68,23 +14,58 @@ header.index-header{
 		height: 2*$header_logo_size;
 	}
 
-	.header-banner {
-		background-color: $color_back_kid !important;
-		position: relative;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 400px;
-
-		p{
-			font: 1.5*$header_banner_height $font_title_family;
-			text-align: center;
-			background-color: $color_base;
-			padding: 20px 0px 20px 1*$header_logo_size;
-			margin-left: $header_logo_size;
-			border-bottom-left-radius: 200px;
-		}
-		//line-height: 1.5*$header_banner_height+10px;
-		//vertical-align: middle;
+	h1{
+		font: 130px $font_title_family;
+		text-align: center;
+		background-color: $color_base;
+		padding: 20px 0px 20px 0px;
+		margin-left: $header_logo_size;
+		margin-bottom: 30vh;
+		margin-right: 5%;
+		border-bottom-left-radius: 200px;
+		border-top-right-radius: 200px;
+		color: $color_text_kid;
 	}
 }
+
+.index-container {
+	position: relative;
+	text-align: center;
+
+	form.enter {
+		display: inline-block;
+
+		button {
+			margin: 0px;
+			border-radius: 0px;
+			width: 44.5vw;
+			height: 35vh;
+			font: $font_big_size $font_reg_family;
+			padding-top: 25vh;
+			border-bottom: 10px solid darken($color_base,10%);		
+		}
+		&.left button { 
+			border-top-left-radius: 200px;
+			background: $color_base url(../assets/captain.svg) top 30% center no-repeat; background-size: 20vh;
+			&:hover{background-color: $color_back_parent; color: $color_text_parent;}
+		}
+		&.right button { 
+			border-bottom-right-radius: 200px;
+			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; background-size: 20vh;
+			&:hover{background-color: lighten($color_back_kid,10%); color: $color_text_kid;}
+		}
+	}
+}
+
+//two buttons to enter kids and parents parts
+
+// @media (orientation: landscape){
+// 	.enter {button {background-size: 20vh !important;}}
+// 	// .index-container{top: 10vh;}
+// }
+// @media (orientation: portrait){
+// 	.enter {button {background-size: 20vw !important;}}
+// 	// .index-container{top: 30vh;}
+// }
+
+
