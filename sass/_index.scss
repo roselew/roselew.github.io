@@ -1,6 +1,13 @@
+
+.index-container{
+	position: relative;
+	top: 250px;
+	width: 100%;
+	text-align: center;
+}
+
 form.enter {
 	display: inline-block;
-	margin-top: 200px;
 }
 
 
@@ -33,5 +40,40 @@ form.enter {
 			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; background-size: 70%;
 				&:hover{background-color: lighten($color_back_kid,10%); color: $color_text_kid;}
 		}
+	}
+}
+
+
+header.index-header{
+	position: relative;
+	top: 200px;
+	left: 0px;
+	width: 100%;
+	height: 400px;
+	
+	.logo {
+		position: absolute;
+		top: -100px;
+		left: 0px;
+		width: 2*$header_logo_size;
+		height: 2*$header_logo_size;
+	}
+
+	.header-banner {
+		background-color: $color_back_kid !important;
+		position: relative;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 400px;
+
+		p{
+			font: 1.5*$header_banner_height $font_title_family;
+			text-align: center;
+			background-color: $color_base;
+			padding: 20px 0px 20px 2*$header_logo_size;
+		}
+		//line-height: 1.5*$header_banner_height+10px;
+		//vertical-align: middle;
 	}
 }
