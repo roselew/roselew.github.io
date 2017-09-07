@@ -1,7 +1,7 @@
 
 .index-container{
 	position: relative;
-	top: 250px;
+	top: 20vh;
 	width: 100%;
 	text-align: center;
 }
@@ -28,7 +28,7 @@ form.enter {
 		button {
 			border-bottom-left-radius: 250px;
 			border-top-left-radius: 250px;
-			background: $color_base url(../assets/captain.svg) top 30% center no-repeat; background-size: 60%;
+			background: $color_base url(../assets/captain.svg) top 30% center no-repeat; 
 			&:hover{background-color: $color_back_parent; color: $color_text_parent;}
 		}
 	}
@@ -37,16 +37,23 @@ form.enter {
 		button {
 			border-bottom-right-radius: 250px;
 			border-top-right-radius: 250px;
-			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; background-size: 60%;
+			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; 
 				&:hover{background-color: lighten($color_back_kid,10%); color: $color_text_kid;}
 		}
 	}
 }
 
 
+@media (orientation: landscape){
+	.enter {button {background-size: 20vh !important;}}
+}
+@media (orientation: portrait){
+	.enter {button {background-size: 20vw !important;}}
+}
+
 header.index-header{
 	position: relative;
-	top: 200px;
+	top: 150px;
 	left: 0px;
 	width: 100%;
 	height: 400px;
