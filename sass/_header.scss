@@ -59,20 +59,20 @@ header{
 		background-color: $color_back_parent;
 		li{
 			display:block;
-			height: 12vh;
+			height: 10vh;
 			width: 100%;
 			font: $font_big_size $font_reg_family;
-			line-height: 12vh; 
+			line-height: 10vh; 
 			color: white;
 			text-align: center;
 			margin-bottom: 5px;
 		}
 		a{	
 			display:block;
-			height: 12vh;
+			height: 10vh;
 			width: 100%;
 			font: $font_big_size $font_reg_family;
-			line-height: 12vh;
+			line-height: 10vh;
 			color: white !important; 
 		}
 		.nav-main li {	background-color: $color_text_parent;}

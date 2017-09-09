@@ -45,6 +45,14 @@
 		height: $progress_logo_size;
 	}
 
+	p{
+		position: absolute;
+		left: -$odznaki_left;
+		padding-left: 1%;
+		font: $font_big_size $font_reg_family; 
+		color:$color_text_parent;
+	}
+
 }
 
 .parent .progress {
@@ -72,4 +80,14 @@
 		);
 	}
 	.progress-undone {background-color: $color_alert;}
+}
+
+// HISTORY
+
+.history {
+	background-color: $color_light_grey;
+	&:hover{background-color: darken($color_light_grey,20%);}
+	padding-bottom: 20px;
+	.week {margin-bottom: 0px;}
+	cursor: pointer;
 }

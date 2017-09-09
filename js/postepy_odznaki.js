@@ -38,22 +38,6 @@
 
 	}
 
-	//appends one STATE missions assigned for this DAY to HTML 
-	function appendWeekMission(stateMissions,stateName){
-
-		// index of day class
-		var dayIndex=$('.day').eq(7)
-
-		stateMissions.forEach(function(missionId){
-			//finds mission index by missionId
-			var missionIndex = findUserMission(missionId)
-			dayIndex.find('.small-mission-'+stateName).append($('<li class="circle-small"></li>'))
-			dayIndex.find('.mission-'+stateName).append($('<li class="circle-mid" name='+missionId+'><img src=' + userMissions[missionIndex].icon +'>'+starSvg+'<span>'+userMissions[missionIndex].points+'</li>'))
-		})
-
-	}
-
-
 	//append ALL missions assigned for this DAY to HTML 
 	function showDay(day){
 
@@ -86,16 +70,14 @@
 			showDay(oneDay)
 		}
 
-		appendWeekMission(getUndoneWeekMissions(currentDate),'undone')
-
 		//update progress bar
 		$(document).trigger('updateProgress');
 
 		//update week name
 		if (startDayMonth==endDayMonth) {
-			$('.week p').text(startDay.getDate()+ ' - '+ endDay.getDate() + ' '+ endDayMonth)
+			$('.week a').text(startDay.getDate()+ ' - '+ endDay.getDate() + ' '+ endDayMonth)
 		} else {
-			$('.week p').text(startDay.getDate()+ ' ' + startDayMonth+ ' - '+ endDay.getDate() + ' '+ endDayMonth)
+			$('.week a').text(startDay.getDate()+ ' ' + startDayMonth+ ' - '+ endDay.getDate() + ' '+ endDayMonth)
 		}
 
 		//update filter view

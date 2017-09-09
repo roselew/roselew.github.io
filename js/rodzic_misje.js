@@ -7,14 +7,9 @@
 		stateMissions.forEach(function(missionId){
 			//finds mission index by missionId
 			var mission=userMissions[findUserMission(missionId)]
-			if (mission.days==""){
-				var when = 'x '+ mission.frequency
-			} else {
-				var when = convertDaysNames(mission.days)
-			}
-
+	
 			$('.mission-'+stateName).append($('<li class="circle-big" name='+missionId+'>'
-				+'<p><span class=dayList>'+ when +'</span>'+mission.name+'</p>'
+				+'<p><span class=dayList>'+ convertDaysNames(mission.days) +'</span>'+mission.name+'</p>'
 				+'<img src=' + mission.icon +'>'+starSvg
 				+'<span>'+mission.points+'</span></li>'))
 		})
@@ -135,16 +130,10 @@
 			$('input[name="newMissionPoints"]').val(newMission.points)
 			//for user mission save missionId
 			$('.edit li.circle-big').attr('name',newMission.id)
-			//for user missions show also days/frequency
-			if (newMission.days){
-				$('#givenDays').prop("checked", true).trigger('click')
-				newMission.days.forEach(function(day){
-					$('input[name="newMissionDays"]').eq(day).trigger('click')
-				})
-			} else {
-				$('#anyDays').prop("checked", true).trigger('click')
-				$('input[name="newMissionFrequency"]').val(newMission.frequency)	
-			}
+			//for user missions show also days
+			newMission.days.forEach(function(day){
+				$('input[name="newMissionDays"]').eq(day).trigger('click')
+			})
 			//for user mission show SAVE button
 			$('.edit').append($('<button class="save">ZAPISZ ZMIANY</button>'))
 		} else {
@@ -165,24 +154,16 @@
 		newMissionForm.append($('<input type="number" name="newMissionPoints" placeholder="Liczba punktów">'))
 		newMissionForm.append($('<span class="more">+</span>'))
 		newMissionForm.append($('<p>W które dni tygodnia?</p>'))
-		newMissionForm.append($('<input type="radio" name="newMissionType" id="givenDays"><label for="givenDays">określone</label>'))
-  		newMissionForm.append($('<input type="radio" name="newMissionType" id="anyDays"><label for="anyDays">dowolne</label>'))
-  		var newMissionDays = $('<div class="newMissionDays" hidden></div>')
-  		newMissionForm.append(newMissionDays)
+  		newMissionForm.append($('<div class="newMissionDays"></div>'))
   		weekday.forEach(function(day,index){
   			newMissionForm.children('.newMissionDays').append($('<input type="checkbox" name="newMissionDays" id="givenDay'+index+'" value='+index+'><label for="givenDay'+index+'">'+day+'</label>'))
   		})
-  		var newMissionFrequency= $('<div class="newMissionFrequency" hidden></div>')
-  		newMissionForm.append(newMissionFrequency)
-  		newMissionFrequency.append($('<p>Ile razy tygodniowo?</p>'))
-  		newMissionFrequency.append($('<span class="less">-</span>'))
-		newMissionFrequency.append($('<input type="number" name="newMissionFrequency" placeholder="Ile razy w tyg.">'))
-		newMissionFrequency.append($('<span class="more">+</span>'))
+  		
 		return newMissionForm;
 	}
 
 	// buttons for + and - on the form 
-	$(document).on('click','.edit span.less',function(){
+	$(document).on('click','span.less',function(){
 		var missionPoints=parseInt($(this).next().val());
 		if (missionPoints>=1) {
 			missionPoints=missionPoints-1;
@@ -192,7 +173,7 @@
 		$(this).next().val(missionPoints)
 	})
 
-	$(document).on('click','.edit span.more',function(){
+	$(document).on('click','span.more',function(){
 		var missionPoints=parseInt($(this).prev().val());
 		if (missionPoints>=0) {
 			missionPoints=missionPoints+1;
@@ -202,17 +183,6 @@
 		$(this).prev().val(missionPoints)
 	})
 
-	// show more options when GIVEN / ANY days chosen
-	$(document).on('click','input[name="newMissionType"]',function(){
-		if ($('#givenDays').is(':checked')){
-			$('.newMissionDays').slideDown('slow')
-			$('.newMissionFrequency').hide()
-		} else {
-			$('.newMissionDays').hide()
-			$('.newMissionFrequency').slideDown('slow')
-		}
-	})
-
 
 	// BUTTONS FOR SUBMIT THE FORM
 	$(document).on('click','.edit button.add, .edit button.save',function(){
@@ -220,26 +190,18 @@
 		var name=$('input[name="newMissionName"]').val();
 		var icon=$('.edit li.circle-big img').attr('src');
 		var points=$('input[name="newMissionPoints"]').val();
-
-		if ($('#givenDays').is(':checked')){
-			var days=[]
-			$('input[name="newMissionDays"]:checked').each(function(){
-				days.push(parseInt($(this).val()))
-			})
-			var frequency=""
-		} else {
-			var days=""
-			var frequency =$('input[name="newMissionFrequency"]').val();
-		}
+		var days=[]
+		$('input[name="newMissionDays"]:checked').each(function(){
+			days.push(parseInt($(this).val()))
+		})
 
 		if (validateNewMission()) {
 			if ($(this).hasClass('add')) {
-				$(document).trigger('addUserMission', [name, icon , points, frequency, days, true]);
+				$(document).trigger('addUserMission', [name, icon , points, days, true]);
 			} else {
 				var missionId=$('.edit li.circle-big').attr('name'); 
-				$(document).trigger('updateUserMission', [missionId, name, icon , points, frequency, days, true]);
+				$(document).trigger('updateUserMission', [missionId, name, icon , points, days, true]);
 			}
-			
 			hideEdit();
 		} else {
 			alert('Czegoś nie uzupełniłeś')
@@ -257,20 +219,11 @@
 		if (points=="" || points <=0){
 			return false
 		}
-		if ($('#givenDays').is(':checked')){
-			if ($('input[name="newMissionDays"]:checked').length==0) {
-				return false
-			}
-		} else if ($('#anyDays').is(':checked')){	
-			var frequency=$('input[name="newMissionFrequency"]').val()
-			if(frequency=="" || frequency>7 || frequency<1){
-				return false
-			}
-		} else {return false}
+		if ($('input[name="newMissionDays"]:checked').length==0) {
+			return false
+		}
 		return true
 	}
-
-
 
 
 // ----- automatically starts after launching page

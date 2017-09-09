@@ -78,7 +78,6 @@ var userMissions = [
 		name: 'Pościelić łóżko',
 		icon: 'assets/bed.svg',
 		points: 1,
-		frequency: "",
 		days:[0,1,2,3,4,5,6],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00")	,
@@ -88,7 +87,6 @@ var userMissions = [
 		name: 'Odrobić pracę domową',
 		icon: 'assets/carpentry.svg',
 		points: 2,
-		frequency: "",
 		days: [0,1,3,5],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00"),
@@ -98,7 +96,6 @@ var userMissions = [
 		name:'Zetrzeć kurze',
 		icon:'assets/clean.svg',
 		points: 1,
-		frequency: "",
 		days:[0,2,4,6],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00"),
@@ -108,7 +105,6 @@ var userMissions = [
 		name:'Rozpakować zakupy',
 		icon:'assets/basket.svg',
 		points: 3,
-		frequency: "",
 		days:[1,4],
 		confirm: true,
 		start: new Date("2015/12/31 00:00:00"),
@@ -168,36 +164,15 @@ function getDayMissions(day){
 		var startDate = new Date(mission.start)
 		//if Mission is started
 		if (day>=startDate) {
-			//if days given
-			if ((mission.days).length) {
-				//if day of the week ok
-				if (mission.days.indexOf(day.getUTCDay())!==-1){
-					dayAllMissions.push(mission.id)
-				}	
-			} 
+			//if day of the week ok
+			if (mission.days.indexOf(day.getUTCDay())!==-1){
+				dayAllMissions.push(mission.id)
+			}	
 		}
 	})
 	return dayAllMissions;
 }
 
-function getWeekMissions(day){
-	var weekAllMissions = [];
-	userMissions.forEach(function(mission){
-		var startDate = new Date(mission.start)
-		//if Mission is started
-		if (day>=startDate) {
-			//if days given
-
-			if (mission.frequency) {
-				// add frequency times to the list
-				for (i=0; i< mission.frequency; i++){
-					weekAllMissions.push(mission.id)
-				}
-			} 
-		}
-	})
-	return weekAllMissions;
-}
 
 //get from database all missions DONE this DAY
 function getDoneMissions(day){
@@ -212,6 +187,7 @@ function getDoneMissions(day){
 	return dayDoneMissions;
 }
 
+
 //get from database all missions done this DAY but WAIT for acceptance
 function getWaitMissions(day){
 	var dayWaitMissions = [];
@@ -224,6 +200,7 @@ function getWaitMissions(day){
 	})
 	return dayWaitMissions;
 }
+
 
 //get from database all UNDON missions assigned for this DAY
 function getUndoneMissions(day){
@@ -242,30 +219,11 @@ function getUndoneMissions(day){
 }	
 
 
-
-function getUndoneWeekMissions(day){
-
-	var weekUndoneMissions=[];
-	var weekAllMissions = getWeekMissions(day);
-	var dayWaitMissions = getWaitMissions(day);
-	var dayDoneMissions= getDoneMissions(day);
-
-
-	//remove from All missions WAIT and DONE
-	var toRemove=dayWaitMissions.concat(dayDoneMissions)
-	toRemove.forEach(function(element){
-		weekAllMissions.splice(weekAllMissions.indexOf(element),1)
-	})	
-	
-	return weekAllMissions
-}
-
-
 //------WRITE IN DATABASE -----------------
 
 
 // add new user mission
-$(document).on('addUserMission', function (event, name, icon,points,frequency,days,confirm,start) {
+$(document).on('addUserMission', function (event, name, icon,points,days,confirm,start) {
 
 	var today=new Date();
 
@@ -278,7 +236,6 @@ $(document).on('addUserMission', function (event, name, icon,points,frequency,da
 				name: name,
 				icon: icon,
 				points: points,
-				frequency: frequency,
 				days:days,
 				confirm: confirm,
 				start: start,
@@ -289,14 +246,13 @@ $(document).on('addUserMission', function (event, name, icon,points,frequency,da
 })
 	
 
-$(document).on('updateUserMission', function (event, missionId, name, icon,points,frequency,days,confirm,start) {
+$(document).on('updateUserMission', function (event, missionId, name, icon,points,days,confirm,start) {
 
 	var index = findUserMission(missionId);
 
 	userMissions[index].name=name;
 	userMissions[index].icon=icon;
 	userMissions[index].points=points;
-	userMissions[index].frequency=frequency;
 	userMissions[index].days=days;
 	userMissions[index].confirm=confirm;
 
@@ -371,10 +327,10 @@ function kidMode() { return $('body').hasClass('kid') };
 
 //add view user missions
 
-//$(document).trigger('addUserMission', [name, icon, points, frequency, days, confirm, {start}])
+//$(document).trigger('addUserMission', [name, icon, points,  days, confirm, {start}])
 //start optional, Monday = 0
-$(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, 7, "", true])
-$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, "", [3], true, '2015/12/24 00:00:00'])
-$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, 1, "", true, '2015/12/24 00:00:00'])
-$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, "", [0,2,4], true, '2016/12/24 00:00:00'])
-$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, "", [3], true, '2017/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[0].name, 	expertMissions[0].icon , 	1, [1,2], true])
+$(document).trigger('addUserMission', [expertMissions[15].name, expertMissions[15].icon , 	2, [3], true, '2015/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[3].name, 	expertMissions[3].icon , 	3, [1], true, '2015/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[4].name, 	expertMissions[4].icon , 	1, [0,2,4], true, '2016/12/24 00:00:00'])
+$(document).trigger('addUserMission', [expertMissions[5].name, 	expertMissions[5].icon , 	2, [3], true, '2017/12/24 00:00:00'])

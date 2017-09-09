@@ -11,7 +11,8 @@
 	line-height: 1.5*$mission_small_size;
 
 	//week name
-	p{ display: inline-block;
+	a{ 	display: inline-block;
+		font: $font_big_size $font_reg_family; 
 	}
 	//buttons previous and next week
 	span{
@@ -31,12 +32,12 @@
 
 .parent .week{
 	span {background-color: $color_dark_grey;}
-	color:$color_text_parent;
+	a{color:$color_text_parent;}
 }
 
 .kid .week{
 	span {background-color: $color_alert;}
-	color: $color_text_kid;
+	a{color: $color_text_kid;}
 }
 
 
@@ -258,3 +259,6 @@ ul.mission-done {
 .kid .filter{
 	button{background-color: $color_back_kid;}
 }
+
+
+
