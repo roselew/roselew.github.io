@@ -12,6 +12,7 @@ li.circle-big {
 	border-style: solid;
 	border-radius: $mission_big_size;
 	background-color: white;
+	&:hover{background-color: lighten($color_base,30%);}
 	cursor: pointer;
 
 	// mission icon
@@ -85,6 +86,8 @@ li.circle-mid {
 	border-radius: $mission_mid_size;
 	background-color: white;
 	cursor: pointer;
+
+	&:hover{background-color: lighten($color_base,30%);}
 
 	// mission icon
 	img{

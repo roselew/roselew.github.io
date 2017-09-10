@@ -63,9 +63,12 @@
 		text-align: center;
 		line-height: $day_height;
 		cursor: pointer;
+		padding-right: 20px;
 
+		
 		//small arrow down/up
 		span{
+
 			font: $font_mid_size $font_reg_family;
 			position: absolute;
 			right: 15px;
@@ -75,12 +78,16 @@
 }
 
 .parent .day{
-	p {	background-color: $color_dark_grey;}
+	p {	background-color: $color_dark_grey;
+		&:hover{background-color: rgba($color_base,0.5);}
+	}
 	p.selected {background-color: $color_base}
 }
 
 .kid .day{
-	p {	background-color: $color_alert;}
+	p {	background-color: $color_alert;
+		&:hover{background-color: rgba($color_base,0.5);}
+	}
 	p.selected {background-color: $color_base}	
 }
 
