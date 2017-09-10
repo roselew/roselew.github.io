@@ -16,14 +16,14 @@
 	}
 	//buttons previous and next week
 	span{
+		font: $font_title_size $font_title_family; 
 		display: inline-block;
 		width: 1.5*$mission_small_size;
 		height: 1.5*$mission_small_size;
-		margin: 0px 0px;
+		margin: 0px;
 		border-radius: $mission_small_size;
-		
 		color: white;
-		line-height: 1.5*$mission_small_size;
+		line-height:  1.5*$mission_small_size;
 		cursor: pointer;
 	}	
 	span.prev {float:left}
@@ -31,12 +31,13 @@
 }
 
 .parent .week{
-	span {background-color: $color_dark_grey;}
+	span {color:$color_text_parent};
+	span:hover {background-color: $color_dark_grey;color:white}
 	a{color:$color_text_parent;}
 }
 
 .kid .week{
-	span {background-color: $color_alert;}
+	span:hover {background-color: $color_alert;}
 	a{color: $color_text_kid;}
 }
 
@@ -202,13 +203,17 @@ ul.mission-done {
 	 	border-top-left-radius: 50px;
 	 	border-bottom-left-radius: 50px;
 		span{background-color: $color_base;}
+		&:hover{background-color: rgba($color_base,0.3);}
 	}
-	.show-all.selected{background-color: $color_base;}
+	.show-all.selected{
+		background-color: $color_base;
+	}
 
 	.show-undone {
 		border-color: $color_undone;
 		background-image: url(../assets/dislike.svg);	
 		span{background-color: $color_undone;}
+		&:hover{background-color: rgba($color_undone,0.3);}
 	}
 	.show-undone.selected{background-color: $color_undone;}
 
@@ -216,6 +221,7 @@ ul.mission-done {
 		border-color: $color_wait;
 		background-image: url(../assets/hourglass.svg);	
 		span{background-color: $color_wait;}
+		&:hover{background-color: rgba($color_wait,0.3);}
 	}
 	.show-wait.selected{background-color: $color_wait;}
 
@@ -225,6 +231,7 @@ ul.mission-done {
 		border-top-right-radius: 50px;
 	 	border-bottom-right-radius: 50px;
 		span{background-color: $color_done;}
+		&:hover{background-color: rgba($color_done,0.3);}
 	}
 	.show-done.selected{background-color: $color_done;}
 
