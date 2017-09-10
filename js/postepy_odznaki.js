@@ -164,6 +164,7 @@
 		$('.day>p span').html('&#x25BC');
 		//turn off all actions on click (no click cumulation)
 		$('.day>p').off('click')
+		$(document).off('click','.day-line')
 		//turn on day details button
 		$('.day>p').on('click',function(){showDayDetails(this)})
 		$(document).on('click','.day-line',function(){showDayDetails2(this)})
