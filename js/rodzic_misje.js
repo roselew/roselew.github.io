@@ -24,7 +24,7 @@
 
 	$(document).on('showWeek', function (event){
 		$('.mission-neutral li').remove()
-		showDay( currentDate);
+		showDay( today);
 	})
 
 
@@ -57,7 +57,7 @@
 
 		$('.edit').prepend($('<h2> polecane przez ekspertów </h2>'))
 		$('.edit').prepend($('<h1> Wybierz misje </h1>'))
-		$('.edit ul').append($('<span class="showMore">&#x25BC</span>'))
+		$('.edit ul').append($('<span class="showMore bounce">&#x25BC</span>'))
 		$('.edit').append($('<button class="addOwn">...lub dodaj własna misje</button>'))
 		appendExpertMission();
 
@@ -134,8 +134,11 @@
 			newMission.days.forEach(function(day){
 				$('input[name="newMissionDays"]').eq(day).trigger('click')
 			})
+
 			//for user mission show SAVE button
 			$('.edit').append($('<button class="save">ZAPISZ ZMIANY</button>'))
+			// and FINISH / DELETE button
+			$('.edit').append($('<button class="left infoFinish">ZAKOŃCZ</button><button class="right infoDelete">USUŃ</button>'))
 		} else {
 			//for NOT user missions show ADD button
 			$('.edit').append($('<button class="add">DODAJ</button>'))
@@ -158,30 +161,12 @@
   		weekday.forEach(function(day,index){
   			newMissionForm.children('.newMissionDays').append($('<input type="checkbox" name="newMissionDays" id="givenDay'+index+'" value='+index+'><label for="givenDay'+index+'">'+day+'</label>'))
   		})
+
   		
 		return newMissionForm;
 	}
 
-	// buttons for + and - on the form 
-	$(document).on('click','span.less',function(){
-		var missionPoints=parseInt($(this).next().val());
-		if (missionPoints>=1) {
-			missionPoints=missionPoints-1;
-		} else {
-			missionPoints=0;
-		}
-		$(this).next().val(missionPoints)
-	})
 
-	$(document).on('click','span.more',function(){
-		var missionPoints=parseInt($(this).prev().val());
-		if (missionPoints>=0) {
-			missionPoints=missionPoints+1;
-		} else {
-			missionPoints=1;
-		}
-		$(this).prev().val(missionPoints)
-	})
 
 
 	// BUTTONS FOR SUBMIT THE FORM
@@ -225,6 +210,50 @@
 		return true
 	}
 
+
+
+$(document).on('click','.edit button.infoFinish',function(){
+
+	
+	var missionId=$('.edit li.circle-big').attr('name');
+	var newMission=userMissions[findUserMission(missionId)];
+	hideEdit();
+	showEdit();
+	$('.edit ul.mission-neutral').append($('<li class="circle-big">' + (newMission.icon ? '<img  src='+ newMission.icon +'>' : "") +  '</li>'))
+	$('.edit li.circle-big').attr('name',missionId)
+	$('.edit').append($('<p class="info">' + newMission.name+'</p>'))
+	$('.edit').append($('<p class="info">Zakończenie oznacza, że od dziś Dziecko nie musi wykonywać już tej misji, ale zapamiętana zostanie historia związana z tą misją - w tym punkty, które dziecko uzyskało w przeszłości</p>'))
+	$('.edit').append($('<button class="finishMission">ZAKOŃCZ</button>'))
+})
+
+$(document).on('click','.edit button.finishMission',function(){
+
+	var missionId=$('.edit li.circle-big').attr('name');
+	var newMission=userMissions[findUserMission(missionId)];
+	$(document).trigger('finishUserMission',missionId)
+	hideEdit();
+})
+
+$(document).on('click','.edit button.infoDelete',function(){
+	
+	var missionId=$('.edit li.circle-big').attr('name');
+	var newMission=userMissions[findUserMission(missionId)];
+	hideEdit();
+	showEdit();
+	$('.edit ul.mission-neutral').append($('<li class="circle-big">' + (newMission.icon ? '<img  src='+ newMission.icon +'>' : "") +  '</li>'))
+	$('.edit li.circle-big').attr('name',missionId)
+	$('.edit').append($('<p class="info">' + newMission.name+'</p>'))
+	$('.edit').append($('<p class ="info">Usunięcie misji oznacza, że nie tylko Dziecko nie musi wykonywać już tej misji, ale też usuwana jest cała historia zwiazana z tą misją - w tym punkty, które dziecko uzyskało w przesłości</p>'))
+	$('.edit').append($('<button class="deleteMission">USUŃ</button>'))
+})
+
+$(document).on('click','.edit button.deleteMission',function(){
+
+	var missionId=$('.edit li.circle-big').attr('name');
+	var newMission=userMissions[findUserMission(missionId)];
+	$(document).trigger('deleteUserMission',missionId)
+	hideEdit();
+})
 
 // ----- automatically starts after launching page
 

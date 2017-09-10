@@ -1,29 +1,29 @@
 // large header baner
 .index-banner{
 	position: relative;
-	top: 150px;
+	top: 15.0rem;
 	left: 0px;
 	width: 100%;
 	text-align: center;
 
 	.logo {
 		position: absolute;
-		top: -100px;
+		top: -10.0rem;
 		left: 0px;
 		width: 2*$header_logo_size;
 		height: 2*$header_logo_size;
 	}
 
 	h1{
-		font: 130px $font_title_family;
+		font: 13.0rem $font_title_family;
 		text-align: left;
 		background-color: $color_base;
 		padding: 20px 0px 20px 1.2*$header_logo_size;
 		margin-left: $header_logo_size;
 		margin-right: 5%;
-		margin-bottom: 200px;
-		border-bottom-left-radius: 200px;
-		border-top-right-radius: 200px;
+		margin-bottom: 20.0rem;
+		border-bottom-left-radius: 20.0rem;
+		border-top-right-radius: 20.0rem;
 		color: $color_text_kid;
 	}
 }	

@@ -14,8 +14,8 @@
 		top:0px;
 		width: 100%;
 		height: $progressbar_height;
-		border-radius: 20px 0px 0px 20px;
-		border-radius: 20px;
+		// border-radius: $border_radius 0px 0px $border_radius;
+		border-radius: $border_radius;
 	}
 
 	.progress-wait {
@@ -23,8 +23,8 @@
 		left:0px;
 		top:0px;
 		height: $progressbar_height;
-		border-radius: 20px 0px 0px 20px;
-		border-radius: 20px;
+		// border-radius: $border_radius 0px 0px $border_radius;
+		border-radius: $border_radius;
 	}
 
 	.progress-done {
@@ -32,8 +32,8 @@
 		left:0px;
 		top:0px;
 		height: $progressbar_height;
-		border-radius: 20px 0px 0px 20px;
-		border-radius: 20px;
+		// border-radius: $border_radius 0px 0px $border_radius;
+		border-radius: $border_radius;
 		background-color: $color_base;
 	}
 
@@ -87,7 +87,7 @@
 .history {
 	background-color: $color_light_grey;
 	&:hover{background-color: darken($color_light_grey,20%);}
-	padding-bottom: 20px;
+	padding-bottom: 2.0rem;
 	.week {margin-bottom: 0px;}
 	cursor: pointer;
 }

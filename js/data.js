@@ -150,8 +150,11 @@ function getAllMissions(day){
 		var startDate = new Date(mission.start)
 		//if Mission is started
 		if (day>=startDate) {
-			dayAllMissions.push(mission.id)
-		} 
+			// if Mission is not finished
+			if (mission.finish == null || day<mission.finish){
+				dayAllMissions.push(mission.id)
+			}
+		}	 
 	})
 	return dayAllMissions;
 }
@@ -161,14 +164,17 @@ function getAllMissions(day){
 function getDayMissions(day){
 	var dayAllMissions = [];
 	userMissions.forEach(function(mission){
-		var startDate = new Date(mission.start)
-		//if Mission is started
-		if (day>=startDate) {
+	//if Mission is started
+	if (day>=mission.start) {
+		// if Mission is not finished
+		if (mission.finish == null || day<mission.finish){
 			//if day of the week ok
 			if (mission.days.indexOf(day.getUTCDay())!==-1){
 				dayAllMissions.push(mission.id)
-			}	
+			}			
 		}
+
+	}
 	})
 	return dayAllMissions;
 }
@@ -242,6 +248,23 @@ $(document).on('addUserMission', function (event, name, icon,points,days,confirm
 			}
 	
 	userMissions.push(newUserMission)
+	$(document).trigger('showWeek')
+})
+
+$(document).on('deleteUserMission',function(event,missionId){
+
+	var index = findUserMission(missionId);
+	userMissions.splice(index,1);
+
+	$(document).trigger('showWeek')
+})
+	
+
+$(document).on('finishUserMission',function(event,missionId,finish){
+
+	var index = findUserMission(missionId);
+	userMissions[index].finish = today;
+	
 	$(document).trigger('showWeek')
 })
 	

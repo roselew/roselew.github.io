@@ -9,6 +9,7 @@ body.parent{background-color: $color_back_parent;}
 
 html {
 	font-size: 62.5%;
+	font-family: $font_reg_family;
 }
 
 a {
@@ -46,7 +47,7 @@ a {
 form {
 	p{
 		font: $font_mid_size $font_reg_family;
-		margin-top: 40px;
+		margin-top: 4.0rem;
 		color: $color_text_parent;
 	}
 	margin: 0px;
@@ -66,9 +67,9 @@ input {
 input[type='text'],input[type='password']{
 	display:block;
 	width: $input_width;
-	margin: 50px auto;
-	padding: 20px;
-	border-radius: 20px;
+	margin: 5.0rem auto;
+	padding: 2.0rem;
+	border-radius: 2.0rem;
 }
 
 input[type='number']{
@@ -80,12 +81,31 @@ input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+button.left, button.right {
+	width: $input_width/2;
+	background: none;
+	border-radius: 0;
+	border: 2px solid $color_base;
+	&:hover{background-color: $color_base;color: white;}
+	color: $color_text_parent;
+}
+button.left {
+	border-top-left-radius: $border_radius;
+	border-bottom-left-radius: $border_radius;
+	border-right: none;
+}
+
+button.right {
+	border-top-right-radius: $border_radius;
+	border-bottom-right-radius: $border_radius;
+}
+
 // + and - buttons for input type number
 span.less, span.more {
 	display:inline-block;
 	width:$input_width/4;
 	height: $input_height;
-	font: 70px $font_reg_family;
+	font: 7.0rem $font_reg_family;
 	vertical-align: middle;
 	line-height: $input_height;
 	color: white;		
@@ -94,24 +114,24 @@ span.less, span.more {
 	cursor: pointer;
 }
 span.less {
-	border-bottom-left-radius: 20px;
-	border-top-left-radius: 20px;			
+	border-bottom-left-radius: $border_radius;
+	border-top-left-radius: $border_radius;			
 }
 span.more {
-	border-bottom-right-radius: 20px;
-	border-top-right-radius: 20px;			
+	border-bottom-right-radius: $border_radius;
+	border-top-right-radius: $border_radius;			
 }
 
 // standard buttons
 button{
 	background-color: $color_base;
 	color:white;
-	padding: 30px;
+	padding: 3.0rem;
 	width: $button_width;
-	margin: 50px auto;
+	margin: 5.0rem auto;
 	font: $font_big_size $font_reg_family;
 	text-align: center;
-	border-radius: 20px;
+	border-radius: $border_radius;
 	cursor: pointer;
 	&:disabled{
 		background-color: $color_dark_grey;
@@ -123,12 +143,12 @@ button{
 
 
 input[type=checkbox] {
-	margin-top: 10px;
-	margin-right: 30px;
+	margin-top: 1.0rem;
+	margin-right: 3.0rem;
 	position: relative;
 	cursor: pointer;
-	width: 40px;
-	height: 40px;
+	width: 4.0rem;
+	height: 4.0rem;
 	border: 2px solid $color_base;
 
 	& + label {
@@ -182,8 +202,8 @@ input[type=checkbox] {
 		span {
 			position: absolute;
 			display: block;
-			right: 20px;
-			top: 20px;
+			right: 2.0rem;
+			top: 2.0rem;
 			width: $exit_button_size;
 			height: $exit_button_size;
 
@@ -220,6 +240,47 @@ input[type=checkbox] {
 }
 
 
+
+//bouncing class
+.bounce {
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+/* Scroll down indicator (bouncing) */
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px); } }
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0); }
+  40% {
+    -moz-transform: translateY(-30px); }
+  60% {
+    -moz-transform: translateY(-15px); } }
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+    transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    transform: translateY(-15px); } }
 
 
 

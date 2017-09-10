@@ -11,15 +11,15 @@
 		font: $font_big_size $font_reg_family;
 		text-align: center;
 		vertical-align:middle;
-		line-height: 100px;
+		line-height: 10.0rem;
 		
 		//z-index: 499;
 				//X button closing page
 		span.X, span.showMore {
 			position: absolute;
 			display: block;
-			right: 20px;
-			top: 10px;
+			right: 2.0rem;
+			top: 1.0rem;
 			width: $exit_button_size;
 			height: $exit_button_size;
 			z-index: 100;
@@ -32,12 +32,18 @@
 			line-height: $exit_button_size;
 			cursor: pointer;
 		}
+		span.X{
+			top: 1.0 rem;
+		}
+		span.showMore {
+			top: 0.5*$mission_mid_size;
+		}
 		ul {
 			position:relative;
-			height: $mission_mid_size+90px;
+			height: $mission_mid_size+9.0rem;
 			overflow:hidden;
-			padding-right: 40px;
-			li {margin-bottom: 80px;}
+			padding-right: 6.0rem;
+			li {margin-bottom: 8.0rem;}
 		}
 		
 		h2 {
@@ -45,8 +51,15 @@
 			padding: 20px;
 			background-color: rgba(darken($color_light_grey,10%),0.5);
 		}
-
-
+		
+		.info {
+			width: 80%;
+			margin: auto;
+			font: $font_big_size $font_reg_family;
+			line-height: 1.5*$font_big_size;
+			margin-top: 6.0rem;
+			background: none;
+		}
 
 		.newMissionForm{	
 			
@@ -60,12 +73,12 @@
 				& + label{
 					display: inline-block;
 					width: (74%/7);
-					margin-top: 40px;
+					margin-top: 4.0rem;
 					margin-left: 0.5%;
 					margin-right: 0.5%;
 					height: $input_height;
 					border: 2px solid $color_base;
-					border-radius: 20px;
+					border-radius: $border_radius;
 					color:$color_dark_grey;
 					font: $font_mid_size $font_reg_family;
 					cursor: pointer;

@@ -166,6 +166,8 @@
 		$('.day>p').off('click')
 		//turn on day details button
 		$('.day>p').on('click',function(){showDayDetails(this)})
+		$(document).on('click','.day-line',function(){showDayDetails2(this)})
+
 	}
 
 	function turnOffDayButtons(){
@@ -194,6 +196,26 @@
 			$(dayButton).removeClass('selected')
 		}
 	}
+
+	//the same us above, but allows to click on line and not the button
+	function showDayDetails2(dayLine){
+		var dayDetails = $(dayLine).parents('.day').children('.day-details');
+		var dayButton = $(dayLine).parents('.day').find('p');
+		if (dayDetails.is(":hidden")) {
+			//slowly show
+			dayDetails.slideDown('slow')
+			//change arrow type and background
+			$(dayButton).children('span').html('&#x25B2')
+			$(dayButton).addClass('selected')
+		} else {
+			//slowly hide
+			dayDetails.slideUp('slow')
+			//change arrow type
+			$(dayButton).children('span').html('&#x25BC')
+			$(dayButton).removeClass('selected')
+		}
+	}
+
 
 	//clicks one more time filter button
 	//important becacuse filter hides days where no missions

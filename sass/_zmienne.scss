@@ -17,35 +17,36 @@ $color_alert: rgba(mix($color_back_kid,$color_dark_grey,50%),0.95);
 
 //font definition
 $font_title_family: 'Grand Hotel', cursive;
-$font_title_size: 100px;
+$font_title_size: 10.0rem;
 
 $font_reg_family: 'Lato', sans_serif;
-$font_big_size: 40px;
-$font_mid_size: 32px;
-$font_small_size: 24px;
-$font_mini_size: 14px;
+$font_big_size: 4.0rem;
+$font_mid_size: 3.2rem;
+$font_small_size: 2.4rem;
+$font_mini_size: 2.0rem;
 
+$border_radius: 2.0rem;
 // sizes
 
 	//header
-	$header_height: 150px;
-	$header_logo_size: 140px;
-	$header_logo_position: 10px;
-	$header_banner_height: 95px;
-	$header_hamburger_size: 60px;
+	$header_height: 15.0rem;
+	$header_logo_size: 14.0rem;
+	$header_logo_position: 1.0rem;
+	$header_banner_height: 9.5rem;
+	$header_hamburger_size: 6.0rem;
 
 	//missions
-	$mission_big_size: 200px;
-	$mission_mid_size: 150px;	
-	$mission_small_size: 50px;
+	$mission_big_size: 20.0rem;
+	$mission_mid_size: 15.0rem;	
+	$mission_small_size: 5.0rem;
 
 	//buttons
-	$exit_button_size: 80px;
+	$exit_button_size: 8.0rem;
 	$button_width: 80%;
 	
 	//form inputs
 	$input_width : 80%;
-	$input_height: 100px;
+	$input_height: 10.0rem;
 
 
 
@@ -53,37 +54,15 @@ $font_mini_size: 14px;
 	$odznaki_left: 18%;  //screen division proportion
 	$odznaki_right: 3%;
 
-	$day_height: 90px;
-	$day_margin: 35px;
+	$day_height: 9.0rem;
+	$day_margin: 3.5rem;
 	
-	$filter_height: 80px;
+	$filter_height: 8.0rem;
 	$filter_button_width: calc(25% - 2px);
 	
 	//progressbar
-	$bohater_size: 350px;
+	$bohater_size: 35.0rem;
 	$progressbar_width: 75%;
-	$progressbar_height: 50px;
-	$progress_logo_size: 85px;
+	$progressbar_height: 5.0rem;
+	$progress_logo_size: 8.5rem;
 
-
-/// Stroke font-character
-/// @param  {Integer} $stroke - Stroke width
-/// @param  {Color}   $color  - Stroke color
-/// @return {List}            - text-shadow list
-@function stroke($stroke, $color) {
-  $shadow: ();
-  $from: $stroke*-1;
-  @for $i from $from through $stroke {
-   @for $j from $from through $stroke {
-      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
-    }
-  }
-  @return $shadow;
-}
-/// Stroke font-character
-/// @param  {Integer} $stroke - Stroke width
-/// @param  {Color}   $color  - Stroke color
-/// @return {Style}           - text-shadow
-@mixin stroke($stroke, $color) {
-  text-shadow: stroke($stroke, $color);
-}

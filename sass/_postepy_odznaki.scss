@@ -69,7 +69,8 @@
 		//small arrow down/up
 		span{
 
-			font: $font_mid_size $font_reg_family;
+			font: $font_small_size $font_reg_family;
+			line-height: $day_height/2;
 			position: absolute;
 			right: 15px;
 			top: $day_height/2 - $font_mid_size/2;
@@ -207,8 +208,8 @@ ul.mission-done {
 	.show-all {
 	 	background-image: url(../assets/all_missions.svg);	
 	 	border-color: $color_base;
-	 	border-top-left-radius: 50px;
-	 	border-bottom-left-radius: 50px;
+	 	border-top-left-radius: 5.0rem;
+	 	border-bottom-left-radius: 5.0rem;
 		span{background-color: $color_base;}
 		&:hover{background-color: rgba($color_base,0.3);}
 	}
@@ -235,8 +236,8 @@ ul.mission-done {
 	.show-done {
 		border-color: $color_done;
 		background-image: url(../assets/like.svg);	
-		border-top-right-radius: 50px;
-	 	border-bottom-right-radius: 50px;
+		border-top-right-radius: 5.0rem;
+	 	border-bottom-right-radius: 5.0rem;
 		span{background-color: $color_done;}
 		&:hover{background-color: rgba($color_done,0.3);}
 	}
@@ -247,8 +248,8 @@ ul.mission-done {
 		position: absolute;
 		right: 20%;
 		bottom: 11px;
-		height: $mission_small_size+5px;
-		width: $mission_small_size+5px;
+		height: $mission_small_size+0.5rem;
+		width: $mission_small_size+0.5rem;
 
 		color: $color_text_kid;
 		border-radius: $mission_small_size;
