@@ -45,7 +45,7 @@
 		}
 		&.left button { 
 			border-top-left-radius: 200px;
-			background: $color_base url(../assets/captain.svg) top 30% center no-repeat; background-size: 20vh;
+			background: $color_base url(../assets/logo.png) top 30% center no-repeat; background-size: 20vh;
 			&:hover{background-color: $color_back_parent; color: $color_text_parent;}
 		}
 		&.right button { 

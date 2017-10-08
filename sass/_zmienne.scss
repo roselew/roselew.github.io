@@ -1,15 +1,15 @@
 //colors definition
-$color_base:#00A6FF; // base color, neutral for missions
+$color_base:#008aff; // base color, neutral for missions
 $color_base2: #C0392B; // second base color (logo etc.)
 $color_back_kid: #0C1A3F; // background for kids 
 $color_back_parent: #E6E8E5; // background for parents
 $color_dark_grey: #777B88; // darker than back_parent
 $color_light_grey: #F5F5F5; // lighter than back_parent
-$color_done: #13CE66; // green
+$color_done: #45BE23; // green
 //#E31E10
-$color_wait: #FFBA5C; // yellow
+$color_wait: #FDB524; // yellow
 //#F29C0B
-$color_undone: #F95F62; //red
+$color_undone: #FF4040; //red
 $color_text_parent: #343F4B; //very dark grey
 $color_text_kid: white; 
 $color_alert: rgba(mix($color_back_kid,$color_dark_grey,50%),0.95);

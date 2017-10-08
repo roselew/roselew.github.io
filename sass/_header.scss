@@ -13,7 +13,7 @@ header{
 	//to change with real logo image
 	.logo {
 		position: fixed;
-		top: ( $header_height - $header_logo_size )/2;
+		top: 0px;
 		left: $odznaki_right;
 		width: $header_logo_size;
 		height: $header_logo_size;
@@ -30,11 +30,6 @@ header{
 		text-align: center;
 		line-height: $header_banner_height+1.0rem;
 		vertical-align: middle;
-	}
-
-	.navigation {
-		position: absolute;
-		clip: rect(0, 0, 0, 0);	
 	}
 
 	label[for="nav"] {
@@ -83,7 +78,7 @@ header{
 .kid header{
 	background-color: $color_back_kid;
 	.header-banner {
-		background-color: $color_base;
+		background-color: lighten($color_base,10%);
 		color: $color_text_kid;
 		//text-shadow: 0 0 10px $color_back_kid;//@include stroke(3,$color_back_kid);		
 	}
