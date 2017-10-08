@@ -3,7 +3,8 @@
 
 @import 'reset';
 
-body.kid{background: $color_back_kid url(../assets/back_circles.svg) center center no-repeat; background-size: 100%;}
+body.kid{background-color: $color_back_kid}
+//body.kid{background: $color_back_kid url(../assets/back_circles.svg) top center no-repeat; background-size: 100%;}
 body.parent{background-color: $color_back_parent;}
 
 html {
