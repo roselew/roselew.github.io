@@ -285,12 +285,12 @@ input[type=checkbox] {
 
 
 	.back-circle1{
-		width:100vw;
-		height: 100vw;
+		width:60vw;
+		height: 60vw;
 		position: fixed;
-		top: -80vw;
-		left: -40vw;
-		background-color: lighten($color_back_kid,10%);
+		bottom: -30vw;
+		left: -30vw;
+		background-color: lighten($color_back_kid,15%);
 		border-radius: 100%;
 		z-index:1;
 
@@ -302,7 +302,7 @@ input[type=checkbox] {
 		position: fixed;
 		bottom: -20vw;
 		left: -20vw;
-		background-color: lighten($color_back_kid,15%);
+		background-color: lighten($color_back_kid,10%);
 		border-radius: 100%;
 		z-index:1;
 	}
