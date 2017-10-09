@@ -288,13 +288,14 @@ input[type=checkbox] {
 		width:60vw;
 		height: 60vw;
 		position: fixed;
-		bottom: -30vw;
-		left: -30vw;
-		background-color: lighten($color_back_kid,15%);
+		top: 200px;
+		left: 20vw;
 		border-radius: 100%;
 		z-index:1;
-
 	}
+
+	.kid .back-circle1 {background-color: lighten($color_back_kid,5%);}
+	.parent .back-circle1 {background-color: darken($color_back_parent,5%);}
 
 	.back-circle2{
 		width:40vw;
@@ -302,10 +303,12 @@ input[type=checkbox] {
 		position: fixed;
 		bottom: -20vw;
 		left: -20vw;
-		background-color: lighten($color_back_kid,10%);
 		border-radius: 100%;
 		z-index:1;
 	}
+
+	.kid .back-circle2 {background-color: lighten($color_back_kid,10%);}
+	.parent .back-circle2 {background-color: darken($color_back_parent,10%);}
 
 	.back-circle3{
 		width:60vw;
@@ -313,11 +316,51 @@ input[type=checkbox] {
 		position: fixed;
 		bottom: -20vw;
 		right: -40vw;
-		background-color: lighten($color_back_kid,12%);
 		border-radius: 100%;
 		z-index:1;
 	}
 
+	.kid .back-circle3 {background-color: lighten($color_back_kid,10%);}
+	.parent .back-circle3 {background-color: darken($color_back_parent,10%);}
+
+	.back-circle4{
+		width:30vw;
+		height: 30vw;
+		position: fixed;
+		top: 200px;
+		right: 10vw;
+		border-radius: 100%;
+		z-index:1;
+	}
+
+	.kid .back-circle4 {background-color: transparentize(lighten($color_back_kid,15%),0.5);}
+	.parent .back-circle4 {background-color: transparentize(darken($color_back_parent,15%),0.5);}
+
+	.back-circle5{
+		width:20vw;
+		height: 20vw;
+		position: fixed;
+		bottom: 0px;
+		left: 10vw;
+		border-radius: 100%;
+		z-index:1;
+	}
+
+	.kid .back-circle5 {background-color: transparentize(lighten($color_back_kid,15%) ,0.5 );}
+	.parent .back-circle5 {background-color: transparentize(darken($color_back_parent,15%),0.5);}
+
+	.back-circle6{
+		width:20vw;
+		height: 20vw;
+		position: fixed;
+		bottom: 0px;
+		right: 10vw;
+		border-radius: 100%;
+		z-index:1;
+	}
+
+	.kid .back-circle6 {background-color: transparentize(lighten($color_back_kid,15%) ,0.5 );}
+	.parent .back-circle6 {background-color: transparentize(darken($color_back_parent,15%),0.5);}
 
 
 .gradient {
