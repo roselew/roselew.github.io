@@ -288,8 +288,8 @@ input[type=checkbox] {
 		width:60vw;
 		height: 60vw;
 		position: fixed;
-		top: 200px;
-		left: 20vw;
+		bottom: 0vw;
+		left: 15vw;
 		border-radius: 100%;
 		z-index:1;
 	}
@@ -327,7 +327,7 @@ input[type=checkbox] {
 		width:30vw;
 		height: 30vw;
 		position: fixed;
-		top: 200px;
+		top: 15.0rem;
 		right: 10vw;
 		border-radius: 100%;
 		z-index:1;
@@ -353,8 +353,8 @@ input[type=checkbox] {
 		width:20vw;
 		height: 20vw;
 		position: fixed;
-		bottom: 0px;
-		right: 10vw;
+		bottom: 5vw;
+		right: 15vw;
 		border-radius: 100%;
 		z-index:1;
 	}

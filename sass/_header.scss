@@ -15,7 +15,6 @@ header{
 		position: fixed;
 		top: 0px;
 		left: $odznaki_right;
-		width: $header_logo_size;
 		height: $header_logo_size;
 	}
 
@@ -78,7 +77,7 @@ header{
 .kid header{
 	background-color: $color_back_kid;
 	.header-banner {
-		background-color: lighten($color_base,10%);
+		background-color: mix($color_base,$color_back_kid);
 		color: $color_text_kid;
 		//text-shadow: 0 0 10px $color_back_kid;//@include stroke(3,$color_back_kid);		
 	}

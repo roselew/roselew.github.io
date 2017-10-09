@@ -36,7 +36,7 @@ ul.menu {
 		border-bottom: 10px solid darken($color_done,10%);
 		border-right: 10px solid darken($color_done,10%);
 		&:hover{background-color: darken($color_done,10%);}}
-	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 30% center no-repeat; background-size: 70%;
+	.menu-bohater{background: $color-wait url(../assets/bohater.png) top 30% center no-repeat; background-size: 40%;
 		border-bottom: 10px solid darken($color_wait,10%);
 		border-right: 10px solid darken($color_wait,10%);	
 		&:hover{background-color: darken($color_wait,10%);}}
