@@ -30,7 +30,7 @@ function createEmptyWeek(){
 	newWeekProgress.append($('<div class="progress-undone"> </div>'))
 	newWeekProgress.append($('<div class="progress-wait"> </div>'))
 	newWeekProgress.append($('<div class="progress-done"> </div> '))
-	newWeekProgress.append($('<img src="assets/captain.svg" class="logo">'))
+	newWeekProgress.append($('<img src="assets/logo.png" class="logo">'))
 	newWeekProgress.append($('<p></p>'))
 	newWeek.append(newWeekProgress)
 	return newHref

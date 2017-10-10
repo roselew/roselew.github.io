@@ -16,6 +16,7 @@ header{
 		top: 0px;
 		left: $odznaki_right;
 		height: $header_logo_size;
+		//transition:2s ease-in-out ;
 	}
 
 	.header-banner {
@@ -75,9 +76,10 @@ header{
 }
 
 .kid header{
-	background-color: $color_back_kid;
+	//background-color: $color_back_kid;
 	.header-banner {
-		background-color: mix($color_base,$color_back_kid);
+		//background-color: mix($color_base,$color_back_kid);
+		background-color: $color_base;
 		color: $color_text_kid;
 		//text-shadow: 0 0 10px $color_back_kid;//@include stroke(3,$color_back_kid);		
 	}
@@ -87,7 +89,7 @@ header{
 }
 
 .parent header{
-	background-color: $color_back_parent;
+	//background-color: $color_back_parent;
 	.header-banner {
 		background-color: white;
 		color: $color_base;

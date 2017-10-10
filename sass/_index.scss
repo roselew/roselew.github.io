@@ -1,23 +1,24 @@
 // large header baner
 .index-banner{
 	position: relative;
-	top: 15.0rem;
+	top: 15vw;;
 	left: 0px;
 	width: 100%;
 	text-align: center;
+	
 
 	.logo {
 		position: absolute;
-		top: -10.0rem;
-		left: 0px;
-		width: 2*$header_logo_size;
-		height: 2*$header_logo_size;
+		top: -15vw;
+		left: 40vw;
+		width: 20vw;
+		height: 20vw;
 	}
 
 	h1{
 		font: 13.0rem $font_title_family;
 		text-align: left;
-		background-color: $color_base;
+		background-color: $color_back_kid;
 		padding: 20px 0px 20px 1.2*$header_logo_size;
 		margin-left: $header_logo_size;
 		margin-right: 5%;
@@ -25,6 +26,7 @@
 		border-bottom-left-radius: 20.0rem;
 		border-top-right-radius: 20.0rem;
 		color: $color_text_kid;
+		border: 3px white solid;
 	}
 }	
 
@@ -36,21 +38,16 @@
 		display: inline-block;
 
 		button {
-			border-radius: 0px;
-			width: 44.5vw;
-			height: 35vh;
-			font: $font_big_size $font_reg_family;
-			padding-top: 25vh;
-			border-bottom: 10px solid darken($color_base,10%);		
+			width: 40vw;
+			margin: 3vw;
+			border: 3px white solid;
 		}
 		&.left button { 
-			border-top-left-radius: 200px;
-			background: $color_base url(../assets/logo.png) top 30% center no-repeat; background-size: 20vh;
+			background-color: $color_undone;
 			&:hover{background-color: $color_back_parent; color: $color_text_parent;}
 		}
 		&.right button { 
-			border-bottom-right-radius: 200px;
-			background:  $color_base url(../assets/bohater.png) top 30% center no-repeat; background-size: 20vh;
+			background-color: $color_done;
 			&:hover{background-color: lighten($color_back_kid,10%); color: $color_text_kid;}
 		}
 	}
