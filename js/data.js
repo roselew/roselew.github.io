@@ -139,7 +139,38 @@ var doneMissions = [
 ]
 
 
+var expertGifts = [
+	{ id:'1',	name: 'Wyjście na lody', icon: 'assets/icecream.svg'},
+	{ id:'2',	name: 'Wyjście do kina', icon: 'assets/tickets.svg'	},
+	{ id:'3',	name: 'Wycieczka na weekend', icon: 'assets/walk.svg'},
+	{ id:'4',	name: 'Aquapark ', icon: 'assets/swimming-pool.svg'},
+	{ id:'5',	name: '15 min na gry', icon: 'assets/15-minutes.svg'},
+	{ id:'6',	name: '30 min na gry', icon: 'assets/30-minutes.svg'},
+	{ id:'7',	name: '45 min na gry', icon: 'assets/45-minutes.svg'},
+	{ id:'8',	name: 'Nowa gra', icon: 'assets/remote-control.svg'},
+	{ id:'9',	name: 'Nowa zabawka', icon: 'assets/gift2.svg'},
+	{ id:'10',	name: 'Wieczór gier', icon: 'assets/dice.svg'},
+	{ id:'11',	name: 'Deser', icon: 'assets/piece-of-cake.svg'},
+	{ id:'12',	name: 'Późniejszy powrót do domu', icon: 'assets/history.svg'},
+	{ id:'13',	name: 'Deskorolka', icon: 'assets/skateboard.svg'},
+	{ id:'14',	name: 'Niespodzianka', icon: 'assets/gift2.svg'},
+	{ id:'15',	name: 'Klocki LEGO', icon: 'assets/lego.svg'}
+]
 
+var userGifts = [
+	{
+		id:'1',
+		name: 'Wyjście na lody',
+		icon: 'assets/icecream.svg',
+		points: 10,
+	},
+	{
+		id:'2',
+		name: 'Wieczór gier',
+		icon: 'assets/dice.svg',
+		points: 50,		
+	}
+]
 
 // -------READ FROM DATABASE ---------------
 
@@ -340,6 +371,24 @@ $(document).on('deleteWaitMission', function (event, missionId, doneDate){
 	}
 	$(document).trigger('showWeek')
 })
+
+
+//finds index of USER mission in userMissions by ID
+function findUserGift(giftId){
+	var index = userGifts.findIndex(function (gift) {
+		return giftId == gift.id
+	});
+	return index
+}
+
+
+function findExpertGift(giftId){
+	var index = expertGifts.findIndex(function (gift) {
+		return giftId == gift.id
+	});
+	return index
+}
+
 
 
 //function checking if we are in the kid mode

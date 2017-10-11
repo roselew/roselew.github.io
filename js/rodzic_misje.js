@@ -58,7 +58,7 @@
 		$('.edit').prepend($('<h2> polecane przez ekspertów </h2>'))
 		$('.edit').prepend($('<h1> Wybierz misje </h1>'))
 		$('.edit ul').append($('<span class="showMore bounce">&#x25BC</span>'))
-		$('.edit').append($('<button class="addOwn">...lub dodaj własna misje</button>'))
+		$('.edit').append($('<button class="addOwn">...lub dodaj własną misję</button>'))
 		appendExpertMission();
 
 	})
