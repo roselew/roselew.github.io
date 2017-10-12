@@ -88,6 +88,20 @@ header{
 	}
 }
 
+.kid.title-page header {
+	
+	.header-banner {
+		//background-color: mix($color_base,$color_back_kid);
+		background-color: white;
+		color: $color_base;
+		width: 80%;
+		left: 10%;
+		border-radius: 30px;
+
+
+		//text-shadow: 0 0 10px $color_back_kid;//@include stroke(3,$color_back_kid);		
+	}
+}
 .parent header{
 	//background-color: $color_back_parent;
 	.header-banner {

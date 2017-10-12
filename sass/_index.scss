@@ -1,7 +1,7 @@
 // large header baner
 .index-banner{
 	position: relative;
-	top: 15vw;;
+	top: 18vw;
 	left: 0px;
 	width: 100%;
 	text-align: center;
@@ -9,27 +9,53 @@
 
 	.logo {
 		position: absolute;
-		top: -15vw;
+		top: -18vw;
 		left: 40vw;
 		width: 20vw;
 		height: 20vw;
 	}
 
 	h1{
-		font: 13.0rem $font_title_family;
+		font: 1.2*$font_title_size $font_title_family;
 		text-align: left;
-		background-color: $color_back_kid;
-		padding: 20px 0px 20px 1.2*$header_logo_size;
+		// background-color: $color_back_kid;
+		padding: 0px 0px 0px 1.2*$header_logo_size;
 		margin-left: $header_logo_size;
 		margin-right: 5%;
-		margin-bottom: 20.0rem;
-		border-bottom-left-radius: 20.0rem;
-		border-top-right-radius: 20.0rem;
+		// 
+		// border-bottom-left-radius: 20.0rem;
+		// border-top-right-radius: 20.0rem;
 		color: $color_text_kid;
-		border: 3px white solid;
+		// border: 3px white solid;
+		text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
 	}
 }	
+.font-skew {
+	-moz-transform: matrix( 0.99026806874157,-0.13917310096007,0.13917310096007,0.99026806874157,0,0);
+	-webkit-transform: matrix( 0.99026806874157,-0.13917310096007,0.13917310096007,0.99026806874157,0,0);
+	-ms-transform: matrix( 0.99026806874157,-0.13917310096007,0.13917310096007,0.99026806874157,0,0);
+	margin-bottom: 25.0rem;
+	margin-top: -3rem;
+  }
 
+
+.index-banner-smaller {
+	top: 0px;
+	text-align: center;
+	.logo {
+		top: 0vw;
+		left: $odznaki_right;
+	}
+	h1{
+		margin-left: 30vw;
+		padding: 0px;
+	}
+	.font-skew { 
+		margin-bottom: 5rem;
+	}
+}
+
+  
 .index-container {
 	position: relative;
 	text-align: center;
@@ -41,6 +67,7 @@
 			width: 40vw;
 			margin: 3vw;
 			border: 3px white solid;
+			font: $font_title_size $font_title_family;
 		}
 		&.left button { 
 			background-color: $color_undone;

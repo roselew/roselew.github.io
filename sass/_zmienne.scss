@@ -14,10 +14,14 @@ $color_text_parent: #343F4B; //very dark grey
 $color_text_kid: white; 
 $color_alert: rgba(mix($color_back_kid,$color_dark_grey,50%),0.95);
 
-
 //font definition
-$font_title_family: 'Grand Hotel', cursive;
-$font_title_size: 10.0rem;
+@font-face {
+    font-family: IntroRustH1-Base;
+    src: url(../assets/IntroRustH1-Base.otf);
+}
+
+$font_title_family: 'IntroRustH1-Base', cursive;
+$font_title_size: 9.0rem;
 
 $font_reg_family: 'Lato', sans_serif;
 $font_big_size: 4.0rem;
