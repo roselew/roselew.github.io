@@ -12,18 +12,20 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="c-movie">
+        <div class="c-movie is-intro">
+            <img src="assets/eduweb-logo.svg" alt="" class="c-movie__logo" />
             <iframe
                 class="c-movie__video"
                 src="https://www.youtube.com/watch?v=WamwyCf0j5k?autoplay=1"
             >
             </iframe>
-            <img src="assets/eduweb-logo.svg" alt="" class="c-movie__logo" />
-            <h2 class="c-movie__title c-h1 c-h1--white">
-                Player, który napisaliśmy od pierwszej do ostatniej linii
-            </h2>
-            <button class="c-movie__play"></button>
-            <span class="c-movie__run" role="button">zobacz wideo</span>
+            <div class="c-movie__intro">
+                <h2 class="c-movie__title c-h1 c-h1--white">
+                    Player, który napisaliśmy od pierwszej do ostatniej linii
+                </h2>
+                <button class="c-movie__play"></button>
+                <span class="c-movie__run" role="button">zobacz wideo</span>
+            </div>
         </div>
         <div class="c-heading">
             <h2 class="c-h1">Player jest nasz…</h2>
@@ -126,10 +128,14 @@
 
         <script>
             document.querySelector(".c-movie__play").addEventListener("click", () => {
+                document.querySelector(".c-movie").classList.remove("is-intro");
                 document.querySelector(".c-movie__video").style.visibility = "visible";
+                document.querySelector(".c-movie__intro").style.display = "none";
             });
             document.querySelector(".c-movie__run").addEventListener("click", () => {
+                document.querySelector(".c-movie").classList.remove("is-intro");
                 document.querySelector(".c-movie__video").style.visibility = "visible";
+                document.querySelector(".c-movie__intro").style.display = "none";
             });
         </script>
     </body>
