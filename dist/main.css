@@ -359,7 +359,7 @@ nav {
       height: 48px;
       opacity: 0.3; }
     .modal__images::after {
-      content: url(/images/icons/next.svg);
+      content: url(images/icons/next.svg);
       position: absolute;
       right: 36px;
       top: calc(50% - 24px);
