@@ -1,0 +1,19 @@
+// *--------- BREAKPOINT ---------*
+@mixin breakpoint($from: false, $to: false) {
+    $minMax: max;
+
+    @if $to == up {
+        $minMax: min;
+        $to: false;
+    }
+
+    @if $from and $to {
+        @media screen and (min-width: $from) and (max-width: $to) {
+            @content;
+        }
+    } @else {
+        @media screen and (#{$minMax}-width: $from) {
+            @content;
+        }
+    }
+}
