@@ -221,7 +221,7 @@ nav {
     padding: 48px;
     padding-top: 80px;
     padding-bottom: 44px;
-    background-image: url(/images/2909b.jpg);
+    background-image: url(images/2909b.jpg);
     background-repeat: no-repeat;
     background-size: cover; }
   .company__benefit {
@@ -340,7 +340,7 @@ nav {
       display: block;
       width: 16px;
       height: 16px;
-      background-image: url(/images/icons/close.svg);
+      background-image: url(images/icons/close.svg);
       background-size: 100%; }
   .modal__images {
     width: calc(60% - 48px);
@@ -351,7 +351,7 @@ nav {
     margin-right: 48px;
     position: relative; }
     .modal__images::before {
-      content: url(/images/icons/return.svg);
+      content: url(images/icons/return.svg);
       position: absolute;
       left: 36px;
       top: calc(50% - 24px);
