@@ -1,19 +1,6 @@
 import "../sass/main.scss";
-
 import "es6-promise/auto";
 import $ from "domtastic";
-// import getUsersHTML from "./Users";
-
-let container = $(".container"),
-    button = $(".button");
-
-button.on("click", function () {
-    import("./Users").then(function ({ default: getUsersHTML }) {
-        getUsersHTML().then((html) => {
-            container.append(html);
-        });
-    });
-});
 
 $("[data-js-expand-toggle]").forEach((expand) => {
     $(expand).on("click", (e) => {

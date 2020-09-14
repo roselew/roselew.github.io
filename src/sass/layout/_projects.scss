@@ -106,7 +106,7 @@
             display: block;
             width: 16px;
             height: 16px;
-            background-image: url(/images/icons/close.svg);
+            background-image: url(../images/icons/close.svg);
             background-size: 100%;
         }
     }
@@ -121,7 +121,7 @@
         position: relative;
 
         &::before {
-            content: url(/images/icons/return.svg);
+            content: url(../images/icons/return.svg);
             position: absolute;
             left: 36px;
             top: calc(50% - 24px);
@@ -131,7 +131,7 @@
         }
 
         &::after {
-            content: url(/images/icons/next.svg);
+            content: url(../images/icons/next.svg);
             position: absolute;
             right: 36px;
             top: calc(50% - 24px);

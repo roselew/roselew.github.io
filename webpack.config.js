@@ -2,6 +2,7 @@ const { resolve } = require("path");
 const webpack = require("webpack");
 const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = function (env) {
     var prod = env !== undefined && env.production === true;
@@ -10,11 +11,10 @@ module.exports = function (env) {
     return {
         entry: {
             app: "./src/js/app.js",
-            vendors: ["jquery"],
         },
 
         output: {
-            publicPath: dev ? "/dist/" : "",
+            // publicPath: dev ? "/dist/" : "",
             path: resolve(__dirname, "dist/"),
             filename: prod ? "[name].[chunkhash].js" : "[name].js",
         },
@@ -35,13 +35,6 @@ module.exports = function (env) {
                     },
                 },
                 {
-                    test: /\.hbs$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: "handlebars-loader",
-                    },
-                },
-                {
                     test: /\.scss$/,
                     use: ExtractTextWebpackPlugin.extract({
                         fallback: "style-loader",
@@ -54,7 +47,7 @@ module.exports = function (env) {
                         loader: "url-loader",
                         options: {
                             limit: 10000,
-                            name: "[name].[ext]",
+                            name: "./images/[name].[ext]",
                         },
                     },
                 },
@@ -66,13 +59,12 @@ module.exports = function (env) {
             new HtmlWebpackPlugin({
                 template: "./src/index.html",
             }),
-            new webpack.optimize.CommonsChunkPlugin({
-                name: "vendors",
-            }),
-            new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-            }),
+            // new CopyWebpackPlugin([
+            //     {
+            //         from: "src/images/",
+            //         to: "images/",
+            //     },
+            // ]),
         ],
     };
 };
