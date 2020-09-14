@@ -1,5 +1,9 @@
 .projects {
     padding-bottom: 64px;
+
+    @include breakpoint(550px) {
+        padding-bottom: 24px;
+    }
 }
 
 .project {

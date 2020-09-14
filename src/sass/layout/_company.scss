@@ -1,6 +1,11 @@
 .company {
     padding: 0px;
     display: flex;
+
+    @include breakpoint(1399px) {
+        flex-direction: column;
+    }
+
     &__benefits {
         flex-shrink: 0;
         padding: 48px;
@@ -9,6 +14,17 @@
         background-image: url(/images/2909b.jpg);
         background-repeat: no-repeat;
         background-size: cover;
+
+        @include breakpoint(1400px, up) {
+            width: 50%;
+        }
+        @include breakpoint(1399px) {
+            width: 100%;
+            margin-top: 24px;
+        }
+        @include breakpoint(999px) {
+            padding: 24px 6px;
+        }
     }
     &__benefit {
         display: flex;
@@ -27,6 +43,9 @@
     &__text {
         font-size: 20px;
         line-height: 1.4;
+        @include breakpoint(550px) {
+            font-size: 16px;
+        }
     }
 
     &__main {
@@ -34,6 +53,10 @@
         flex-direction: column;
         justify-content: center;
         padding: 48px;
+
+        @include breakpoint(749px) {
+            padding: 24px;
+        }
     }
 
     &__title {
@@ -41,6 +64,17 @@
         justify-content: center;
         margin-bottom: 48px;
         transform: scale(1.2);
+
+        @include breakpoint(550px) {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__name {
+        @include breakpoint(550px) {
+            display: none;
+        }
     }
 
     &__owner {
@@ -49,5 +83,10 @@
         border-left: 1px solid #000;
         padding-left: 24px;
         margin-left: 24px;
+
+        @include breakpoint(550px) {
+            margin-left: 0px;
+            border-left: none;
+        }
     }
 }

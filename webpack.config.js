@@ -14,7 +14,7 @@ module.exports = function (env) {
         },
 
         output: {
-            // publicPath: dev ? "/dist/" : "",
+            publicPath: dev ? "/dist/" : "",
             path: resolve(__dirname, "dist/"),
             filename: prod ? "[name].[chunkhash].js" : "[name].js",
         },

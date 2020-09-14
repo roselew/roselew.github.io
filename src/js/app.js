@@ -71,8 +71,29 @@ $("nav a").on("click", (e) => {
     const target = $(e.target.hash);
 
     window.scrollTo({
-        top: target.get(0).offsetTop,
+        top: target.get(0).offsetParent.offsetTop + target.get(0).offsetTop - 100,
         left: 0,
         behavior: "smooth",
     });
+
+    const menu = $("[data-js-menu]");
+
+    if (menu.hasClass("is-opened")) {
+        menu.removeClass("is-opened");
+    }
+});
+
+$("[data-js-menu-toggle]").on("click", () => {
+    const menu = $("[data-js-menu]");
+    menu.toggleClass("is-opened");
+});
+
+$(document).on("click", (e) => {
+    const insideMenu = e.target.closest(".menu");
+    const menu = $("[data-js-menu]");
+    if (!insideMenu) {
+        if (menu.hasClass("is-opened")) {
+            menu.removeClass("is-opened");
+        }
+    }
 });

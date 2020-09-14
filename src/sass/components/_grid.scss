@@ -21,15 +21,15 @@
         width: calc((99.9% - 36px * 5) / 5);
     }
 
-    @include breakpoint(1300px, 1949px) {
+    @include breakpoint(1500px, 1949px) {
         width: calc((99.9% - 36px * 4) / 4);
     }
 
-    @include breakpoint(1000px, 1299px) {
+    @include breakpoint(1300px, 1499px) {
         width: calc((99.9% - 36px * 3) / 3);
     }
 
-    @include breakpoint(750px, 999px) {
+    @include breakpoint(750px, 1299px) {
         width: calc((99.9% - 36px * 2) / 2);
     }
 
@@ -69,17 +69,15 @@
         width: calc((99.9% - 36px * 2) / 2);
     }
 
-    @include breakpoint(750px, 999px) {
+    @include breakpoint(999px) {
         width: 100%;
+        margin-bottom: 48px;
     }
 }
 .c-grid-box-2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    @include breakpoint(750px, up) {
-        width: 50%;
-    }
 }
 
 .c-grid-2 {
@@ -93,5 +91,6 @@
 
     @include breakpoint(749px) {
         width: 100%;
+        margin-bottom: 24px;
     }
 }

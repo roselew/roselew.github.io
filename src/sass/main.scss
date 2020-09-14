@@ -7,14 +7,14 @@
 // *--------- RESET ---------*
 @import "base/reset";
 
+// *--------- MIXINS ---------*
+@import "base/mixins";
+
 // *--------- VARIABLES ---------*
 @import "base/variables";
 
 // *--------- TYPOGRAPHY ---------*
 @import "base/typography";
-
-// *--------- MIXINS ---------*
-@import "base/mixins";
 
 /*------------------------
           LAYOUT
@@ -22,6 +22,9 @@
 
 // *--------- GENERAL ---------*
 @import "layout/general";
+
+// *--------- MENU ---------*
+@import "layout/menu";
 
 // *--------- COMPANY ---------*
 @import "layout/company";

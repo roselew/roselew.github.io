@@ -12,37 +12,6 @@ header {
     display: flex;
 }
 
-nav {
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    color: #000;
-
-    ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 100%;
-    }
-
-    a {
-        padding: 24px;
-        font-size: 16px;
-        font-weight: 400;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: $color_text;
-        transition: all 0.3s;
-        display: block;
-        cursor: pointer;
-
-        &:hover {
-            transform: translateY(-2px);
-        }
-    }
-}
-
 .sidebar {
     position: fixed;
     top: 100px;
@@ -54,13 +23,32 @@ nav {
 
     display: flex;
     align-items: flex-end;
+
+    @include breakpoint(1200px, 1599px) {
+        width: 350px;
+    }
+    @include breakpoint(1199px) {
+        width: 100%;
+        position: relative;
+        top: unset;
+        left: unset;
+        height: auto;
+        justify-content: center;
+        margin-top: 48px;
+    }
 }
 
 .container {
-    position: absolute;
-    left: 500px;
-    top: 100px;
-    scroll-behavior: smooth;
+    @include breakpoint(1600px, up) {
+        margin-left: 500px;
+    }
+    @include breakpoint(1200px, 1599px) {
+        margin-left: 350px;
+    }
+    @include breakpoint(1199px) {
+        margin-left: 0px;
+        order: -1;
+    }
 }
 
 .page {
@@ -68,10 +56,19 @@ nav {
     background-color: $color_background;
     margin-bottom: 8px;
 
+    @include breakpoint(550px) {
+        padding: 0px;
+    }
+
     &__title {
         text-align: center;
         margin-top: 48px;
         margin-bottom: 64px;
+
+        @include breakpoint(550px) {
+            padding-top: 36px;
+            margin-bottom: 36px;
+        }
     }
     &[data-js-view] {
         transform: translateY(-20px);
@@ -94,25 +91,69 @@ nav {
     background-color: #000;
     color: #fff;
     flex-shrink: 0;
-}
 
-.owner {
-    flex-shrink: 0;
-    margin-bottom: 8px;
-    border-left: 1px solid #fff;
-    padding-left: 24px;
-    margin-left: 24px;
+    @include breakpoint(1000px, 1199px) {
+        width: 450px;
+    }
+
+    @include breakpoint(999px) {
+        width: calc(100% - 84px);
+    }
+
+    &__img {
+        transform: translateY(-5px);
+        height: 60px;
+    }
+
+    &__owner {
+        flex-shrink: 0;
+        margin-bottom: 8px;
+        border-left: 1px solid #fff;
+        padding-left: 24px;
+        margin-left: 24px;
+
+        @include breakpoint(550px) {
+            display: none;
+        }
+    }
 }
 
 .contact {
+    @include breakpoint(960px, 1199px) {
+        width: 80%;
+    }
+
+    @include breakpoint(750px, 959px) {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
     &__title {
         margin-bottom: 24px;
+        @include breakpoint(750px, 1199px) {
+            // text-align: center;
+            margin-bottom: 48px;
+        }
     }
     &__box {
         display: flex;
         align-items: center;
         margin-bottom: 24px;
         line-height: 1.6;
+        @include breakpoint(750px, 1199px) {
+            width: 50%;
+            flex-shrink: 0;
+        }
+        @include breakpoint(749px) {
+            width: 100%;
+        }
+    }
+    &__boxes {
+        @include breakpoint(1199px) {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
     &__icon {
         width: 24px;
@@ -131,4 +172,18 @@ nav {
 [data-js-view].is-in-viewport {
     opacity: 1;
     transform: translateY(0px);
+}
+
+.main {
+    display: flex;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+
+    width: 100%;
+    height: calc(100vh - 100px);
+
+    @include breakpoint(1199px) {
+        flex-direction: column;
+    }
 }
