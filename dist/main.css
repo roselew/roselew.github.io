@@ -204,6 +204,9 @@ header {
   .logo__img {
     transform: translateY(-5px);
     height: 60px; }
+    @media screen and (max-width: 500px) {
+      .logo__img {
+        height: 50px; } }
   .logo__owner {
     flex-shrink: 0;
     margin-bottom: 8px;
@@ -397,15 +400,17 @@ header {
   .company__title {
     display: flex;
     justify-content: center;
-    margin-bottom: 48px;
-    transform: scale(1.2); }
+    margin-bottom: 48px; }
     @media screen and (max-width: 550px) {
       .company__title {
         margin-top: 24px;
         margin-bottom: 24px; } }
-  @media screen and (max-width: 550px) {
-    .company__name {
-      display: none; } }
+  .company__name {
+    font-size: 36px;
+    line-height: 1.4; }
+    @media screen and (max-width: 550px) {
+      .company__name {
+        display: none; } }
   .company__owner {
     flex-shrink: 0;
     margin-bottom: 8px;
@@ -416,6 +421,12 @@ header {
       .company__owner {
         margin-left: 0px;
         border-left: none; } }
+    .company__owner--name {
+      font-size: 24px;
+      line-height: 1.4;
+      font-weight: 600; }
+    .company__owner--info {
+      font-size: 20px; }
 
 .service__title {
   margin-bottom: 16px; }

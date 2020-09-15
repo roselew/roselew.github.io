@@ -103,6 +103,10 @@ header {
     &__img {
         transform: translateY(-5px);
         height: 60px;
+
+        @include breakpoint(500px) {
+            height: 50px;
+        }
     }
 
     &__owner {
