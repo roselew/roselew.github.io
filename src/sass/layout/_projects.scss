@@ -92,6 +92,13 @@
         .is-visible & {
             display: flex;
         }
+
+        @include breakpoint(999px) {
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            overflow-y: scroll;
+        }
     }
 
     &__close {
@@ -100,6 +107,7 @@
         right: 10px;
 
         padding: 16px;
+        cursor: pointer;
 
         &:before {
             content: "";
@@ -111,6 +119,26 @@
         }
     }
 
+    &__prev,
+    &__next {
+        position: absolute;
+        top: calc(50% - 24px);
+        width: 48px;
+        height: 48px;
+        opacity: 0.3;
+        cursor: pointer;
+    }
+
+    &__prev {
+        background: url(../images/icons/return.svg);
+        left: 36px;
+    }
+
+    &__next {
+        background: url(../images/icons/next.svg);
+        right: 36px;
+    }
+
     &__images {
         width: calc(60% - 48px);
         height: 100%;
@@ -119,29 +147,17 @@
         justify-content: center;
         margin-right: 48px;
         position: relative;
+        overflow: hidden;
 
-        &::before {
-            content: url(../images/icons/return.svg);
-            position: absolute;
-            left: 36px;
-            top: calc(50% - 24px);
-            width: 48px;
-            height: 48px;
-            opacity: 0.3;
-        }
-
-        &::after {
-            content: url(../images/icons/next.svg);
-            position: absolute;
-            right: 36px;
-            top: calc(50% - 24px);
-            width: 48px;
-            height: 48px;
-            opacity: 0.3;
+        @include breakpoint(999px) {
+            margin-right: 0px;
+            height: 300px;
+            margin-bottom: 48px;
         }
     }
 
     &__img {
+        width: 100%;
         max-width: 400px;
         max-height: 400px;
     }

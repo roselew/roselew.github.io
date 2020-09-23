@@ -7,18 +7,46 @@ $("[data-js-expand-toggle]").forEach((expand) => {
         const el = $(e.target);
         const modalContent = $(e.target).find("[data-js-expand-content");
         const modal = $("[data-js-expand-goal");
-        const closeBtn = modalContent.find("[data-js-expand-close");
+        const closeBtn = $(`<span class="modal__close"></span>`);
+        const controls = $(`<ul class="modal__controls"></ul>`);
+        const prevBtn = $(`<li class="modal__prev"></li>`);
+        const nextBtn = $(`<li class="modal__next"></li>`);
+
+        const gallery = modalContent.find("[data-js-expand-gallery]");
+
+        //Pokazywanie modala
+        gallery.append(controls);
+        modalContent.append(closeBtn);
+        controls.append(prevBtn);
+        controls.append(nextBtn);
         modal.append(modalContent);
         modal.addClass("is-visible");
+
+        //uruchamianie slidera
+        const slider = tns({
+            container: ".modal .my-slider",
+            items: 1,
+            controlsContainer: controls.get(0),
+            navPosition: "bottom",
+        });
+
+        const closeModal = () => {
+            modal.removeClass("is-visible");
+            slider.destroy();
+            el.append(modalContent);
+            closeBtn.remove();
+            $(".modal__controls").remove();
+            modal.off("click");
+        };
+
+        //Zamykanie modala
         modal.on("click", (e) => {
             if ($(e.target).hasClass("is-visible")) {
-                modal.removeClass("is-visible");
-                el.append(modalContent);
+                closeModal();
             }
         });
         closeBtn.on("click", () => {
-            modal.removeClass("is-visible");
-            el.append(modalContent);
+            closeModal();
         });
     });
 });
